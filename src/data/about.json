@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "title": "We are a team of passionate creators",
+    "description": "At DROOP, we combine strategy, design, and technology to build brands that stand out and digital experiences that matter.",
+    "image": "/about-hero.jpg"
+  },
+  "stats": [
+    { "value": "12+", "label": "Years Experience" },
+    { "value": "150+", "label": "Projects Completed" },
+    { "value": "20+", "label": "Industry Awards" },
+    { "value": "50+", "label": "Happy Clients" }
+  ],
+  "mission": {
+    "title": "Our Mission",
+    "description": "To empower brands through innovative and intuitive design. We believe that great design is not just about aesthetics, but about solving real problems and creating meaningful connections.",
+    "features": [
+      "User-Centric Approach",
+      "Data-Driven Strategy",
+      "Continuous Innovation"
+    ]
+  },
+  "team": {
+    "title": "Meet the Minds Behind the Magic",
+    "members": [
+      {
+        "name": "Alex Carter",
+        "role": "Founder & Creative Director",
+        "image": "/team/alex.jpg"
+      },
+      {
+        "name": "Jordan Lee",
+        "role": "Lead Product Designer",
+        "image": "/team/jordan.jpg"
+      },
+      {
+        "name": "Mia Taylor",
+        "role": "Head of Development",
+        "image": "/team/mia.jpg"
+      },
+      {
+        "name": "Sam Robinson",
+        "role": "Brand Strategist",
+        "image": "/team/sam.jpg"
+      }
+    ]
+  }
+}

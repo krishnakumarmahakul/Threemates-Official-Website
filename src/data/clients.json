@@ -1,0 +1,7 @@
+[
+  { "name": "Google", "logo": "/clients/google.svg" },
+  { "name": "Amazon", "logo": "/clients/amazon.svg" },
+  { "name": "Netflix", "logo": "/clients/netflix.svg" },
+  { "name": "Stripe", "logo": "/clients/stripe.svg" },
+  { "name": "Vercel", "logo": "/clients/vercel.svg" }
+]

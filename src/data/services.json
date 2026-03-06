@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "title": "Services & Capabilities",
+    "description": "We are a full-service digital agency offering end-to-end solutions for brands that demand excellence."
+  },
+  "offerings": [
+    {
+      "id": "branding",
+      "title": "Brand Strategy & Identity",
+      "description": "Your brand is your promise to your customer. We build distinctive brands that communicate value and resonate with your target audience.",
+      "features": [
+        "Brand Positioning",
+        "Visual Identity Systems",
+        "Brand Guidelines",
+        "Tone of Voice",
+        "Logo Design"
+      ],
+      "image": "/services/branding.jpg"
+    },
+    {
+      "id": "uiux",
+      "title": "UI/UX Design",
+      "description": "We design intuitive digital products that users love, balancing aesthetics with seamless functionality to drive engagement.",
+      "features": [
+        "User Research",
+        "Wireframing & Prototyping",
+        "Interface Design",
+        "Interaction Design",
+        "Usability Testing"
+      ],
+      "image": "/services/uiux.jpg"
+    },
+    {
+      "id": "development",
+      "title": "Web & Mobile Development",
+      "description": "Robust, scalable, and high-performance engineering tailored to your product needs. We build for the modern web.",
+      "features": [
+        "Front-End Engineering",
+        "Back-End Architecture",
+        "iOS & Android Apps",
+        "CMS Integration",
+        "E-Commerce Solutions"
+      ],
+      "image": "/services/development.jpg"
+    }
+  ]
+}

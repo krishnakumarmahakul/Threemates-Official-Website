@@ -1,0 +1,113 @@
+{
+  "hero": {
+    "badge": "Digital Design Agency",
+    "headline": "A creative design agency tailored for your brand",
+    "description": "We specialize in crafting intuitive & premium digital experiences that help businesses grow and stand out in the modern digital landscape.",
+    "primaryCta": { "label": "Our Work", "href": "/work" },
+    "secondaryCta": { "label": "Start a Project", "href": "/contact" }
+  },
+  "clients": {
+    "title": "Trusted by innovative companies worldwide",
+    "logos": [
+      { "name": "Amazon", "src": "/logos/amazon.svg" },
+      { "name": "Spotify", "src": "/logos/spotify.svg" },
+      { "name": "Google", "src": "/logos/google.svg" },
+      { "name": "Webflow", "src": "/logos/webflow.svg" },
+      { "name": "Figma", "src": "/logos/figma.svg" }
+    ]
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Our expertise in driving impact",
+    "items": [
+      {
+        "title": "Brand Strategy",
+        "description": "We help you define your brand identity and position it effectively in the market.",
+        "icon": "Compass"
+      },
+      {
+        "title": "UI/UX Design",
+        "description": "Crafting beautiful and intuitive user interfaces that engage and convert.",
+        "icon": "PenTool"
+      },
+      {
+        "title": "Web Development",
+        "description": "Building high-performance, scalable websites using modern technologies.",
+        "icon": "Code"
+      },
+      {
+        "title": "App Design",
+        "description": "Designing seamless mobile experiences for iOS and Android.",
+        "icon": "Smartphone"
+      }
+    ]
+  },
+  "featuredWork": {
+    "badge": "Our Portfolio",
+    "title": "Selected Projects",
+    "viewAllBtn": { "label": "View All Work", "href": "/work" },
+    "projects": [
+      {
+        "title": "Healthify App",
+        "category": "UI/UX Design",
+        "image": "/projects/healthify.jpg",
+        "slug": "healthify"
+      },
+      {
+        "title": "Neo Bank Dashboard",
+        "category": "Web Application",
+        "image": "/projects/neo-bank.jpg",
+        "slug": "neo-bank"
+      },
+      {
+        "title": "Crypto Wallet UX",
+        "category": "Mobile App",
+        "image": "/projects/crypto.jpg",
+        "slug": "crypto-wallet"
+      }
+    ]
+  },
+  "process": {
+    "badge": "How we work",
+    "title": "We bring modern design to life",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery & Research",
+        "description": "Understanding your goals, audience, and market landscape."
+      },
+      {
+        "number": "02",
+        "title": "Strategy & Planning",
+        "description": "Defining the roadmap and establishing a clear creative direction."
+      },
+      {
+        "number": "03",
+        "title": "Design & Prototyping",
+        "description": "Crafting visual concepts and interactive prototypes for validation."
+      },
+      {
+        "number": "04",
+        "title": "Development & Launch",
+        "description": "Bringing the design to life with clean, scalable code."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What our clients say",
+    "reviews": [
+      {
+        "text": "DROOP transformed our digital presence completely. Their attention to detail and creative approach is unmatched.",
+        "author": "Sarah Jenkins",
+        "role": "CMO at TechFlow",
+        "avatar": "/avatars/sarah.jpg"
+      },
+      {
+        "text": "Working with this team was an absolute pleasure. They delivered beyond our expectations and on time.",
+        "author": "Mark Davidson",
+        "role": "Founder of Nova",
+        "avatar": "/avatars/mark.jpg"
+      }
+    ]
+  }
+}

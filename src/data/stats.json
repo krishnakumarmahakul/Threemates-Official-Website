@@ -1,0 +1,6 @@
+[
+  { "id": "projects", "label": "Infinite Solutions", "value": "500+", "suffix": "" },
+  { "id": "clients", "label": "Global Partners", "value": "120", "suffix": "+" },
+  { "id": "awards", "label": "Design Awards", "value": "45", "suffix": "" },
+  { "id": "experience", "label": "Years in Future", "value": "10", "suffix": "" }
+]

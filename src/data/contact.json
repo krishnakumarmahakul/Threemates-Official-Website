@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "title": "Let's Talk",
+    "description": "Have a project in mind, or just want to say hi? We'd love to hear from you."
+  },
+  "info": {
+    "email": "hello@droop.agency",
+    "phone": "+1 (800) 123-4567",
+    "address": "123 Creative Street, Suite 400\nSan Francisco, CA 94105\nUnited States"
+  },
+  "form": {
+    "title": "Send us a message",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Full Name",
+        "placeholder": "Jane Doe",
+        "type": "text"
+      },
+      {
+        "name": "email",
+        "label": "Email Address",
+        "placeholder": "jane@example.com",
+        "type": "email"
+      },
+      {
+        "name": "company",
+        "label": "Company",
+        "placeholder": "Your Company",
+        "type": "text"
+      },
+      {
+        "name": "message",
+        "label": "Message",
+        "placeholder": "Tell us about your project...",
+        "type": "textarea"
+      }
+    ],
+    "submitBtn": "Send Message"
+  }
+}

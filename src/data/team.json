@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ceo",
+    "name": "Alex Rivars",
+    "role": "Chief Innovative Officer",
+    "image": "/team/team1.jpg",
+    "bio": "Visionary leader with 15+ years in disruptive tech."
+  },
+  {
+    "id": "cto",
+    "name": "Sarah Chen",
+    "role": "Head of Engineering",
+    "image": "/team/team2.jpg",
+    "bio": "Architect of infinite scalable systems."
+  },
+  {
+    "id": "design",
+    "name": "Marcus Kane",
+    "role": "Design Director",
+    "image": "/team/team3.jpg",
+    "bio": "Crafting the boldest digital experiences."
+  }
+]

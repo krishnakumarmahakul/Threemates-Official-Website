@@ -1,0 +1,23 @@
+[
+  {
+    "id": "insight-1",
+    "title": "The Future of AI in Modern Design",
+    "date": "March 2, 2026",
+    "category": "Innovation",
+    "excerpt": "Exploring how generative AI is reshaping the way we think about user experience and brand identity."
+  },
+  {
+    "id": "insight-2",
+    "title": "Scaling Infinite: Infrastructure for Tomorrow",
+    "date": "Feb 24, 2026",
+    "category": "Engineering",
+    "excerpt": "A deep dive into serverless architectures and why Next.js 14 is the go-to for modern tech companies."
+  },
+  {
+    "id": "insight-3",
+    "title": "Bold Typography: Why Less is More",
+    "date": "Jan 15, 2026",
+    "category": "Design",
+    "excerpt": "How to use oversized type and minimalist layouts to create a premium, authoritative brand presence."
+  }
+]

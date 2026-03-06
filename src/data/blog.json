@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "title": "Insights & News",
+    "description": "Thoughts, strategies, and industry news from the DROOP team."
+  },
+  "featured": {
+    "title": "The Future of AI in Digital Product Design",
+    "category": "Design Trends",
+    "date": "Oct 12, 2026",
+    "readTime": "8 min read",
+    "image": "/blog/ai-design.jpg",
+    "description": "How artificial intelligence is reshaping the way designers create, iterate, and solve complex user problems.",
+    "slug": "future-of-ai-design"
+  },
+  "posts": [
+    {
+      "title": "10 UI Best Practices for E-commerce Dashboards",
+      "category": "UI/UX",
+      "date": "Sep 28, 2026",
+      "readTime": "6 min read",
+      "image": "/blog/ecommerce-dash.jpg",
+      "description": "Key principles for designing effective analytics dashboards that users actually want to use.",
+      "slug": "ecommerce-dashboard-best-practices"
+    },
+    {
+      "title": "Next.js 14: What You Need to Know",
+      "category": "Development",
+      "date": "Sep 15, 2026",
+      "readTime": "5 min read",
+      "image": "/blog/nextjs14.jpg",
+      "description": "A deep dive into the latest features and performance improvements out of the box.",
+      "slug": "nextjs-14-features"
+    },
+    {
+      "title": "Building a Cohesive Brand Strategy",
+      "category": "Branding",
+      "date": "Aug 30, 2026",
+      "readTime": "7 min read",
+      "image": "/blog/brand-strategy.jpg",
+      "description": "Why the logo is just the beginning, and how to create a consistent brand voice.",
+      "slug": "cohesive-brand-strategy"
+    },
+    {
+      "title": "The Rise of Micro-Interactions",
+      "category": "Design",
+      "date": "Aug 12, 2026",
+      "readTime": "4 min read",
+      "image": "/blog/micro-interactions.jpg",
+      "description": "Small details that make a huge difference in user satisfaction and retention.",
+      "slug": "rise-of-micro-interactions"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "discovery",
+    "step": "01",
+    "title": "Discovery & Strategy",
+    "description": "We dive deep into your business goals to define the infinite path for your digital success."
+  },
+  {
+    "id": "design",
+    "step": "02",
+    "title": "Creative Design",
+    "description": "Translating vision into bold, modern interfaces that wow users at first glance."
+  },
+  {
+    "id": "development",
+    "step": "03",
+    "title": "Agile Development",
+    "description": "Rapid prototyping and building with the most advanced coding standards."
+  },
+  {
+    "id": "launch",
+    "step": "04",
+    "title": "Infinite Growth",
+    "description": "Deployment and continuous optimization for long-term scalability."
+  }
+]

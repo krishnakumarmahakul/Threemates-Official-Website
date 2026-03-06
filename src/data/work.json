@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "title": "Our Selected Work",
+    "description": "Explore our portfolio of digital products, branding, and experiences that drive real business results."
+  },
+  "categories": ["All", "UI/UX Design", "Development", "Branding", "Mobile Apps"],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Healthify Mobile App",
+      "category": "Mobile Apps",
+      "client": "Healthify Inc.",
+      "image": "/work/healthify-main.jpg",
+      "description": "A comprehensive redesign of a health tracking platform focused on user engagement and simplicity.",
+      "link": "/work/healthify"
+    },
+    {
+      "id": "2",
+      "title": "Neo Bank Dashboard",
+      "category": "UI/UX Design",
+      "client": "FinTech Corp",
+      "image": "/work/neobank-main.jpg",
+      "description": "Modern, clean dashboard interface for a new generation digital bank.",
+      "link": "/work/neo-bank"
+    },
+    {
+      "id": "3",
+      "title": "Crypto Wallet App",
+      "category": "Development",
+      "client": "CoinBase",
+      "image": "/work/crypto-main.jpg",
+      "description": "Secure and intuitive web3 wallet experience for both beginners and experts.",
+      "link": "/work/crypto"
+    },
+    {
+      "id": "4",
+      "title": "Eco Store E-commerce",
+      "category": "Development",
+      "client": "Green Life",
+      "image": "/work/ecostore-main.jpg",
+      "description": "A high-performance headless commerce solution built with Next.js.",
+      "link": "/work/eco-store"
+    },
+    {
+      "id": "5",
+      "title": "Nexus Brand Identity",
+      "category": "Branding",
+      "client": "Nexus Software",
+      "image": "/work/nexus-main.jpg",
+      "description": "Complete visual identity overhaul for an enterprise SaaS company.",
+      "link": "/work/nexus"
+    },
+    {
+      "id": "6",
+      "title": "Travel Buddy Booking Flow",
+      "category": "UI/UX Design",
+      "client": "Travel Co",
+      "image": "/work/travelbuddy-main.jpg",
+      "description": "Streamlined booking experience that increased conversion rates by 40%.",
+      "link": "/work/travel-buddy"
+    }
+  ]
+}
