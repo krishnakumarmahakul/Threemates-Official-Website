@@ -4,6 +4,9 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { Loader } from "@/components/Loader";
+import { getGlobalData } from "@/lib/data-loader";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const firaCode = Fira_Code({ subsets: ["latin"], variable: "--font-sans" });
@@ -23,11 +26,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const global = await getGlobalData();
   return (
     <html lang="en" suppressHydrationWarning className={cn("font-sans", inter.variable, firaCode.variable, anton.variable)}>
       <body className="antialiased min-h-screen flex flex-col relative">
@@ -36,8 +40,7 @@ export default function RootLayout({
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-0"
           style={{
-            background: "#ffffff",
-            backgroundImage: `radial-gradient(circle at top center, rgba(70, 130, 180, 0.5), transparent 70%)`,
+            backgroundImage: `radial-gradient(circle at top center, rgba(70, 130, 180, 0.2), transparent 50%)`,
             filter: "blur(80px)",
             backgroundRepeat: "no-repeat",
           }}
@@ -48,8 +51,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Loader />
           <Navigation data={{}} />
           <main className="flex-grow relative z-10">{children}</main>
+          <Footer data={global?.footer} />
         </ThemeProvider>
       </body>
     </html>

@@ -1,76 +1,109 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Button } from "./ui/button";
+import { Logo } from "./Logo";
 
 export function Footer({ data }: { data: any }) {
     if (!data) return null;
 
     return (
-        <footer className="bg-lime text-black pt-24 pb-12 rounded-t-[3rem] md:rounded-t-[5rem] mt-0 overflow-hidden relative">
-            <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 md:mb-32">
-                    <div className="lg:col-span-2">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tighter font-heading font-semibold mb-8 max-w-lg leading-[1.1]">
-                            {data.title}
-                        </h2>
-                        <Link
-                            href={data.ctaLink}
-                            className="inline-flex items-center justify-center gap-2 bg-black text-white px-8 py-4 rounded-full font-semibold hover:bg-black/80 transition-colors text-lg"
-                        >
-                            <span>{data.ctaText}</span>
-                            <ArrowUpRight size={20} />
-                        </Link>
-                    </div>
+        <footer className="bg-[#0a0a0a] text-white mt-16 md:mt-24 rounded-t-[2.5rem] md:rounded-t-[4rem] relative overflow-hidden">
+            {/* Top glow line */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[2px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-                    <div>
-                        <h4 className="text-sm font-bold uppercase tracking-wider text-black/60 mb-6">Explore</h4>
-                        <ul className="space-y-4">
-                            {data.links?.map((link: any) => (
-                                <li key={link.label}>
-                                    <Link href={link.href} className="text-lg font-medium hover:opacity-70 transition-opacity">
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+            <div className="pt-16 md:pt-24 px-6 md:px-16 lg:px-24">
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid md:grid-cols-12 gap-12 md:gap-8 pb-16 md:pb-24">
+                        {/* Stay Connected */}
+                        <div className="md:col-span-5">
+                            <div className="mb-6">
+                                <Logo forceLight />
+                            </div>
+                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{data.title}</h3>
+                            <p className="text-zinc-400 mb-6 max-w-sm leading-relaxed">
+                                {data.description || "Ideal for brands needing ongoing design and dev support."}
+                            </p>
+                            <div className="flex items-center rounded-full bg-zinc-900 border border-zinc-800 p-1.5 max-w-md">
+                                <input
+                                    type="email"
+                                    placeholder="Enter your mail"
+                                    className="bg-transparent border-none outline-none px-4 text-sm w-full placeholder:text-zinc-500 focus:ring-0 text-white"
+                                />
+                                <Button className="rounded-full w-10 h-10 p-0 flex-shrink-0 bg-white text-black hover:bg-zinc-200">
+                                    <ArrowRight className="h-4 w-4" />
+                                </Button>
+                            </div>
 
-                    <div>
-                        <h4 className="text-sm font-bold uppercase tracking-wider text-black/60 mb-6">Connect</h4>
-                        <div className="space-y-2 text-lg font-medium mb-8">
-                            <p className="hover:opacity-70 cursor-pointer transition-opacity">{data.contact?.email}</p>
-                            <p className="hover:opacity-70 cursor-pointer transition-opacity">{data.contact?.phone}</p>
-                        </div>
-                        <ul className="flex gap-3">
-                            {data.socials?.map((social: any) => (
-                                <li key={social.name}>
+                            {/* Social Links */}
+                            <div className="mt-12 space-y-0">
+                                {data.socials?.map((social: any) => (
                                     <a
+                                        key={social.name}
                                         href={social.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-11 h-11 rounded-full border border-black/20 flex items-center justify-center hover:bg-black hover:text-white transition-all text-sm font-bold"
+                                        className="flex items-center gap-3 py-3 border-b border-zinc-800/60 text-zinc-400 hover:text-white cursor-pointer transition-colors"
                                     >
-                                        <span className="sr-only">{social.name}</span>
-                                        {social.name.charAt(0)}
+                                        <div className="w-6 h-6 rounded bg-zinc-800 flex items-center justify-center text-xs font-bold">
+                                            {social.name.charAt(0)}
+                                        </div>
+                                        <span className="text-sm">{social.name}</span>
                                     </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+                                ))}
+                            </div>
+                        </div>
 
-                <div className="pt-8 border-t border-black/10 flex flex-col md:flex-row justify-between items-center text-sm font-medium text-black/50 gap-4">
-                    <p>{data.copyright}</p>
-                    <div className="flex gap-6">
-                        <Link href="/privacy" className="hover:text-black transition-colors">Privacy Policy</Link>
-                        <Link href="/terms" className="hover:text-black transition-colors">Terms of Service</Link>
+                        {/* Menu */}
+                        <div className="md:col-span-3">
+                            <h4 className="text-zinc-500 mb-6 text-lg font-medium">Menu</h4>
+                            <ul className="space-y-4">
+                                {data.links?.map((link: any) => (
+                                    <li key={link.label}>
+                                        <Link href={link.href} className="text-zinc-300 hover:text-white transition-colors duration-200">
+                                            {link.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Contact */}
+                        <div className="md:col-span-4">
+                            <h4 className="text-zinc-500 mb-6 text-lg font-medium">Get in touch</h4>
+                            <div className="space-y-4 text-white font-medium">
+                                <p>{data.contact?.phone}</p>
+                                <p>{data.contact?.email}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Copyright */}
+                    <div className="border-t border-zinc-800/50 pt-8 pb-8">
+                        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-zinc-500 gap-4">
+                            <p>{data.copyright}</p>
+                            <div className="flex gap-6">
+                                <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                                <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Huge background logo text */}
-            <h1 className="text-[25vw] font-heading font-bold leading-[0.7] tracking-tighter text-black/[0.06] absolute -bottom-4 md:-bottom-12 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none">
-                doop
-            </h1>
+            {/* Giant 3D brand text — bottom right */}
+            <div className="relative w-full flex justify-end pb-8 md:pb-12 pr-4 md:pr-12 lg:pr-20 pointer-events-none select-none">
+                <h1
+                    className="font-display text-[20vw] md:text-[16vw] leading-none tracking-tighter uppercase text-shadow-brand text-right"
+                    style={{
+                        transform: 'scaleY(1.3)',
+                        transformOrigin: 'bottom right',
+                        margin: 0,
+                        padding: 0,
+                    }}
+                >
+                    THREEMATES
+                </h1>
+            </div>
         </footer>
     );
 }

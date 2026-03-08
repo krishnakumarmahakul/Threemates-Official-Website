@@ -22,7 +22,6 @@ import {
   getFaqData,
   getTestimonialsData,
   getClientsData,
-  getGlobalData,
 } from "@/lib/data-loader";
 
 export default async function Home() {
@@ -31,7 +30,6 @@ export default async function Home() {
   const faqs = await getFaqData();
   const testimonials = await getTestimonialsData();
   const clients = await getClientsData();
-  const global = await getGlobalData();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -617,53 +615,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          FOOTER (Droop style)
-       ════════════════════════════════════════════════════ */}
-      <footer className="bg-[#050505] text-white pt-24 px-4 md:px-12 lg:px-24 flex flex-col relative overflow-hidden font-sans">
-        
-        <div className="max-w-7xl relative z-10 w-full mb-32 flex flex-col md:flex-row gap-16 md:gap-32">
-          {/* Menu Column */}
-          <div>
-            <h4 className="text-zinc-500 mb-6 text-lg md:text-xl font-medium tracking-wide">Menu</h4>
-            <ul className="space-y-4 text-zinc-300 text-lg md:text-xl tracking-tight">
-              {global.footer.links.map((link: any) => (
-                <li key={link.label}>
-                  <Link href={link.href} className="hover:text-white transition-colors duration-200">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
 
-          {/* Contact Column */}
-          <div>
-            <h4 className="text-zinc-500 mb-6 text-lg md:text-xl font-medium tracking-wide">Get in touch</h4>
-            <div className="space-y-4 text-white text-lg md:text-xl tracking-tight font-medium">
-              <p>{global.footer.contact.phone}</p>
-              <p>{global.footer.contact.email}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer copyright */}
-        <div className="max-w-7xl w-full relative z-10">
-          <p className="text-zinc-400 text-base md:text-lg font-medium tracking-wide mb-2 md:mb-0">
-            {global.footer.copyright}
-          </p>
-        </div>
-
-        {/* Giant brand text — clipped exactly like the design */}
-        <div className="relative w-full flex justify-center translate-y-[28%] pointer-events-none select-none">
-          <h1
-            className="font-display text-[26vw] md:text-[23vw] leading-[0.75] tracking-tighter uppercase text-shadow-brand w-full text-center"
-            style={{ margin: 0, padding: 0 }}
-          >
-            THREEMATES
-          </h1>
-        </div>
-      </footer>
     </div>
   );
 }

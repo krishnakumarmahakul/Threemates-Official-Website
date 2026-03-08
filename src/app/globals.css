@@ -150,22 +150,26 @@
                 0 16px 48px -8px rgba(0, 0, 0, 0.4);
   }
 
-  /* Footer brand text – smooth gradient + soft shadow */
+  /* Footer brand text – 3D depth effect with glow */
   .text-shadow-brand {
-    background: linear-gradient(180deg, #0940ff 0%, #2970ff 30%, #1a56ff 70%, #031c99 100%);
+    background: linear-gradient(180deg, #2563eb 0%, #3b82f6 35%, #1d4ed8 65%, #1e3a8a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0px -10px 60px rgba(0, 60, 255, 0.2));
+    filter: drop-shadow(0px 4px 20px rgba(37, 99, 235, 0.4)) 
+            drop-shadow(0px 8px 40px rgba(37, 99, 235, 0.25))
+            drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
   }
   .dark .text-shadow-brand {
-    background: linear-gradient(180deg, #0940ff 0%, #2970ff 30%, #1a56ff 70%, #031c99 100%);
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 30%, #1d4ed8 60%, #1e3a8a 90%, #172554 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0px -10px 60px rgba(0, 60, 255, 0.15));
+    filter: drop-shadow(0px 4px 30px rgba(59, 130, 246, 0.5)) 
+            drop-shadow(0px 8px 60px rgba(59, 130, 246, 0.3))
+            drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.5));
   }
 
   /* Focus ring for accessibility */
