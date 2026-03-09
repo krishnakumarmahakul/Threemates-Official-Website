@@ -2,39 +2,39 @@
   "navigation": {
     "logo": "THREEMATES",
     "links": [
-      { "label": "About us", "href": "/#about" },
-      { "label": "Process", "href": "/#process" },
-      { "label": "Project", "href": "/#projects" },
-      { "label": "Service", "href": "/#services" },
-      { "label": "Pricing", "href": "/#pricing" }
+      { "label": "About", "href": "/about" },
+      { "label": "Services", "href": "/services" },
+      { "label": "Work", "href": "/work" },
+      { "label": "Blog", "href": "/blog" },
+      { "label": "Contact", "href": "/contact" }
     ],
     "cta": {
-      "label": "Book a call",
+      "label": "Start a Project",
       "href": "/contact"
     }
   },
   "footer": {
-    "title": "Stay connected",
-    "description": "Ideal for brands needing ongoing design and dev support.",
-    "ctaText": "Book a call",
+    "title": "Let's build something great",
+    "description": "We help businesses and organizations build scalable software solutions. Let's discuss your next project.",
+    "ctaText": "Start a Project",
     "ctaLink": "/contact",
     "socials": [
-      { "name": "Facebook", "href": "#" },
       { "name": "LinkedIn", "href": "#" },
       { "name": "Twitter", "href": "#" },
+      { "name": "GitHub", "href": "#" },
       { "name": "Instagram", "href": "#" }
     ],
     "links": [
       { "label": "Home", "href": "/" },
-      { "label": "About us", "href": "/#about" },
-      { "label": "Projects", "href": "/#projects" },
-      { "label": "Process", "href": "/#process" },
-      { "label": "Services", "href": "/#services" }
+      { "label": "About", "href": "/about" },
+      { "label": "Services", "href": "/services" },
+      { "label": "Work", "href": "/work" },
+      { "label": "Contact", "href": "/contact" }
     ],
     "contact": {
-      "email": "hello@threemates.com",
-      "phone": "+1 (415) 555-0167"
+      "email": "hello@threemates.tech",
+      "phone": "+91 90000 00000"
     },
-    "copyright": "© 2025 Threemates. All rights reserved."
+    "copyright": "© 2026 Threemates. All rights reserved."
   }
 }

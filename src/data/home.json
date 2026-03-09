@@ -1,129 +1,129 @@
 {
   "hero": {
-    "badge": "20 founders booked a call this week",
-    "headline": "Global UI UX design agency digital Partner for startup",
-    "description": "We deliver globally UI, UX & web design smoothly, without delay, saving your time and money with an efficient process.",
-    "primaryCta": { "label": "Book a call", "href": "/contact" },
-    "secondaryCta": { "label": "View case studies", "href": "/work" },
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
+    "badge": "Empowering businesses with modern technology",
+    "headline": "Transforming Ideas Into Powerful Digital Solutions",
+    "description": "Threemates is a technology company providing modern IT services including ERP systems, SaaS platforms, web development, and mobile applications. We help businesses and organizations digitize operations and build scalable software products.",
+    "primaryCta": { "label": "Start a Project", "href": "/contact" },
+    "secondaryCta": { "label": "View Services", "href": "/services" },
+    "image": "/assets/landing tecj.png"
   },
   "benefits": {
-    "badge": "Benefits",
-    "title": "We design brands & websites that move as fast as you do.",
-    "description": "After a deep dive into customer behavior and brand perception, we developed a fresh identity and rebuilt their online store with UX best practices",
-    "tags": ["Branding", "Logo", "Website", "Illustration", "Interface", "Strategy"],
+    "badge": "Why Threemates",
+    "title": "We build software that powers your business growth.",
+    "description": "From ERP systems to SaaS platforms, we deliver end-to-end technology solutions that help organizations streamline operations and scale efficiently.",
+    "tags": ["ERP", "SaaS", "Web Apps", "Mobile Apps", "Cloud", "DevOps"],
     "items": [
-      { "icon": "❖", "title": "Convert Focused", "description": "An expert team ready to tackle your challenges with innovative solutions and proven strategies." },
-      { "icon": "↗", "title": "Quick Launch Or Retainer", "description": "Scale your business effortlessly with our Agency, designed to grow alongside your evolving needs." },
-      { "icon": "✓", "title": "Real-Time Collaboration", "description": "Customize the platform to perfectly align with your business unique requirements and goals." },
-      { "icon": "✦", "title": "Complete Creative Solution", "description": "Maximize efficiency with integrated solutions that eliminate bottlenecks, saving time and costs." },
-      { "icon": "◈", "title": "Transparent Pricing", "description": "A simple and accessible interface for users of all skill levels, making it easy to find what you need." },
-      { "icon": "♥", "title": "Real Human Connection", "description": "A simple and accessible interface for users of all skill levels, making it easy to find what you need." }
+      { "icon": "❖", "title": "Scalable Architecture", "description": "We build systems designed to grow with your business, handling increased load and complexity effortlessly." },
+      { "icon": "↗", "title": "Rapid Development", "description": "Agile development methodology ensures fast delivery without compromising on quality or reliability." },
+      { "icon": "✓", "title": "End-to-End Solutions", "description": "From requirement analysis to deployment and maintenance, we handle the complete software lifecycle." },
+      { "icon": "✦", "title": "Modern Tech Stack", "description": "We use cutting-edge technologies like React, Node.js, and cloud infrastructure for optimal performance." },
+      { "icon": "◈", "title": "Transparent Process", "description": "Clear communication, regular updates, and milestone-based delivery keep you informed at every stage." },
+      { "icon": "♥", "title": "Dedicated Support", "description": "Our team provides ongoing maintenance, updates, and technical support to ensure system reliability." }
     ]
   },
   "services": {
     "badge": "Services",
-    "title": "Our Services",
-    "description": "After a deep dive into customer behavior and brand perception, we developed a fresh identity and rebuilt their online store with UX best practices",
+    "title": "Our Core Services",
+    "description": "We provide end-to-end IT services to help businesses build, scale, and optimize digital products across multiple platforms.",
     "items": [
-      { "title": "Branding", "description": "Strong identity, unique voice, and visuals built for growth.", "icon": "📐", "active": true },
-      { "title": "PR & marketing", "description": "Campaigns, strategy, and storytelling crafted to grow reach.", "icon": "📊" },
-      { "title": "Web & app design", "description": "Modern, functional, and user-focused design built for impact.", "icon": "🖥" },
-      { "title": "Font & Developer", "description": "Custom fonts, scalable code, and solutions tailored for you.", "icon": "⌨" }
+      { "title": "ERP Solutions", "description": "Complete ERP systems for schools, colleges, hospitals, and businesses including HR, billing, inventory, and analytics.", "icon": "📊", "active": true },
+      { "title": "Web Development", "description": "Modern web applications built using scalable technologies such as React, Node.js, and cloud infrastructure.", "icon": "🖥" },
+      { "title": "Mobile App Development", "description": "Cross-platform mobile applications for Android and iOS with seamless backend integration.", "icon": "📱" },
+      { "title": "SaaS Development", "description": "Development of scalable SaaS platforms with multi-tenant architecture, subscription systems, and cloud deployment.", "icon": "☁" }
     ]
   },
   "mission": {
-    "text": "Guided by {strategy}, powered by {creativity}. We design-first solutions that make brands shine and {succeed} in the digital era.",
+    "text": "Guided by {innovation}, powered by {technology}. We build digital solutions that help organizations {transform} and thrive in the modern era.",
     "reviews": [
-      { "rating": "4.9/5", "count": "270" },
-      { "rating": "4.8/5", "count": "170" }
+      { "rating": "4.9/5", "count": "50+" },
+      { "rating": "100%", "count": "Satisfaction" }
     ],
     "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
   },
   "projects": {
     "badge": "Projects",
-    "title": "Demand Design for Scaling Brands.",
-    "viewAllBtn": { "label": "View more projects", "href": "/work" },
+    "title": "Software Solutions We've Delivered",
+    "viewAllBtn": { "label": "View all projects", "href": "/work" },
     "items": [
       {
-        "title": "Detos Ecommerce",
-        "tags": ["Visual Identity", "Illustration", "E-commerce"],
+        "title": "School ERP Platform",
+        "tags": ["ERP", "Education", "Management"],
         "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop"
       },
       {
-        "title": "Hopstack",
-        "tags": ["Visual Identity", "E-commerce"],
+        "title": "College Academic ERP",
+        "tags": ["ERP", "Higher Education"],
         "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
       },
       {
-        "title": "Mahajin",
-        "tags": ["Visual Identity", "E-commerce"],
+        "title": "Hospital Management System",
+        "tags": ["ERP", "Healthcare"],
         "image": "https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=800&auto=format&fit=crop"
       },
       {
-        "title": "Applo SaaS",
-        "tags": ["Visual Identity", "Illustration", "E-commerce"],
+        "title": "Startup SaaS Dashboard",
+        "tags": ["SaaS", "Analytics", "Dashboard"],
         "image": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=800&auto=format&fit=crop"
       }
     ],
     "ctaCard": {
-      "title": "For more details",
-      "description": "Design, strategy, and code built around what your business actually needs.",
-      "buttonLabel": "Book a call"
+      "title": "Have a project idea?",
+      "description": "Let's discuss how we can build the right software solution for your business needs.",
+      "buttonLabel": "Start a Project"
     }
   },
   "about": {
     "avatar": "https://i.pravatar.cc/80?img=43",
-    "label": "Doubt more about us & clear",
-    "text": "We're not just designers or developers - we're storytellers, problem-solvers, and brand builders.",
-    "highlight": "Blending bold creativity with strategy, we craft experiences that connect, convert, and stand out in a crowded digital world.",
-    "buttonLabel": "Book a call"
+    "label": "Learn more about Threemates",
+    "text": "We're not just developers — we're technology partners who understand your business challenges and build solutions that work.",
+    "highlight": "Combining deep technical expertise with industry knowledge, we create software platforms that automate operations, improve productivity, and drive growth.",
+    "buttonLabel": "Start a Project"
   },
   "pricing": {
-    "badge": "No hidden fees",
-    "title": "Clear pricing, clear results",
+    "badge": "Flexible Engagement",
+    "title": "Project-based and retainer models",
     "plan": {
-      "name": "Design & Dev support plan",
-      "description": "Ideal for brands needing ongoing design and dev support.",
-      "price": "$1200",
-      "period": "/month",
+      "name": "Development Partnership Plan",
+      "description": "Ideal for organizations needing ongoing software development and support.",
+      "price": "Custom",
+      "period": "/project",
       "features": [
-        "Ongoing design support",
-        "Framer or custom development",
+        "Dedicated development team",
+        "Full-stack web & mobile development",
         "Clear timelines & milestones",
-        "Flexible monthly scope",
-        "Weekly updates from the project manager",
-        "Fast turnaround on key tasks"
+        "Agile sprint-based delivery",
+        "Weekly progress updates and demos",
+        "Post-launch maintenance & support"
       ]
     },
     "scheduleCard": {
       "avatar": "https://i.pravatar.cc/80?img=47",
-      "spotsAvailable": 3,
-      "title": "Schedule a call",
-      "description": "Ideal for brands needing ongoing design and dev support."
+      "spotsAvailable": 5,
+      "title": "Schedule a consultation",
+      "description": "Discuss your project requirements with our team."
     },
     "reviewCard": {
-      "name": "Sarah M",
+      "name": "Rajesh K",
       "avatar": "https://i.pravatar.cc/80?img=5",
       "rating": 5.0,
-      "text": "Ideal for brands needing ongoing design and dev support."
+      "text": "Threemates delivered our ERP system on time and exceeded our expectations."
     }
   },
   "blog": {
     "badge": "Blog",
-    "title": "Explore our latest journal",
-    "viewAllBtn": { "label": "View more projects", "href": "/blog" },
+    "title": "Insights & Tech Updates",
+    "viewAllBtn": { "label": "View all articles", "href": "/blog" },
     "posts": [
       {
-        "title": "They brought our vision to life with incredible.",
-        "date": "Jul 8, 2025",
-        "readTime": "2 min read",
+        "title": "Why Every School Needs a Modern ERP System in 2026",
+        "date": "Feb 15, 2026",
+        "readTime": "5 min read",
         "image": "https://images.unsplash.com/photo-1616423641401-8208f014777e?q=80&w=800&auto=format&fit=crop"
       },
       {
-        "title": "They brought our vision to life with incredible.",
-        "date": "Jul 8, 2025",
-        "readTime": "2 min read",
+        "title": "Building Scalable SaaS Platforms: Architecture Best Practices",
+        "date": "Jan 20, 2026",
+        "readTime": "6 min read",
         "image": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=800&auto=format&fit=crop"
       }
     ]

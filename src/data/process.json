@@ -1,25 +1,43 @@
 {
   "badge": "Process",
-  "title": "Our starting style",
-  "description": "After a deep dive into customer behavior and brand perception, we developed a fresh identity and rebuilt their online store with UX best practices.",
+  "title": "Our Development Process",
+  "description": "We follow a structured engineering workflow to deliver reliable software products.",
   "steps": [
     {
       "step": "01",
-      "title": "Discover & Strategize",
-      "description": "We understand your goals and craft a clear.",
-      "color": "bg-pink-50 dark:bg-pink-950/30"
+      "title": "Requirement Analysis",
+      "description": "Understanding business goals, workflows, and system requirements.",
+      "color": "bg-blue-50 dark:bg-blue-950/30"
     },
     {
       "step": "02",
-      "title": "Design & Build",
-      "description": "We turn strategy into reality with design and tech built for your brand.",
-      "color": "bg-cyan-50 dark:bg-cyan-950/30"
+      "title": "System Architecture",
+      "description": "Designing scalable architecture, database structures, and API systems.",
+      "color": "bg-purple-50 dark:bg-purple-950/30"
     },
     {
       "step": "03",
-      "title": "Launch & Grow",
-      "description": "Confident launch, continuous updates, and growth-focused support.",
-      "color": "bg-blue-50 dark:bg-blue-950/30"
+      "title": "UI/UX Design",
+      "description": "Creating intuitive user interfaces focused on productivity and user experience.",
+      "color": "bg-pink-50 dark:bg-pink-950/30"
+    },
+    {
+      "step": "04",
+      "title": "Development",
+      "description": "Building frontend and backend systems using modern frameworks and best practices.",
+      "color": "bg-cyan-50 dark:bg-cyan-950/30"
+    },
+    {
+      "step": "05",
+      "title": "Testing",
+      "description": "Ensuring system reliability through functional, performance, and security testing.",
+      "color": "bg-green-50 dark:bg-green-950/30"
+    },
+    {
+      "step": "06",
+      "title": "Deployment & Maintenance",
+      "description": "Cloud deployment, monitoring, and long-term system maintenance.",
+      "color": "bg-amber-50 dark:bg-amber-950/30"
     }
   ]
 }

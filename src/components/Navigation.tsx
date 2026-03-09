@@ -79,9 +79,11 @@ export function Navigation({ data: _data }: { data: any }) {
 
                     <div className="flex items-center gap-3">
                         <ModeToggle />
-                        <Button className="hidden md:flex rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white" size="sm">
-                            Book a call
-                        </Button>
+                        <Link href="/contact" className="hidden md:flex">
+                            <Button className="rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white" size="sm">
+                                Start a Project
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </header>
@@ -135,9 +137,11 @@ export function Navigation({ data: _data }: { data: any }) {
                             ))}
                         </div>
                         <div className="mt-auto pb-12 space-y-4">
-                            <Button className="w-full rounded-full btn-press shadow-medium glow-blue" size="lg">
-                                Book a call
-                            </Button>
+                            <Link href="/contact" className="w-full">
+                                <Button className="w-full rounded-full btn-press shadow-medium glow-blue" size="lg">
+                                    Start a Project
+                                </Button>
+                            </Link>
                             <div className="flex justify-center">
                                 <ModeToggle />
                             </div>

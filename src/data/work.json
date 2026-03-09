@@ -1,63 +1,63 @@
 {
   "hero": {
-    "title": "Our Selected Work",
-    "description": "Explore our portfolio of digital products, branding, and experiences that drive real business results."
+    "title": "Our Work",
+    "description": "Explore some of the software platforms and digital solutions we have built."
   },
-  "categories": ["All", "UI/UX Design", "Development", "Branding", "Mobile Apps"],
+  "categories": ["All", "ERP", "SaaS", "Web App", "Mobile App", "Enterprise Software"],
   "projects": [
     {
       "id": "1",
-      "title": "Healthify Mobile App",
-      "category": "Mobile Apps",
-      "client": "Healthify Inc.",
-      "image": "/work/healthify-main.jpg",
-      "description": "A comprehensive redesign of a health tracking platform focused on user engagement and simplicity.",
-      "link": "/work/healthify"
+      "title": "School ERP Platform",
+      "category": "ERP",
+      "client": "EduCore Schools",
+      "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop",
+      "description": "Complete school management system including admissions, attendance, exams, and fee management.",
+      "link": "/work/school-erp"
     },
     {
       "id": "2",
-      "title": "Neo Bank Dashboard",
-      "category": "UI/UX Design",
-      "client": "FinTech Corp",
-      "image": "/work/neobank-main.jpg",
-      "description": "Modern, clean dashboard interface for a new generation digital bank.",
-      "link": "/work/neo-bank"
+      "title": "College Academic ERP",
+      "category": "ERP",
+      "client": "SmartCampus Colleges",
+      "image": "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop",
+      "description": "Academic management system for colleges with course modules, assignments, grading, and student portals.",
+      "link": "/work/college-erp"
     },
     {
       "id": "3",
-      "title": "Crypto Wallet App",
-      "category": "Development",
-      "client": "CoinBase",
-      "image": "/work/crypto-main.jpg",
-      "description": "Secure and intuitive web3 wallet experience for both beginners and experts.",
-      "link": "/work/crypto"
+      "title": "Hospital Management System",
+      "category": "ERP",
+      "client": "MedLink Hospitals",
+      "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop",
+      "description": "Healthcare ERP platform managing patient records, billing, doctor schedules, and medical inventory.",
+      "link": "/work/hospital-erp"
     },
     {
       "id": "4",
-      "title": "Eco Store E-commerce",
-      "category": "Development",
-      "client": "Green Life",
-      "image": "/work/ecostore-main.jpg",
-      "description": "A high-performance headless commerce solution built with Next.js.",
-      "link": "/work/eco-store"
+      "title": "Startup SaaS Dashboard",
+      "category": "SaaS",
+      "client": "NovaTech Startups",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+      "description": "A scalable SaaS dashboard platform with subscription management and analytics.",
+      "link": "/work/saas-dashboard"
     },
     {
       "id": "5",
-      "title": "Nexus Brand Identity",
-      "category": "Branding",
-      "client": "Nexus Software",
-      "image": "/work/nexus-main.jpg",
-      "description": "Complete visual identity overhaul for an enterprise SaaS company.",
-      "link": "/work/nexus"
+      "title": "Business Inventory System",
+      "category": "Enterprise Software",
+      "client": "Urban Retail Group",
+      "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
+      "description": "Inventory and supply chain management system for growing businesses.",
+      "link": "/work/inventory-system"
     },
     {
       "id": "6",
-      "title": "Travel Buddy Booking Flow",
-      "category": "UI/UX Design",
-      "client": "Travel Co",
-      "image": "/work/travelbuddy-main.jpg",
-      "description": "Streamlined booking experience that increased conversion rates by 40%.",
-      "link": "/work/travel-buddy"
+      "title": "E-Commerce Mobile App",
+      "category": "Mobile App",
+      "client": "DigitalEdge Solutions",
+      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop",
+      "description": "Cross-platform mobile application for e-commerce with real-time inventory sync and payment integration.",
+      "link": "/work/ecommerce-app"
     }
   ]
 }

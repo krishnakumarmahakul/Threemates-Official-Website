@@ -1,12 +1,12 @@
 {
   "hero": {
-    "title": "Let's Talk",
-    "description": "Have a project in mind, or just want to say hi? We'd love to hear from you."
+    "title": "Contact Us",
+    "description": "Have a project in mind? Let's build something great together."
   },
   "info": {
-    "email": "hello@threemates.com",
-    "phone": "+1 (415) 555-0167",
-    "address": "San Francisco, CA 94105\nUnited States"
+    "email": "hello@threemates.tech",
+    "phone": "+91 90000 00000",
+    "address": "Bhubaneswar, Odisha, India"
   },
   "form": {
     "title": "Send us a message",
@@ -14,13 +14,13 @@
       {
         "name": "name",
         "label": "Full Name",
-        "placeholder": "Jane Doe",
+        "placeholder": "Your Name",
         "type": "text"
       },
       {
         "name": "email",
-        "label": "Email Address",
-        "placeholder": "jane@example.com",
+        "label": "Email",
+        "placeholder": "your@email.com",
         "type": "email"
       },
       {
@@ -32,7 +32,7 @@
       {
         "name": "message",
         "label": "Message",
-        "placeholder": "Tell us about your project...",
+        "placeholder": "Tell us about your project",
         "type": "textarea"
       }
     ],

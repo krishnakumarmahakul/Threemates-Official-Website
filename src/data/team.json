@@ -1,23 +1,23 @@
 [
   {
     "id": "ceo",
-    "name": "Alex Rivars",
-    "role": "Chief Innovative Officer",
-    "image": "/team/team1.jpg",
-    "bio": "Visionary leader with 15+ years in disruptive tech."
+    "name": "Founder",
+    "role": "CEO & Lead Architect",
+    "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop",
+    "bio": "Leads product vision and system architecture with deep expertise in scalable software."
   },
   {
     "id": "cto",
-    "name": "Sarah Chen",
-    "role": "Head of Engineering",
-    "image": "/team/team2.jpg",
-    "bio": "Architect of infinite scalable systems."
+    "name": "Tech Lead",
+    "role": "Full-Stack Developer",
+    "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop",
+    "bio": "Builds robust backend systems and modern frontend interfaces."
   },
   {
-    "id": "design",
-    "name": "Marcus Kane",
-    "role": "Design Director",
-    "image": "/team/team3.jpg",
-    "bio": "Crafting the boldest digital experiences."
+    "id": "pm",
+    "name": "Product Manager",
+    "role": "Project & Delivery Lead",
+    "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=400&auto=format&fit=crop",
+    "bio": "Ensures on-time delivery and seamless client communication."
   }
 ]

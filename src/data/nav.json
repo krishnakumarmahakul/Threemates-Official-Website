@@ -1,7 +1,7 @@
 [
-  { "label": "About us", "href": "/#about" },
-  { "label": "Process", "href": "/#process" },
-  { "label": "Project", "href": "/#projects" },
-  { "label": "Service", "href": "/#services" },
-  { "label": "Pricing", "href": "/#pricing" }
+  { "label": "About", "href": "/about" },
+  { "label": "Services", "href": "/services" },
+  { "label": "Work", "href": "/work" },
+  { "label": "Blog", "href": "/blog" },
+  { "label": "Contact", "href": "/contact" }
 ]

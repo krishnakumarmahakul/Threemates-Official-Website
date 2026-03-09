@@ -1,13 +1,11 @@
 {
-  "title": "Trusted by thousands of companies worldwide",
+  "title": "Trusted by organizations and startups",
   "logos": [
-    { "name": "ZenZap" },
-    { "name": "Craftgram" },
-    { "name": "sparkle" },
-    { "name": "Craftgram" },
-    { "name": "innovia" },
-    { "name": "Craftgram" },
-    { "name": "Lum Labs" },
-    { "name": "Craftgram" }
+    { "name": "EduCore Schools" },
+    { "name": "SmartCampus Colleges" },
+    { "name": "MedLink Hospitals" },
+    { "name": "Urban Retail Group" },
+    { "name": "NovaTech Startups" },
+    { "name": "DigitalEdge Solutions" }
   ]
 }

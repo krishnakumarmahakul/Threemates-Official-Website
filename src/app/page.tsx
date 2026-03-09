@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  Play,
   CheckCircle2,
   Star,
   Sparkles,
@@ -74,22 +73,24 @@ export default async function Home() {
             </Link>
           </div>
 
-          {/* Hero Image with layered shadows */}
-          <div className="mt-10 md:mt-16 w-full max-w-5xl relative rounded-2xl md:rounded-3xl overflow-hidden shadow-elevated border bg-card group">
-            <div className="aspect-[16/9] w-full relative flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-950 dark:to-purple-950" />
-              <div className="absolute inset-0 flex items-center justify-center">
+          {/* Hero Image — Stacked layered effect */}
+          <div className="mt-10 md:mt-16 w-full max-w-5xl relative">
+            {/* Back layer — blurred glow */}
+            <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-br from-blue-400/20 via-cyan-300/10 to-purple-400/20 dark:from-blue-600/10 dark:via-cyan-500/5 dark:to-purple-600/10 rounded-[2.5rem] md:rounded-[3.5rem] blur-2xl" />
+            {/* Middle layer — frosted glass card */}
+            <div className="absolute -inset-2 md:-inset-4 bg-white/40 dark:bg-white/5 backdrop-blur-xl rounded-[2rem] md:rounded-[3rem] border border-white/30 dark:border-white/10 shadow-xl" />
+            {/* Main image card */}
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-elevated border bg-card group">
+              <div className="aspect-[16/9] w-full relative">
                 <Image
                   src={home.hero.image}
-                  alt="Dashboard preview"
+                  alt="Threemates Technology Ecosystem — ERP, SaaS, Web & Mobile Development"
                   fill
-                  className="object-cover opacity-50 group-hover:opacity-60 transition-opacity duration-700"
+                  className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, 80vw"
                   priority
                 />
-              </div>
-              <div className="z-10 w-16 h-16 md:w-20 md:h-20 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-xl cursor-pointer hover:scale-110 hover:bg-blue-500 transition-all duration-300 glow-blue">
-                <Play className="h-6 w-6 md:h-8 md:w-8 ml-1" fill="white" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
               </div>
             </div>
           </div>
@@ -232,10 +233,10 @@ export default async function Home() {
       <section className="py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="text-center max-w-4xl mx-auto mb-8">
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight">
-            Guided by <span className="text-blue-600 italic">strategy</span>, powered
-            by <span className="text-blue-600 italic">creativity</span>. We design-first
-            solutions that make brands shine and{" "}
-            <span className="text-blue-600 italic">succeed</span> in the digital era.
+            Guided by <span className="text-blue-600 italic">innovation</span>, powered
+            by <span className="text-blue-600 italic">technology</span>. We build digital
+            solutions that help organizations{" "}
+            <span className="text-blue-600 italic">transform</span> and thrive in the modern era.
           </h2>
         </div>
 
@@ -416,10 +417,10 @@ export default async function Home() {
                 </div>
                 <div className="flex gap-2">
                   <Button variant="outline" className="btn-press rounded-full border-zinc-700 bg-zinc-900 hover:bg-zinc-800 text-white text-sm">
-                    Book a call
+                    Contact Us
                   </Button>
                   <Button className="btn-press rounded-full bg-white text-black hover:bg-zinc-200 text-sm">
-                    Project Base
+                    Project Based
                   </Button>
                 </div>
               </div>
@@ -464,7 +465,7 @@ export default async function Home() {
                   {home.pricing.scheduleCard.description}
                 </p>
                 <Button className="btn-press w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white h-11 md:h-12 shadow-medium hover:shadow-elevated">
-                  Book a call
+                  Start a Project
                 </Button>
               </CardContent>
             </Card>
@@ -531,7 +532,7 @@ export default async function Home() {
           <div>
             <Badge variant="outline" className="rounded-full mb-4 md:mb-6 shadow-soft">FAQ</Badge>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 md:mb-8">
-              Question? Answer
+              Frequently Asked Questions
             </h2>
 
             <Card className="bg-zinc-950 text-white rounded-3xl overflow-hidden border-none hidden md:block mt-8 shadow-elevated relative">
@@ -544,7 +545,7 @@ export default async function Home() {
                   Feel free to reach out whenever you have questions.
                 </p>
                 <Button variant="outline" className="btn-press rounded-full border-zinc-700 bg-zinc-900/50 hover:bg-zinc-800 text-white px-6">
-                  Book a call
+                  Contact Us
                 </Button>
               </CardContent>
             </Card>

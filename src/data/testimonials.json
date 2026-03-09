@@ -1,33 +1,33 @@
 {
   "badge": "Testimonials",
-  "title": "What People Are Saying",
-  "description": "From SEO to paid ads, everything exceeded expectations. Their expertise gave us clarity, results, and a strong foundation for sustainable growth.",
+  "title": "What Our Clients Say",
+  "description": "Organizations and startups trust Threemates to deliver reliable software solutions that drive their business forward.",
   "cards": [
     {
-      "text": "We've worked with a few agencies before, but none as transparent and proactive. Their strategy gave us more clarity than we've had in...",
-      "name": "Eva Oris",
+      "text": "Threemates built our school ERP from scratch and delivered exactly what we needed. The system handles admissions, attendance, and fee management seamlessly.",
+      "name": "Principal, EduCore Schools",
       "avatar": "https://i.pravatar.cc/80?img=5"
     },
     {
-      "text": "From SEO to paid ads, everything exceeded expectations. Their expertise gave us clarity, results, and a strong foundation for sustainable growth.",
-      "name": "Luis Hernde",
+      "text": "Their team understood our hospital workflows and built a management system that improved our patient record handling and billing processes significantly.",
+      "name": "Admin, MedLink Hospitals",
       "avatar": "https://i.pravatar.cc/80?img=12"
     },
     {
-      "text": "The team brought fresh ideas and flawless execution. Our brand visibility grew faster than expected, and customer engagement and reached record highs.",
-      "name": "Mara Jin",
+      "text": "The SaaS dashboard they built for us is scalable, fast, and our customers love using it. Great technical team with clear communication throughout.",
+      "name": "CTO, NovaTech Startups",
       "avatar": "https://i.pravatar.cc/80?img=20"
     },
     {
-      "text": "Working with this team has been a game-changer for our business. They genuinely cared. Our online revenue has doubled in just...",
-      "name": "Julius Lee",
+      "text": "We needed a custom inventory system and Threemates delivered it on time with all the features we asked for. Their support after launch has been excellent.",
+      "name": "Manager, Urban Retail Group",
       "avatar": "https://i.pravatar.cc/80?img=33"
     }
   ],
   "highlight": {
-    "text": "They brought our vision to life with incredible precision and creativity. The collaboration was seamless, and the final product truly elevated our digital presence.",
-    "name": "Sarah M",
-    "role": "CEO, Ecommerce",
+    "text": "Threemates transformed our academic operations with a comprehensive college ERP. The student portal, grading system, and admin dashboard are exactly what our institution needed.",
+    "name": "Director, SmartCampus Colleges",
+    "role": "Academic Director",
     "avatars": [11, 12, 13, 14]
   }
 }

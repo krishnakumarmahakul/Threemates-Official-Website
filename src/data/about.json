@@ -1,46 +1,65 @@
 {
   "hero": {
-    "title": "We are a team of passionate creators",
-    "description": "At DROOP, we combine strategy, design, and technology to build brands that stand out and digital experiences that matter.",
-    "image": "/about-hero.jpg"
+    "title": "Building Technology That Powers Businesses",
+    "description": "At Threemates, we build modern software solutions that help organizations streamline operations, automate workflows, and scale efficiently.",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
   },
   "stats": [
-    { "value": "12+", "label": "Years Experience" },
-    { "value": "150+", "label": "Projects Completed" },
-    { "value": "20+", "label": "Industry Awards" },
-    { "value": "50+", "label": "Happy Clients" }
+    { "value": "50+", "label": "Projects Delivered" },
+    { "value": "20+", "label": "Organizations Served" },
+    { "value": "5+", "label": "Industries Covered" },
+    { "value": "100%", "label": "Client Satisfaction" }
   ],
+  "company": {
+    "title": "Who We Are",
+    "description": "Threemates is a software development company based in Bhubaneswar, specializing in ERP systems, SaaS platforms, web applications, and mobile solutions. Our team focuses on building scalable, secure, and efficient software products for modern businesses and institutions."
+  },
   "mission": {
     "title": "Our Mission",
-    "description": "To empower brands through innovative and intuitive design. We believe that great design is not just about aesthetics, but about solving real problems and creating meaningful connections.",
+    "description": "Our mission is to empower organizations through technology by building reliable digital platforms that improve productivity, automation, and decision-making.",
     "features": [
-      "User-Centric Approach",
-      "Data-Driven Strategy",
-      "Continuous Innovation"
+      "Build scalable and secure software",
+      "Deliver modern digital solutions",
+      "Help organizations achieve digital transformation"
     ]
   },
-  "team": {
-    "title": "Meet the Minds Behind the Magic",
-    "members": [
+  "vision": {
+    "title": "Our Vision",
+    "description": "To become a trusted technology partner for organizations worldwide by delivering innovative software solutions."
+  },
+  "values": {
+    "title": "Why Choose Threemates",
+    "description": "We combine technical expertise with a commitment to delivering real business outcomes.",
+    "items": [
       {
-        "name": "Alex Carter",
-        "role": "Founder & Creative Director",
-        "image": "/team/alex.jpg"
+        "icon": "Shield",
+        "title": "Secure & Scalable",
+        "description": "Every solution we build follows security best practices and is designed to scale with your growth."
       },
       {
-        "name": "Jordan Lee",
-        "role": "Lead Product Designer",
-        "image": "/team/jordan.jpg"
+        "icon": "Zap",
+        "title": "Fast Delivery",
+        "description": "Agile development cycles ensure your product is built, tested, and deployed on time."
       },
       {
-        "name": "Mia Taylor",
-        "role": "Head of Development",
-        "image": "/team/mia.jpg"
+        "icon": "Code2",
+        "title": "Modern Tech Stack",
+        "description": "We use React, Next.js, Node.js, Flutter, AWS, and other industry-leading technologies."
       },
       {
-        "name": "Sam Robinson",
-        "role": "Brand Strategist",
-        "image": "/team/sam.jpg"
+        "icon": "Users",
+        "title": "Dedicated Support",
+        "description": "From planning to post-launch, we provide end-to-end support and transparent communication."
+      },
+      {
+        "icon": "BarChart3",
+        "title": "Data-Driven Approach",
+        "description": "We build analytics and insights into every platform so you can make informed decisions."
+      },
+      {
+        "icon": "Repeat",
+        "title": "Iterative Process",
+        "description": "Continuous feedback loops ensure the final product matches your vision perfectly."
       }
     ]
   }

@@ -1,17 +1,17 @@
 {
   "name": "Threemates",
-  "tagline": "Global UI UX Design Agency",
-  "description": "Global UI UX design agency digital partner for startup.",
+  "tagline": "Modern IT Solutions & Software Development",
+  "description": "Threemates is a technology company providing modern IT services including ERP systems, SaaS platforms, web development, and mobile applications.",
   "logo": "THREEMATES",
   "contact": {
-    "email": "hello@threemates.com",
-    "phone": "+1 (415) 555-0167",
-    "address": "San Francisco, CA"
+    "email": "hello@threemates.tech",
+    "phone": "+91 90000 00000",
+    "address": "Bhubaneswar, Odisha, India"
   },
   "socials": [
-    { "name": "Facebook", "href": "#" },
     { "name": "LinkedIn", "href": "#" },
     { "name": "Twitter", "href": "#" },
+    { "name": "GitHub", "href": "#" },
     { "name": "Instagram", "href": "#" }
   ]
 }

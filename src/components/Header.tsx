@@ -19,7 +19,7 @@ export default async function Header() {
                     ))}
                 </nav>
                 <div style={styles.cta}>
-                    <Link href="#contact" style={styles.button}>Let&apos;s Talk</Link>
+                    <Link href="/contact" style={styles.button}>Start a Project</Link>
                 </div>
             </div>
         </header>

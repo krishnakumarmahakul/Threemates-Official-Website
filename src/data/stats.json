@@ -1,6 +1,6 @@
 [
-  { "id": "projects", "label": "Infinite Solutions", "value": "500+", "suffix": "" },
-  { "id": "clients", "label": "Global Partners", "value": "120", "suffix": "+" },
-  { "id": "awards", "label": "Design Awards", "value": "45", "suffix": "" },
-  { "id": "experience", "label": "Years in Future", "value": "10", "suffix": "" }
+  { "id": "projects", "label": "Projects Delivered", "value": "50", "suffix": "+" },
+  { "id": "clients", "label": "Organizations Served", "value": "20", "suffix": "+" },
+  { "id": "industries", "label": "Industries Covered", "value": "5", "suffix": "+" },
+  { "id": "satisfaction", "label": "Client Satisfaction", "value": "100", "suffix": "%" }
 ]

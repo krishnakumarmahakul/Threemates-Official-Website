@@ -1,26 +1,26 @@
 [
   {
-    "question": "What services does your digital marketing agency offer?",
-    "answer": "We provide a full range of services including SEO, PPC advertising, social media marketing, content creation, email marketing, website optimization."
+    "question": "What services does Threemates offer?",
+    "answer": "We provide web development, mobile app development, SaaS application development, ERP systems for schools, colleges, hospitals, and organizations, custom software development, and cloud deployment & DevOps."
   },
   {
-    "question": "What kind of design services do you offer?",
-    "answer": "We focus on UI/UX design, web design, mobile app design, and brand identity."
+    "question": "What industries do you serve?",
+    "answer": "We work with education institutions (schools & colleges), healthcare organizations, retail businesses, startups, and enterprises across various sectors."
   },
   {
-    "question": "Do you offer fixed packages or custom quotes?",
-    "answer": "We offer both depending on the scope of your work. Most large projects are custom quoted."
+    "question": "Do you build custom ERP systems?",
+    "answer": "Yes, we specialize in building custom ERP platforms for schools, colleges, hospitals, and businesses with modules for HR, billing, inventory, attendance, and reporting."
   },
   {
-    "question": "Is ongoing maintenance included in your pricing?",
-    "answer": "Maintenance plans are available as an add-on or as part of our retainer packages."
+    "question": "What technologies do you use?",
+    "answer": "We use modern technologies including React, Next.js, Node.js, React Native, Flutter, PostgreSQL, MongoDB, AWS, Azure, Docker, and Kubernetes."
   },
   {
-    "question": "Can you help with SEO or digital marketing too?",
-    "answer": "Yes, we partner with top experts to ensure your final product is not only beautiful but ranks well."
+    "question": "Do you provide ongoing maintenance and support?",
+    "answer": "Yes, we offer post-launch maintenance, system updates, performance monitoring, and technical support to ensure your software runs smoothly."
   },
   {
-    "question": "Will my website be optimized for mobile and speed?",
-    "answer": "Absolutely. All our websites are built mobile-first and optimized for maximum performance."
+    "question": "How do I start a project with Threemates?",
+    "answer": "Simply reach out via our contact form or email us at hello@threemates.tech. We'll schedule a consultation to understand your requirements and provide a project proposal."
   }
 ]

@@ -17,15 +17,35 @@ export const metadata: Metadata = {
     default: "Threemates",
     template: "%s | Threemates",
   },
-  description: "Global UI UX design agency digital partner for startup",
+  description:
+    "Threemates - Modern IT solutions including ERP systems, SaaS platforms, web development, and mobile applications.",
   icons: {
     icon: [
-      { url: "/assets/icon.png", media: "(prefers-color-scheme: light)" },
-      { url: "/assets/darkIcon.png", media: "(prefers-color-scheme: dark)" },
+      {
+        url: "/assets/icon.png",
+        sizes: "124x124",
+        type: "image/png",
+      },
+      {
+        url: "/assets/darkIcon.png",
+        sizes: "384x384",
+        type: "image/png",
+      },
+      {
+        url: "/assets/icon-512.png",
+        sizes: "1024x1024",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/assets/darkIcon.png",
+        sizes: "360x360",
+        type: "image/png",
+      },
     ],
   },
 };
-
 export default async function RootLayout({
   children,
 }: Readonly<{

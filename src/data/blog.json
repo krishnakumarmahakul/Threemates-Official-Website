@@ -1,53 +1,53 @@
 {
   "hero": {
-    "title": "Insights & News",
-    "description": "Thoughts, strategies, and industry news from the DROOP team."
+    "title": "Insights & Tech Updates",
+    "description": "Articles, guides, and industry insights from the Threemates team."
   },
   "featured": {
-    "title": "The Future of AI in Digital Product Design",
-    "category": "Design Trends",
-    "date": "Oct 12, 2026",
-    "readTime": "8 min read",
-    "image": "/blog/ai-design.jpg",
-    "description": "How artificial intelligence is reshaping the way designers create, iterate, and solve complex user problems.",
-    "slug": "future-of-ai-design"
+    "title": "Why Every School Needs a Modern ERP System in 2026",
+    "category": "ERP",
+    "date": "Feb 15, 2026",
+    "readTime": "6 min read",
+    "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop",
+    "description": "How digital management systems are transforming school operations, from admissions to exam management.",
+    "slug": "school-erp-2026"
   },
   "posts": [
     {
-      "title": "10 UI Best Practices for E-commerce Dashboards",
-      "category": "UI/UX",
-      "date": "Sep 28, 2026",
-      "readTime": "6 min read",
-      "image": "/blog/ecommerce-dash.jpg",
-      "description": "Key principles for designing effective analytics dashboards that users actually want to use.",
-      "slug": "ecommerce-dashboard-best-practices"
-    },
-    {
-      "title": "Next.js 14: What You Need to Know",
-      "category": "Development",
-      "date": "Sep 15, 2026",
-      "readTime": "5 min read",
-      "image": "/blog/nextjs14.jpg",
-      "description": "A deep dive into the latest features and performance improvements out of the box.",
-      "slug": "nextjs-14-features"
-    },
-    {
-      "title": "Building a Cohesive Brand Strategy",
-      "category": "Branding",
-      "date": "Aug 30, 2026",
+      "title": "Building Scalable SaaS Platforms: Architecture Best Practices",
+      "category": "SaaS",
+      "date": "Jan 28, 2026",
       "readTime": "7 min read",
-      "image": "/blog/brand-strategy.jpg",
-      "description": "Why the logo is just the beginning, and how to create a consistent brand voice.",
-      "slug": "cohesive-brand-strategy"
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+      "description": "Key architecture patterns for building multi-tenant SaaS applications that scale.",
+      "slug": "saas-architecture-best-practices"
     },
     {
-      "title": "The Rise of Micro-Interactions",
-      "category": "Design",
-      "date": "Aug 12, 2026",
-      "readTime": "4 min read",
-      "image": "/blog/micro-interactions.jpg",
-      "description": "Small details that make a huge difference in user satisfaction and retention.",
-      "slug": "rise-of-micro-interactions"
+      "title": "React Native vs Flutter: Choosing the Right Mobile Framework",
+      "category": "Mobile Development",
+      "date": "Jan 10, 2026",
+      "readTime": "5 min read",
+      "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
+      "description": "A practical comparison of React Native and Flutter for cross-platform mobile app development.",
+      "slug": "react-native-vs-flutter"
+    },
+    {
+      "title": "How ERP Systems Improve Hospital Operations",
+      "category": "Healthcare",
+      "date": "Dec 20, 2025",
+      "readTime": "6 min read",
+      "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop",
+      "description": "Digital management systems are streamlining patient care, billing, and inventory in healthcare.",
+      "slug": "erp-hospital-operations"
+    },
+    {
+      "title": "Cloud Deployment: AWS vs Azure for Startups",
+      "category": "DevOps",
+      "date": "Dec 5, 2025",
+      "readTime": "5 min read",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
+      "description": "Choosing the right cloud provider for your startup's infrastructure needs.",
+      "slug": "aws-vs-azure-startups"
     }
   ]
 }

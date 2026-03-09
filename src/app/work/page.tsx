@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { getWorkData } from "@/lib/data-loader";
+import Image from "next/image";
 
 export default async function Work() {
     const data = await getWorkData();
@@ -57,8 +58,14 @@ export default async function Work() {
                                 className={`group block ${index % 2 !== 0 ? 'md:mt-20' : ''}`}
                             >
                                 <div className="relative aspect-[4/5] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden mb-6 bg-secondary/50 card-hover">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
                                     <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent group-hover:from-blue-500/20 transition-all duration-700" />
-                                    <div className="absolute inset-0 group-hover:scale-105 transition-transform duration-700" />
                                 </div>
                                 <div className="space-y-3">
                                     <div className="flex justify-between items-center text-sm font-medium text-muted-foreground">

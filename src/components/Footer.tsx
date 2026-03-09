@@ -90,19 +90,15 @@ export function Footer({ data }: { data: any }) {
                 </div>
             </div>
 
-            {/* Giant 3D brand text — bottom right */}
-            <div className="relative w-full flex justify-end pb-8 md:pb-12 pr-4 md:pr-12 lg:pr-20 pointer-events-none select-none">
-                <h1
-                    className="font-display text-[20vw] md:text-[16vw] leading-none tracking-tighter uppercase text-shadow-brand text-right"
-                    style={{
-                        transform: 'scaleY(1.3)',
-                        transformOrigin: 'bottom right',
-                        margin: 0,
-                        padding: 0,
-                    }}
-                >
-                    THREEMATES
-                </h1>
+            {/* Giant 3D brand text — bottom, clipped to prevent overflow */}
+            <div className="relative w-full overflow-hidden pointer-events-none select-none">
+                <div className="flex justify-end pr-4 md:pr-12 lg:pr-20 pb-4 md:pb-6">
+                    <h1
+                        className="font-display text-[18vw] md:text-[14vw] leading-[0.85] tracking-tighter uppercase text-shadow-brand text-right"
+                    >
+                        THREEMATES
+                    </h1>
+                </div>
             </div>
         </footer>
     );
