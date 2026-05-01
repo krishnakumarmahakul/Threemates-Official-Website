@@ -7,6 +7,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Loader } from "@/components/Loader";
 import { getGlobalData } from "@/lib/data-loader";
+import { COMPANY_EMAIL, COMPANY_PHONE, COMPANY_LOCATIONS, SITE_URL } from "@/constants/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,10 +29,10 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://threemates.tech";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Threemates — Modern IT Solutions & Software Development",
     template: "%s | Threemates",
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     "Node.js",
     "digital transformation",
   ],
-  authors: [{ name: "Threemates", url: SITE_URL }],
+  authors: [{ name: "Threemates", url: siteUrl }],
   creator: "Threemates",
   publisher: "Threemates",
   formatDetection: {
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: SITE_URL,
+    url: siteUrl,
     siteName: "Threemates",
     title: "Threemates — Modern IT Solutions & Software Development",
     description:
@@ -135,25 +136,26 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Threemates",
-              url: SITE_URL,
-              logo: `${SITE_URL}/assets/darkIcon.png`,
+              url: siteUrl,
+              logo: `${siteUrl}/assets/darkIcon.png`,
               description:
                 "Threemates is a technology company providing modern IT services including ERP systems, SaaS platforms, web development, and mobile applications.",
-              email: "hello@threemates.tech",
-              telephone: "+91-93480-32632",
+              email: COMPANY_EMAIL,
+              telephone: COMPANY_PHONE,
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Bhubaneswar",
-                addressRegion: "Odisha",
+                streetAddress: COMPANY_LOCATIONS[0].address,
+                addressLocality: "Thane West",
+                addressRegion: "Maharashtra",
                 addressCountry: "IN",
               },
               sameAs: [],
               foundingDate: "2024",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+91-93480-32632",
+                telephone: COMPANY_PHONE,
                 contactType: "customer service",
-                email: "hello@threemates.tech",
+                email: COMPANY_EMAIL,
                 availableLanguage: ["English", "Hindi"],
               },
             }),
@@ -167,10 +169,10 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Threemates",
-              url: SITE_URL,
+              url: siteUrl,
               potentialAction: {
                 "@type": "SearchAction",
-                target: `${SITE_URL}/blog?q={search_term_string}`,
+                target: `${siteUrl}/blog?q={search_term_string}`,
                 "query-input": "required name=search_term_string",
               },
             }),

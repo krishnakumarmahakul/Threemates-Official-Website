@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getBlogData } from "@/lib/data-loader";
-import { Sparkles } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { ArrowRight, BookOpenCheck } from "lucide-react";
+import { getBlogData } from "@/lib/data-loader";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -25,102 +24,52 @@ export const metadata: Metadata = {
 };
 
 export default async function Blog() {
-    const data = await getBlogData();
+  const data = await getBlogData();
+  const posts = [data.featured, ...data.posts];
 
-    return (
-        <div className="flex flex-col min-h-screen">
-            {/* Hero */}
-            <section className="pt-32 md:pt-44 pb-16 md:pb-24 px-4 md:px-8">
-                <div className="max-w-7xl mx-auto">
-                    <Badge variant="secondary" className="rounded-full px-4 py-1.5 text-xs md:text-sm font-medium shadow-soft mb-6">
-                        <Sparkles className="w-4 h-4 text-blue-500 mr-2" />
-                        Blog
-                    </Badge>
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tighter font-bold text-foreground leading-[1.05] max-w-4xl mb-8">
-                        {data.hero.title}
-                    </h1>
-                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                        {data.hero.description}
-                    </p>
-                </div>
-            </section>
+  return (
+    <div className="pb-8">
+      <section className="site-shell pt-28 sm:pt-32 lg:pt-36">
+        <div className="hero-glow glass-panel px-5 pb-8 pt-10 sm:px-8 lg:px-12 lg:pt-12">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="section-badge">
+              <BookOpenCheck className="h-3.5 w-3.5" />
+              Blog
+            </span>
+            <h1 className="display-title mt-6 text-balance">Insights & creative resources</h1>
+            <p className="lead-copy mx-auto mt-5 max-w-2xl">{data.hero.description}</p>
+          </div>
 
-            {/* Featured Post */}
-            <section className="px-4 md:px-8 mb-16 md:mb-24">
-                <div className="max-w-7xl mx-auto">
-                    <Link href={`/blog/${data.featured.slug}`} className="group block">
-                        <div className="relative aspect-[21/9] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden mb-8 bg-secondary/30">
-                            <Image
-                                src={data.featured.image}
-                                alt={data.featured.title}
-                                fill
-                                quality={85}
-                                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                sizes="(max-width: 1280px) 100vw, 1200px"
-                                priority
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent group-hover:from-blue-500/20 transition-all duration-700" />
-                            <div className="absolute bottom-6 left-6 flex items-center gap-3">
-                                <span className="px-4 py-2 rounded-full bg-black/50 backdrop-blur-md text-white text-sm font-semibold border border-white/10">
-                                    Featured
-                                </span>
-                            </div>
-                        </div>
-                        <div className="max-w-3xl space-y-4">
-                            <div className="flex items-center gap-4 text-sm font-medium text-muted-foreground">
-                                <span className="text-blue-600 dark:text-blue-400">{data.featured.category}</span>
-                                <span>•</span>
-                                <span>{data.featured.date}</span>
-                                <span>•</span>
-                                <span>{data.featured.readTime}</span>
-                            </div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
-                                {data.featured.title}
-                            </h2>
-                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                {data.featured.description}
-                            </p>
-                        </div>
-                    </Link>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {posts.map((post: any) => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="editor-card group block p-4">
+                <div className="relative aspect-[16/11] overflow-hidden rounded-[1.35rem] bg-slate-100">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover img-zoom"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  />
                 </div>
-            </section>
+                <div className="mt-4 flex items-center gap-3 text-xs text-slate-400">
+                  <span>{post.date}</span>
+                  <span>•</span>
+                  <span>{post.readTime}</span>
+                </div>
+                <h2 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-slate-950">{post.title}</h2>
+              </Link>
+            ))}
+          </div>
 
-            {/* Posts Grid */}
-            <section className="px-4 md:px-8 pb-20 md:pb-32 border-t pt-16 md:pt-24">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 md:gap-y-16">
-                        {data.posts.map((post: any, index: number) => (
-                            <Link
-                                href={`/blog/${post.slug}`}
-                                key={index}
-                                className="group block"
-                            >
-                                <div className="relative aspect-video rounded-[1.5rem] overflow-hidden mb-6 bg-secondary/30">
-                                    <Image
-                                        src={post.image}
-                                        alt={post.title}
-                                        fill
-                                        quality={80}
-                                        loading="lazy"
-                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                                </div>
-                                <div className="space-y-3">
-                                    <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground">
-                                        <span className="text-blue-600 dark:text-blue-400">{post.category}</span>
-                                        <span>{post.date}</span>
-                                    </div>
-                                    <h3 className="text-xl font-bold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
-                                        {post.title}
-                                    </h3>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
+          <div className="mt-8 flex justify-center">
+            <Link href="/contact" className="site-button gap-2 px-5 py-3">
+              View more blog
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
-    );
+      </section>
+    </div>
+  );
 }

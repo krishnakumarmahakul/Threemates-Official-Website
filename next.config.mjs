@@ -16,6 +16,14 @@ const nextConfig = {
       },
     ],
   },
+  webpack: (config, { dev }) => {
+    if (dev) {
+      // Avoid flaky filesystem cache pack lookups on Windows dev builds.
+      config.cache = false;
+    }
+
+    return config;
+  },
 };
 
 export default nextConfig;

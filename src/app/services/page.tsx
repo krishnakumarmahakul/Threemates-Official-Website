@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { getServicesData } from "@/lib/data-loader";
-import { Sparkles } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import { ArrowRight, BrainCircuit, BriefcaseBusiness, Layers3 } from "lucide-react";
+import { getAITrainingData, getServicesData } from "@/lib/data-loader";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -26,117 +24,92 @@ export const metadata: Metadata = {
 };
 
 export default async function Services() {
-    const data = await getServicesData();
+  const [services, training] = await Promise.all([getServicesData(), getAITrainingData()]);
 
-    return (
-        <div className="flex flex-col min-h-screen">
-            {/* Hero */}
-            <section className="pt-32 md:pt-44 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-100/60 via-cyan-50/40 to-background dark:from-blue-950/30 dark:via-cyan-950/20 dark:to-background" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-blue-200/40 to-transparent dark:from-blue-800/20 blur-3xl" />
-
-                <div className="max-w-7xl mx-auto relative z-10">
-                    <Badge variant="secondary" className="rounded-full px-4 py-1.5 text-xs md:text-sm font-medium shadow-soft mb-6">
-                        <Sparkles className="w-4 h-4 text-blue-500 mr-2" />
-                        What we do
-                    </Badge>
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tighter font-bold text-foreground leading-[1.05] max-w-4xl mb-8">
-                        {data.hero.title}
-                    </h1>
-                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                        {data.hero.description}
-                    </p>
-                </div>
-            </section>
-
-            {/* Services List */}
-            <section className="pb-20 md:pb-32 px-4 md:px-8">
-                <div className="max-w-7xl mx-auto space-y-20 md:space-y-32">
-                    {data.offerings.map((service: any, index: number) => (
-                        <div
-                            key={service.id}
-                            className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-start ${index % 2 !== 0 ? 'lg:[&>div:first-child]:order-last' : ''}`}
-                        >
-                            <div className="pt-2 lg:pt-8">
-                                <span className="text-blue-600 dark:text-blue-400 text-sm font-bold tracking-widest block mb-4">
-                                    0{index + 1}
-                                </span>
-                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-[1.05] tracking-tight">
-                                    {service.title}
-                                </h2>
-                                <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
-                                    {service.description}
-                                </p>
-
-                                <h4 className="text-xs font-bold uppercase tracking-widest text-muted-foreground/70 mb-6">
-                                    Capabilities
-                                </h4>
-                                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
-                                    {service.features.map((feature: string, fIndex: number) => (
-                                        <li key={fIndex} className="flex items-center gap-3 text-muted-foreground font-medium text-[15px]">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="relative aspect-square lg:aspect-[4/3] rounded-[2rem] overflow-hidden bg-secondary/30 w-full">
-                                <Image
-                                    src={service.image}
-                                    alt={service.title}
-                                    fill
-                                    quality={80}
-                                    loading={index === 0 ? "eager" : "lazy"}
-                                    className="object-cover"
-                                    sizes="(max-width: 1024px) 100vw, 50vw"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent" />
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* AI Training & Skill Development */}
-            <section className="py-20 md:py-32 px-4 md:px-8 bg-blue-50/50 dark:bg-blue-950/10">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <Badge variant="outline" className="rounded-full mb-4 shadow-soft">Skill Development</Badge>
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Empowering Teams with AI Skills</h2>
-                        <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                            We also provide AI training programs for organizations and educational institutions. Help your team stay ahead with the latest technologies.
-                        </p>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10">
-                        {[
-                            { title: "AI & ML", icon: "🤖" },
-                            { title: "LLMs & GenAI", icon: "✨" },
-                            { title: "Data Science", icon: "📊" },
-                            { title: "Cloud & MLOps", icon: "☁️" },
-                        ].map((program, i) => (
-                            <Card key={i} className="border shadow-soft card-hover rounded-2xl overflow-hidden">
-                                <CardContent className="p-5 text-center">
-                                    <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center mx-auto mb-3 text-2xl">
-                                        {program.icon}
-                                    </div>
-                                    <h3 className="font-semibold">{program.title}</h3>
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
-
-                    <div className="text-center">
-                        <Link
-                            href="/ai-training"
-                            className="btn-press inline-flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-8 h-12 transition-all shadow-medium hover:shadow-elevated glow-blue"
-                        >
-                            Explore AI Training Programs
-                        </Link>
-                    </div>
-                </div>
-            </section>
+  return (
+    <div className="pb-8">
+      <section className="site-shell pt-28 sm:pt-32 lg:pt-36">
+        <div className="hero-glow glass-panel px-5 pb-8 pt-10 sm:px-8 lg:px-12 lg:pt-12">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="section-badge">
+              <BriefcaseBusiness className="h-3.5 w-3.5" />
+              What we do
+            </span>
+            <h1 className="display-title mt-6 text-balance">Systems, products, and delivery built for serious growth.</h1>
+            <p className="lead-copy mx-auto mt-5 max-w-2xl">{services.hero.description}</p>
+          </div>
         </div>
-    );
+      </section>
+
+      <section className="site-shell site-section">
+        <div className="space-y-6 lg:space-y-8">
+          {services.offerings.map((service: any, index: number) => (
+            <div
+              key={service.id}
+              className="group grid gap-6 rounded-[2rem] border border-white/70 bg-white/88 p-5 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(15,23,42,0.22)] sm:p-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-10"
+            >
+              <div className={index % 2 !== 0 ? "lg:order-2" : undefined}>
+                <span className="section-badge">
+                  <Layers3 className="h-3.5 w-3.5" />
+                  0{index + 1}
+                </span>
+                <h2 className="section-title mt-5 text-[clamp(2rem,4vw,3.5rem)]">{service.title}</h2>
+                <p className="lead-copy mt-4 max-w-xl">{service.description}</p>
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {service.features.map((feature: string) => (
+                    <div key={feature} className="editor-card p-4">
+                      <p className="text-sm font-medium text-slate-800">{feature}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className={index % 2 !== 0 ? "lg:order-1" : undefined}>
+                <div className="editor-card p-3">
+                  <div className="relative aspect-[16/11] overflow-hidden rounded-[1.5rem] bg-slate-100">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover img-zoom"
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="site-shell pb-10">
+        <div className="rounded-[1.75rem] border border-[#101827] bg-[#0b0c10] p-6 text-white shadow-[0_24px_60px_-30px_rgba(15,23,42,0.45)] sm:p-8 lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <span className="section-badge border-white/10 bg-white/10 text-white/85">
+                <BrainCircuit className="h-3.5 w-3.5" />
+                Skill development
+              </span>
+              <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Empowering teams with AI skills.</h2>
+              <p className="mt-4 text-sm leading-7 text-white/75 sm:text-base">{training.description}</p>
+              <Link href="/ai-training" className="site-button mt-6 w-fit gap-2 px-5 py-3">
+                Explore AI training
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {training.programs.map((program: any) => (
+                <div key={program.title} className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                  <div className="text-3xl">{program.icon}</div>
+                  <h3 className="mt-4 text-lg font-semibold">{program.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-white/65">{program.duration}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }

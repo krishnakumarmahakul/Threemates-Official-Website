@@ -3,12 +3,30 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  CheckCircle2,
-  Star,
+  Award,
+  BookOpenCheck,
+  BrainCircuit,
+  Layers3,
+  Mail,
+  MapPin,
+  MoveRight,
+  Quote,
+  ShieldCheck,
   Sparkles,
+  Star,
+  Workflow,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import {
+  getBlogData,
+  getClientsData,
+  getFaqData,
+  getHomeData,
+  getProcessData,
+  getTestimonialsData,
+  getWorkData,
+} from "@/lib/data-loader";
+import { FaqAccordion } from "@/components/FAQAccordion";
+import { COMPANY_EMAIL, COMPANY_LOCATIONS } from "@/constants/site";
 
 export const metadata: Metadata = {
   title: "Threemates — Modern IT Solutions & Software Development",
@@ -28,703 +46,426 @@ export const metadata: Metadata = {
       "We build ERP systems, SaaS platforms, web & mobile apps for modern businesses.",
   },
 };
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  getHomeData,
-  getProcessData,
-  getFaqData,
-  getTestimonialsData,
-  getClientsData,
-  getAITrainingData,
-  getCertificationsData,
-} from "@/lib/data-loader";
-import { Certifications } from "@/components/Certifications";
 
 export default async function Home() {
-  const home = await getHomeData();
-  const process = await getProcessData();
-  const faqs = await getFaqData();
-  const testimonials = await getTestimonialsData();
-  const clients = await getClientsData();
-  const aiTraining = await getAITrainingData();
-  const certifications = await getCertificationsData();
+  const [home, process, faqs, testimonials, clients, work, blog] = await Promise.all([
+    getHomeData(),
+    getProcessData(),
+    getFaqData(),
+    getTestimonialsData(),
+    getClientsData(),
+    getWorkData(),
+    getBlogData(),
+  ]);
+
+  const featuredProjects = work.projects.slice(0, 5);
+  const featuredPosts = [blog.featured, ...blog.posts].slice(0, 2);
+  const pastelClasses = ["pastel-pink", "pastel-blue", "pastel-sky"];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* ════════════════════════════════════════════════════
-          HERO SECTION
-       ════════════════════════════════════════════════════ */}
-      <section className="relative pt-32 md:pt-44 pb-16 md:pb-24 px-4 md:px-8 max-w-7xl mx-auto w-full overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/60 via-background to-background dark:from-blue-900/20" />
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[600px] -z-10 bg-blue-400/5 dark:bg-blue-500/5 rounded-full blur-3xl" />
-
-        <div className="flex flex-col items-center text-center space-y-6 md:space-y-8">
-          {/* Animated badge */}
-          <Badge variant="secondary" className="rounded-full px-4 py-1.5 text-xs md:text-sm font-medium shadow-soft">
-            <span className="relative flex h-2 w-2 mr-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
+    <div className="pb-6">
+      <section className="site-shell pt-28 sm:pt-32 lg:pt-36">
+        <div className="hero-glow glass-panel relative overflow-hidden px-5 pb-5 pt-10 sm:px-8 lg:px-12 lg:pt-12">
+          <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top_center,rgba(255,255,255,0.65),transparent_70%)]" />
+          <div className="relative mx-auto max-w-3xl text-center">
+            <span className="section-badge">
+              <Sparkles className="h-3.5 w-3.5" />
+              {home.hero.badge}
             </span>
-            {home.hero.badge}
-          </Badge>
-
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08] font-bold tracking-tight max-w-4xl">
-            {home.hero.headline}
-          </h1>
-
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            {home.hero.description}
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
-            <Link
-              href={home.hero.primaryCta.href}
-              className="btn-press inline-flex items-center justify-center rounded-full px-8 h-12 md:h-14 text-sm md:text-base w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-medium transition-all shadow-medium hover:shadow-elevated glow-blue"
-            >
-              {home.hero.primaryCta.label}
-            </Link>
-            <Link
-              href={home.hero.secondaryCta.href}
-              className="btn-press inline-flex items-center justify-center rounded-full px-8 h-12 md:h-14 text-sm md:text-base w-full sm:w-auto border border-border bg-background hover:bg-muted font-medium transition-all shadow-soft hover:shadow-medium"
-            >
-              {home.hero.secondaryCta.label} <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            <h1 className="display-title mt-6 text-balance">
+              Global IT systems and digital products for ambitious teams.
+            </h1>
+            <p className="lead-copy mx-auto mt-5 max-w-2xl text-balance">
+              {home.hero.description}
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link href={home.hero.primaryCta.href} className="site-button min-w-[160px]">
+                {home.hero.primaryCta.label}
+              </Link>
+              <Link href={home.hero.secondaryCta.href} className="site-button-secondary min-w-[160px] gap-2">
+                {home.hero.secondaryCta.label}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
 
-          {/* Hero Image — Stacked layered effect */}
-          <div className="mt-10 md:mt-16 w-full max-w-5xl relative">
-            {/* Back layer — blurred glow */}
-            <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-br from-blue-400/20 via-cyan-300/10 to-purple-400/20 dark:from-blue-600/10 dark:via-cyan-500/5 dark:to-purple-600/10 rounded-[2.5rem] md:rounded-[3.5rem] blur-2xl" />
-            {/* Middle layer — frosted glass card */}
-            <div className="absolute -inset-2 md:-inset-4 bg-white/40 dark:bg-white/5 backdrop-blur-xl rounded-[2rem] md:rounded-[3rem] border border-white/30 dark:border-white/10 shadow-xl" />
-            {/* Main image card */}
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-elevated border bg-card group">
-              <div className="aspect-[16/9] w-full relative">
+          <div className="relative mt-10 rounded-[2rem] border border-white/80 bg-[#dfeaff]/80 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] sm:p-4 lg:mt-12 lg:rounded-[2.4rem]">
+            <div className="absolute inset-x-4 top-3 h-4 rounded-full bg-white/45 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/80 bg-white shadow-[0_26px_60px_-35px_rgba(37,99,235,0.35)]">
+              <div className="relative aspect-[16/10] w-full sm:aspect-[16/9]">
                 <Image
                   src={home.hero.image}
-                  alt="Threemates Technology Ecosystem — ERP, SaaS, Web & Mobile Development"
+                  alt="Threemates product showcase"
                   fill
-                  quality={85}
-                  className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
                   priority
+                  quality={90}
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 1120px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#edf4ff]/35 via-transparent to-transparent" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          LOGOS / CLIENTS BAR
-       ════════════════════════════════════════════════════ */}
-      <section className="py-8 md:py-12 border-y bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-xs md:text-sm font-medium text-muted-foreground mb-6 md:mb-8 uppercase tracking-widest">
-            {clients.title}
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 md:gap-12 opacity-40 hover:opacity-60 transition-opacity duration-500">
-            {clients.logos.map((logo: any, i: number) => (
-              <span key={i} className="text-base md:text-lg font-bold flex items-center gap-1.5 font-mono tracking-tight">
-                <Star className="h-3 w-3 text-muted-foreground" />
-                {logo.name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════
-          PROCESS SECTION
-       ════════════════════════════════════════════════════ */}
-      <section id="process" className="py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="mb-10 md:mb-16">
-          <Badge variant="outline" className="rounded-full px-4 mb-4 md:mb-6 shadow-soft">{process.badge}</Badge>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-3 md:mb-4">{process.title}</h2>
-          <p className="text-muted-foreground max-w-xl text-base md:text-lg leading-relaxed">
-            {process.description}
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {process.steps.map((step: any, i: number) => (
-            <Card key={i} className={`${step.color} border-none shadow-none card-hover rounded-3xl overflow-hidden`}>
-              <CardContent className="p-6 md:p-8 pb-24 md:pb-32 relative">
-                {/* Large faded step number */}
-                <span className="absolute bottom-4 right-6 text-[6rem] md:text-[8rem] font-bold opacity-[0.06] leading-none select-none font-mono">
-                  {step.step}
-                </span>
-                <Badge variant="secondary" className="bg-white/60 dark:bg-black/20 text-xs mb-4 md:mb-6 font-mono">
-                  Step {step.step}
-                </Badge>
-                <h3 className="text-xl md:text-2xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{step.description}</p>
-              </CardContent>
-            </Card>
+      <section className="site-shell py-10 sm:py-12">
+        <p className="text-center text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
+          {clients.title}
+        </p>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm font-medium text-slate-500 sm:gap-x-10">
+          {clients.logos.map((logo: { name: string }) => (
+            <span key={logo.name} className="inline-flex items-center gap-2">
+              <Star className="h-3.5 w-3.5 text-slate-300" />
+              {logo.name}
+            </span>
           ))}
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          BENEFITS SECTION
-       ════════════════════════════════════════════════════ */}
-      <section id="about" className="py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto border-t">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16">
+      <section id="process" className="site-shell site-section">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="max-w-lg">
+            <span className="section-badge">
+              <Workflow className="h-3.5 w-3.5" />
+              {process.badge}
+            </span>
+            <h2 className="section-title mt-5 text-balance">Our starting style</h2>
+            <p className="lead-copy mt-4 text-balance">{process.description}</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {process.steps.slice(0, 3).map((step: any, index: number) => (
+              <div key={step.step} className={`${pastelClasses[index]} editor-card min-h-[220px] border-white/80`}>
+                <span className="tag-chip">Step {step.step}</span>
+                <h3 className="mt-16 text-xl font-semibold tracking-[-0.03em] text-slate-900">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-16 grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
           <div>
-            <Badge variant="outline" className="rounded-full mb-4 md:mb-6 shadow-soft">{home.benefits.badge}</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 md:mb-6 leading-tight">
-              {home.benefits.title}
-            </h2>
-            <p className="text-muted-foreground mb-6 md:mb-8 text-base md:text-lg leading-relaxed">
-              {home.benefits.description}
-            </p>
-            <div className="flex flex-wrap gap-2">
+            <span className="section-badge">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              Benefits
+            </span>
+            <h2 className="section-title mt-5 text-balance">We design software systems that move as fast as you do.</h2>
+            <p className="lead-copy mt-4">{home.benefits.description}</p>
+            <div className="mt-6 flex flex-wrap gap-2">
               {home.benefits.tags.map((tag: string) => (
-                <Badge
-                  key={tag}
-                  variant="secondary"
-                  className="rounded-full px-3 md:px-4 py-1.5 font-normal text-foreground text-xs md:text-sm hover:bg-primary/10 hover:text-primary transition-colors cursor-default"
-                >
-                  {tag}
-                </Badge>
+                <span key={tag} className="tag-chip">{tag}</span>
               ))}
             </div>
           </div>
-          <div className="space-y-6 md:space-y-8">
-            {home.benefits.items.map((b: any, i: number) => (
-              <div key={i} className="space-y-1.5 group/benefit">
-                <h3 className="text-lg md:text-xl font-bold flex items-center gap-2">
-                  <span className="text-blue-500 text-sm group-hover/benefit:scale-125 transition-transform duration-200 inline-block">{b.icon}</span>
-                  {b.title}
-                </h3>
-                <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{b.description}</p>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {home.benefits.items.map((item: any) => (
+              <div key={item.title} className="editor-card">
+                <p className="text-sm font-semibold text-blue-600">{item.title}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          SERVICES SECTION
-       ════════════════════════════════════════════════════ */}
-      <section id="services" className="py-16 md:py-28 px-4 md:px-8 bg-blue-50/50 dark:bg-blue-950/10">
-        <div className="max-w-7xl mx-auto text-center mb-10 md:mb-16">
-          <Badge variant="outline" className="rounded-full mb-4 md:mb-6 bg-white dark:bg-background shadow-soft">{home.services.badge}</Badge>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-3 md:mb-4">{home.services.title}</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            {home.services.description}
-          </p>
+      <section className="site-shell site-section pt-4">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <span className="section-badge">
+              <Layers3 className="h-3.5 w-3.5" />
+              Projects
+            </span>
+            <h2 className="section-title mt-5 text-balance">Demand-built products for scaling brands.</h2>
+          </div>
+          <Link href="/work" className="site-button w-fit px-5 py-3">
+            View more projects
+          </Link>
         </div>
-        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {home.services.items.map((s: any, i: number) => (
-            <Card
-              key={i}
-              className={`border-none card-hover rounded-2xl overflow-hidden ${
-                s.active
-                  ? "bg-blue-600 text-white shadow-elevated glow-blue"
-                  : "shadow-soft hover:shadow-medium"
-              }`}
-            >
-              <CardContent className="p-5 md:p-6">
-                <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center mb-5 md:mb-6 text-sm ${
-                    s.active
-                      ? "bg-white/20"
-                      : "bg-blue-50 text-blue-600 dark:bg-blue-900/40"
-                  }`}
-                >
-                  {s.icon}
+
+        <div className="mt-8 grid gap-5 lg:grid-cols-[1.25fr_0.95fr]">
+          <Link href={`/work/${featuredProjects[0].slug}`} className="editor-card group block p-4 sm:p-5">
+            <div className="flex flex-wrap gap-2 text-[11px] text-slate-500">
+              <span className="tag-chip">{featuredProjects[0].category}</span>
+              <span className="tag-chip">{featuredProjects[0].client}</span>
+            </div>
+            <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+              {featuredProjects[0].title}
+            </h3>
+            <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-[1.4rem] bg-slate-100">
+              <Image
+                src={featuredProjects[0].image}
+                alt={featuredProjects[0].title}
+                fill
+                className="object-cover img-zoom"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+              />
+            </div>
+          </Link>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+            {featuredProjects.slice(1, 3).map((project: any) => (
+              <Link key={project.slug} href={`/work/${project.slug}`} className="editor-card group block p-4">
+                <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950">{project.title}</h3>
+                <div className="mt-2 flex flex-wrap gap-2 text-[11px] text-slate-500">
+                  <span className="tag-chip">{project.client}</span>
+                  <span className="tag-chip">{project.category}</span>
                 </div>
-                <h3 className="font-semibold text-lg md:text-xl mb-2 md:mb-3">{s.title}</h3>
-                <p className={`text-sm md:text-base leading-relaxed ${s.active ? "text-white/80" : "text-muted-foreground"}`}>
-                  {s.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+                <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-slate-100">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover img-zoom"
+                    sizes="(max-width: 768px) 100vw, 30vw"
+                  />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-5 grid gap-5 md:grid-cols-[0.55fr_1fr]">
+          <div className="editor-card pastel-sky flex flex-col justify-between p-6">
+            <div>
+              <div className="text-4xl text-blue-500">↯</div>
+              <h3 className="mt-6 text-2xl font-semibold tracking-[-0.03em] text-slate-950">For more details</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Strategy, delivery, and systems design around what your business actually needs.
+              </p>
+            </div>
+            <Link href="/contact" className="site-button mt-8 w-fit px-5 py-3">
+              Book a call
+            </Link>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            {featuredProjects.slice(3, 5).map((project: any) => (
+              <Link key={project.slug} href={`/work/${project.slug}`} className="editor-card group block p-4">
+                <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950">{project.title}</h3>
+                <div className="mt-2 flex flex-wrap gap-2 text-[11px] text-slate-500">
+                  <span className="tag-chip">{project.client}</span>
+                  <span className="tag-chip">{project.category}</span>
+                </div>
+                <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-slate-100">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover img-zoom"
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                  />
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          AI TRAINING & SKILL DEVELOPMENT SECTION
-       ════════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto border-t">
-        <div className="text-center mb-10 md:mb-16">
-          <Badge variant="outline" className="rounded-full mb-4 md:mb-6 shadow-soft">{aiTraining.badge}</Badge>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{aiTraining.title}</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            {aiTraining.description}
-          </p>
-        </div>
+      <section className="site-shell site-section">
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <span className="section-badge">
+              <Award className="h-3.5 w-3.5" />
+              Testimonials
+            </span>
+            <h2 className="section-title mt-5 text-balance">What people are saying</h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {testimonials.cards.slice(0, 4).map((card: any) => (
+                <div key={card.name} className="editor-card min-h-[220px]">
+                  <p className="text-sm leading-7 text-slate-600">{card.text}</p>
+                  <div className="mt-6 flex items-center gap-3">
+                    <Image
+                      src={card.avatar}
+                      alt={card.name}
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                    />
+                    <p className="text-sm font-medium text-slate-900">{card.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
-          {aiTraining.programs.map((program: any, i: number) => (
-            <Card key={i} className="border shadow-soft card-hover rounded-2xl overflow-hidden group">
-              <CardContent className="p-5 md:p-6">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center mb-5 text-2xl">
-                  {program.icon}
+          <div className="space-y-5">
+            <div className="rounded-[2rem] bg-[#0a0b0f] p-6 text-white shadow-[0_26px_60px_-28px_rgba(2,6,23,0.65)] sm:p-8">
+              <div className="flex flex-wrap gap-2">
+                <span className="rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.16em] text-white/70">
+                  {home.pricing.badge}
+                </span>
+                <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/50">Project based</span>
+              </div>
+              <h3 className="mt-6 text-3xl font-semibold tracking-[-0.04em]">{home.pricing.plan.name}</h3>
+              <p className="mt-4 text-sm leading-7 text-white/70">{home.pricing.plan.description}</p>
+              <ul className="mt-6 grid gap-3 text-sm text-white/85 sm:grid-cols-2">
+                {home.pricing.plan.features.map((feature: string) => (
+                  <li key={feature} className="flex items-start gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-400" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex items-end justify-between gap-4">
+                <div>
+                  <div className="text-4xl font-semibold tracking-[-0.05em]">{home.pricing.plan.price}</div>
+                  <div className="text-sm text-white/60">{home.pricing.plan.period}</div>
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{program.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{program.description}</p>
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  {program.topics.slice(0, 3).map((topic: string) => (
-                    <Badge key={topic} variant="secondary" className="text-xs py-0.5">{topic}</Badge>
-                  ))}
-                  {program.topics.length > 3 && (
-                    <Badge variant="secondary" className="text-xs py-0.5">+{program.topics.length - 3}</Badge>
-                  )}
-                </div>
-                <span className="text-xs text-muted-foreground font-mono">{program.duration}</span>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Internship Highlight Card */}
-        <Card className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-3xl overflow-hidden shadow-elevated">
-          <CardContent className="p-6 md:p-10">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <Badge variant="secondary" className="rounded-full mb-4 bg-white/20 text-white border-none">
-                  {aiTraining.internship.badge}
-                </Badge>
-                <h3 className="text-2xl md:text-3xl font-bold mb-3">{aiTraining.internship.title}</h3>
-                <p className="text-white/80 mb-6 leading-relaxed">{aiTraining.internship.description}</p>
-                <div className="grid grid-cols-2 gap-4">
-                  {aiTraining.internship.features.map((f: any, i: number) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-white/80 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-white/90">{f.title}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link
-                  href={aiTraining.cta.secondaryBtn.href}
-                  className="btn-press inline-flex items-center justify-center rounded-full bg-white text-blue-700 text-sm font-medium px-6 h-11 mt-6 hover:bg-white/90 transition-all shadow-medium"
-                >
-                  View Internship Details <ArrowRight className="ml-2 h-4 w-4" />
+                <Link href="/contact" className="rounded-full bg-white px-5 py-3 text-sm font-medium text-slate-950 transition-colors hover:bg-slate-100">
+                  Book a call
                 </Link>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                {aiTraining.internship.stats.map((stat: any, i: number) => (
-                  <div key={i} className="text-center p-4 bg-white/10 rounded-2xl">
-                    <div className="text-3xl md:text-4xl font-bold font-mono mb-1">{stat.value}</div>
-                    <div className="text-sm text-white/80">{stat.label}</div>
+            </div>
+
+            <div className="editor-card">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <Image
+                    src={home.pricing.scheduleCard.avatar}
+                    alt={home.pricing.scheduleCard.title}
+                    width={46}
+                    height={46}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <p className="text-sm font-medium text-slate-900">{home.pricing.scheduleCard.title}</p>
+                    <p className="text-xs text-emerald-600">{home.pricing.scheduleCard.spotsAvailable} spots available</p>
                   </div>
+                </div>
+              </div>
+              <p className="mt-4 text-sm leading-6 text-slate-600">{home.pricing.scheduleCard.description}</p>
+              <Link href="/contact" className="site-button mt-6 w-fit px-5 py-3">
+                Book a call
+              </Link>
+            </div>
+
+            <div className="editor-card">
+              <div className="flex items-center gap-1 text-slate-950">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star key={index} className="h-4 w-4 fill-current text-slate-950" />
                 ))}
               </div>
+              <p className="mt-5 text-base leading-8 text-slate-700">{home.pricing.reviewCard.text}</p>
+              <p className="mt-6 text-sm font-medium text-slate-950">{home.pricing.reviewCard.name}</p>
             </div>
-          </CardContent>
-        </Card>
-      </section>
-
-      {/* ════════════════════════════════════════════════════
-          CERTIFICATIONS & PARTNERSHIPS
-       ════════════════════════════════════════════════════ */}
-      <Certifications data={certifications} />
-
-      {/* ════════════════════════════════════════════════════
-          MISSION STATEMENT
-       ════════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-4xl mx-auto mb-8">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight">
-            Guided by <span className="text-blue-600 italic">innovation</span>, powered
-            by <span className="text-blue-600 italic">technology</span>. We build digital
-            solutions that help organizations{" "}
-            <span className="text-blue-600 italic">transform</span> and thrive in the modern era.
-          </h2>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-6 text-sm text-muted-foreground">
-          {home.mission.reviews.map((r: any, i: number) => (
-            <div key={i} className="flex items-center gap-2 hover:text-foreground transition-colors">
-              <span className="font-bold text-yellow-500">★★★★★</span>
-              <span className="font-mono text-xs md:text-sm">{r.rating}</span>
-              <span>Based on {r.count} reviews</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 md:mt-16 max-w-2xl mx-auto rounded-3xl overflow-hidden aspect-[4/3] relative shadow-elevated group">
-          <Image
-            src={home.mission.image}
-            alt="Threemates team at work"
-            fill
-            quality={80}
-            loading="lazy"
-            className="object-cover img-zoom"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 672px"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          </div>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          PROJECTS SECTION
-       ════════════════════════════════════════════════════ */}
-      <section id="projects" className="py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto border-t">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-10 md:mb-16">
+      <section className="site-shell site-section pt-0">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_340px] lg:items-start">
           <div>
-            <Badge variant="secondary" className="rounded-full mb-3 md:mb-4 shadow-soft">{home.projects.badge}</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-              {home.projects.title}
-            </h2>
-          </div>
-          <Link
-            href={home.projects.viewAllBtn.href}
-            className="btn-press inline-flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2.5 transition-all shadow-medium hover:shadow-elevated"
-          >
-            {home.projects.viewAllBtn.label}
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {/* Left column */}
-          <div className="space-y-6 md:space-y-8">
-            {/* Project 1 */}
-            <Card className="bg-card border rounded-3xl overflow-hidden group cursor-pointer card-hover">
-              <CardContent className="p-5 md:p-6">
-                <h3 className="font-bold text-lg md:text-xl mb-3">{home.projects.items[0].title}</h3>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {home.projects.items[0].tags.map((t: string) => (
-                    <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
-                  ))}
-                </div>
-                <div className="rounded-2xl overflow-hidden aspect-[4/3] relative bg-gray-900">
-                  <Image src={home.projects.items[0].image} alt={home.projects.items[0].title} fill quality={80} loading="lazy" className="object-cover img-zoom" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px" />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* CTA card */}
-            <Card className="bg-muted border-none rounded-3xl card-hover">
-              <CardContent className="p-6 md:p-8 text-center flex flex-col items-center justify-center min-h-[200px]">
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Sparkles className="h-5 w-5" />
-                </div>
-                <h3 className="font-bold text-lg md:text-xl mb-2">{home.projects.ctaCard.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4 max-w-xs leading-relaxed">
-                  {home.projects.ctaCard.description}
-                </p>
-                <Button className="btn-press rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-medium hover:shadow-elevated">
-                  {home.projects.ctaCard.buttonLabel}
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Right column */}
-          <div className="space-y-6 md:space-y-8">
-            {home.projects.items.slice(1).map((project: any, i: number) => (
-              <Card key={i} className="bg-card border rounded-3xl overflow-hidden group cursor-pointer card-hover">
-                <CardContent className="p-5 md:p-6">
-                  <h3 className="font-bold text-lg md:text-xl mb-3">{project.title}</h3>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((t: string) => (
-                      <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
-                    ))}
-                  </div>
-                  <div className={`rounded-2xl overflow-hidden ${i === home.projects.items.length - 2 ? "aspect-[4/3]" : "aspect-[3/2]"} relative bg-gray-900`}>
-                    <Image src={project.image} alt={project.title} fill quality={80} loading="lazy" className="object-cover img-zoom" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px" />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════
-          ABOUT / DOUBT SECTION
-       ════════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-28 px-4 md:px-8 bg-muted/30">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-8 h-8 rounded-full overflow-hidden relative ring-2 ring-background shadow-soft">
-              <Image src={home.about.avatar} alt="avatar" fill className="object-cover" sizes="32px" />
-            </div>
-            <span className="text-sm font-medium">{home.about.label}</span>
-          </div>
-          <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed mb-8">
-            {home.about.text}{" "}
-            <span className="text-blue-600 font-semibold">
-              {home.about.highlight}
+            <span className="section-badge">
+              <BookOpenCheck className="h-3.5 w-3.5" />
+              FAQ
             </span>
-          </p>
-          <Button className="btn-press rounded-full bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 shadow-medium hover:shadow-elevated glow-blue">
-            {home.about.buttonLabel}
-          </Button>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════
-          TESTIMONIALS
-       ════════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto border-t">
-        <div className="text-center mb-10 md:mb-16">
-          <Badge variant="outline" className="rounded-full mb-4 md:mb-6 shadow-soft">{testimonials.badge}</Badge>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">{testimonials.title}</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            {testimonials.description}
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {testimonials.cards.map((t: any, i: number) => (
-            <Card key={i} className="border shadow-soft card-hover rounded-2xl">
-              <CardContent className="p-5 md:p-6 flex flex-col h-full">
-                <div className="flex text-yellow-400 mb-4 gap-0.5">
-                  {[1,2,3,4,5].map(s => <Star key={s} className="h-3.5 w-3.5 fill-current" />)}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6 leading-relaxed flex-1">{t.text}</p>
-                <div className="flex items-center gap-3 mt-auto pt-4 border-t">
-                  <div className="w-8 h-8 rounded-full overflow-hidden relative ring-2 ring-background shadow-soft">
-                    <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="32px" />
-                  </div>
-                  <span className="text-sm font-semibold">{t.name}</span>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════
-          PRICING
-       ════════════════════════════════════════════════════ */}
-      <section id="pricing" className="py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto border-t">
-        <Badge variant="outline" className="rounded-full mb-4 md:mb-6 shadow-soft">{home.pricing.badge}</Badge>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-10 md:mb-16">
-          {home.pricing.title}
-        </h2>
-
-        <div className="grid md:grid-cols-5 gap-6 md:gap-8 items-start">
-          {/* Main pricing card */}
-          <Card className="md:col-span-3 bg-zinc-950 text-white border-none shadow-2xl rounded-3xl overflow-hidden relative">
-            {/* Subtle gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black opacity-80" />
-            <CardContent className="p-6 md:p-10 lg:p-12 relative z-10">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2">{home.pricing.plan.name}</h3>
-                  <p className="text-zinc-400 text-sm md:text-base">
-                    {home.pricing.plan.description}
-                  </p>
-                </div>
-                <div className="flex gap-2">
-                  <Button variant="outline" className="btn-press rounded-full border-zinc-700 bg-zinc-900 hover:bg-zinc-800 text-white text-sm">
-                    Contact Us
-                  </Button>
-                  <Button className="btn-press rounded-full bg-white text-black hover:bg-zinc-200 text-sm">
-                    Project Based
-                  </Button>
-                </div>
-              </div>
-
-              <div className="border-t border-zinc-800 pt-6 md:pt-8 mb-8 md:mb-12">
-                <p className="font-medium mb-5 md:mb-6 text-sm md:text-base">What&apos;s included:</p>
-                <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
-                  {home.pricing.plan.features.map((item: string) => (
-                    <div key={item} className="flex items-center gap-3 text-zinc-300 group/feature">
-                      <CheckCircle2 className="h-4 w-4 text-blue-400 flex-shrink-0 group-hover/feature:text-blue-300 transition-colors" />
-                      <span className="text-xs md:text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex items-end gap-2">
-                <span className="text-4xl md:text-5xl font-bold font-mono">{home.pricing.plan.price}</span>
-                <span className="text-zinc-400 mb-1 text-sm">{home.pricing.plan.period}</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Side cards */}
-          <div className="md:col-span-2 space-y-4 md:space-y-6">
-            <Card className="rounded-3xl border shadow-soft card-hover">
-              <CardContent className="p-6 md:p-8">
-                <div className="flex justify-between items-center mb-5 md:mb-6">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden relative ring-2 ring-background shadow-soft">
-                    <Image src={home.pricing.scheduleCard.avatar} alt="avatar" fill className="object-cover" sizes="48px" />
-                  </div>
-                  <Badge variant="secondary" className="bg-green-100/50 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-none text-xs">
-                    <span className="relative flex h-1.5 w-1.5 mr-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
-                    </span>
-                    {home.pricing.scheduleCard.spotsAvailable} spot available
-                  </Badge>
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-2">{home.pricing.scheduleCard.title}</h3>
-                <p className="text-muted-foreground text-sm mb-5 md:mb-6 leading-relaxed">
-                  {home.pricing.scheduleCard.description}
-                </p>
-                <Button className="btn-press w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white h-11 md:h-12 shadow-medium hover:shadow-elevated">
-                  Start a Project
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-3xl border shadow-soft bg-muted/50 card-hover">
-              <CardContent className="p-6 md:p-8">
-                <div className="flex justify-between items-start mb-3 md:mb-4">
-                  <div className="text-sm font-semibold flex items-center gap-2">
-                    {home.pricing.reviewCard.name}
-                    <div className="w-6 h-6 rounded-full overflow-hidden relative ring-1 ring-background">
-                      <Image src={home.pricing.reviewCard.avatar} alt={home.pricing.reviewCard.name} fill className="object-cover" sizes="24px" />
-                    </div>
-                  </div>
-                  <div className="text-yellow-500 flex items-center text-sm font-semibold">★ {home.pricing.reviewCard.rating}</div>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {home.pricing.reviewCard.text}
-                </p>
-              </CardContent>
-            </Card>
+            <h2 className="section-title mt-5">Question? Answer</h2>
+            <div className="mt-8">
+              <FaqAccordion items={faqs} />
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* ════════════════════════════════════════════════════
-          PROOF / TESTIMONIAL HIGHLIGHT
-       ════════════════════════════════════════════════════ */}
-      <section className="py-12 md:py-20 px-4 md:px-8 max-w-7xl mx-auto border-t">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div>
-            <p className="text-muted-foreground mb-3 md:mb-4 font-medium uppercase tracking-widest text-xs md:text-sm">
-              The proof is in their words
-            </p>
-            <div className="flex -space-x-2 mb-6 md:mb-8">
-              {testimonials.highlight.avatars.map((idx: number) => (
-                <div key={idx} className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-background relative shadow-soft hover:z-10 hover:scale-110 transition-transform duration-200">
-                  <Image src={`https://i.pravatar.cc/80?img=${idx}`} alt="reviewer" fill className="object-cover" sizes="48px" />
+          <aside className="glass-panel self-start px-5 py-6 sm:px-6">
+            <span className="section-badge">Need a direct answer?</span>
+            <p className="mt-5 text-base leading-7 text-slate-700">{home.about.text}</p>
+            <div className="mt-6 space-y-4 rounded-[1.5rem] border border-white/75 bg-white/85 p-4 shadow-soft">
+              {COMPANY_LOCATIONS.map((location) => (
+                <div key={location.slug} className="border-b border-slate-100 pb-4 last:border-b-0 last:pb-0">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">
+                    <MapPin className="h-3.5 w-3.5" />
+                    <span>{location.label} · {location.region}</span>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{location.address}</p>
                 </div>
               ))}
             </div>
-          </div>
-          <div>
-            <div className="flex mb-3 md:mb-4 space-x-0.5">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-current text-yellow-500" />
-              ))}
-            </div>
-            <p className="text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed mb-6 md:mb-8">
-              {testimonials.highlight.text}
-            </p>
-            <div>
-              <p className="font-bold text-sm md:text-base">{testimonials.highlight.name}</p>
-              <p className="text-muted-foreground text-xs md:text-sm">{testimonials.highlight.role}</p>
-            </div>
-          </div>
+            <a href={`mailto:${COMPANY_EMAIL}`} className="site-button mt-6 inline-flex w-full justify-center gap-2 px-5 py-3 sm:w-auto">
+              Email the team
+              <Mail className="h-4 w-4" />
+            </a>
+          </aside>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          FAQ
-       ════════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto border-t">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16">
+      <section className="site-shell site-section pt-0">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <Badge variant="outline" className="rounded-full mb-4 md:mb-6 shadow-soft">FAQ</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 md:mb-8">
-              Frequently Asked Questions
-            </h2>
-
-            <Card className="bg-zinc-950 text-white rounded-3xl overflow-hidden border-none hidden md:block mt-8 shadow-elevated relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black opacity-80" />
-              <CardContent className="p-8 relative z-10">
-                <div className="w-12 h-12 rounded-full overflow-hidden mb-6 relative ring-2 ring-zinc-700 shadow-medium">
-                  <Image src="https://i.pravatar.cc/80?img=43" alt="contact" fill className="object-cover" sizes="48px" />
-                </div>
-                <p className="text-lg md:text-xl font-medium mb-6 md:mb-8">
-                  Feel free to reach out whenever you have questions.
-                </p>
-                <Button variant="outline" className="btn-press rounded-full border-zinc-700 bg-zinc-900/50 hover:bg-zinc-800 text-white px-6">
-                  Contact Us
-                </Button>
-              </CardContent>
-            </Card>
+            <span className="section-badge">
+              <BrainCircuit className="h-3.5 w-3.5" />
+              Blog
+            </span>
+            <h2 className="section-title mt-5 text-balance">Explore our latest journal</h2>
           </div>
-
-          <div>
-            <Accordion className="w-full space-y-3 md:space-y-4">
-              {faqs.map((faq: any, i: number) => (
-                <AccordionItem
-                  key={i}
-                  value={`item-${i}`}
-                  className="border rounded-2xl px-4 md:px-6 bg-muted/30 data-[state=open]:bg-background data-[state=open]:shadow-medium transition-all duration-300"
-                >
-                  <AccordionTrigger className="text-left font-semibold hover:no-underline text-sm md:text-base py-4">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-4 text-sm leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════
-          BLOG
-       ════════════════════════════════════════════════════ */}
-      <section className="py-16 md:py-28 px-4 md:px-8 max-w-7xl mx-auto border-t">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8 md:mb-12">
-          <div>
-            <Badge variant="outline" className="rounded-full mb-4 md:mb-6 shadow-soft">{home.blog.badge}</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-              {home.blog.title}
-            </h2>
-          </div>
-          <Link
-            href={home.blog.viewAllBtn.href}
-            className="btn-press inline-flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2.5 transition-all shadow-medium hover:shadow-elevated"
-          >
-            {home.blog.viewAllBtn.label}
-            <ArrowRight className="ml-2 h-4 w-4" />
+          <Link href="/blog" className="site-button w-fit px-5 py-3">
+            View more projects
           </Link>
         </div>
-
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {home.blog.posts.map((blog: any, i: number) => (
-            <div key={i} className="group cursor-pointer">
-              <div className="rounded-2xl md:rounded-3xl overflow-hidden mb-4 md:mb-6 aspect-[4/3] relative shadow-soft group-hover:shadow-elevated transition-shadow duration-500">
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {featuredPosts.map((post: any) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="editor-card group block p-4">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[1.4rem] bg-slate-100">
                 <Image
-                  src={blog.image}
-                  alt={blog.title}
+                  src={post.image}
+                  alt={post.title}
                   fill
-                  quality={80}
-                  loading="lazy"
                   className="object-cover img-zoom"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              <div className="flex items-center gap-3 md:gap-4 text-xs md:text-sm text-muted-foreground mb-2 md:mb-3 font-mono">
-                <span>{blog.date}</span>
-                <span className="w-1 h-1 rounded-full bg-muted-foreground" />
-                <span>{blog.readTime}</span>
+              <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-slate-400">
+                <span>{post.date}</span>
+                <span>•</span>
+                <span>{post.readTime}</span>
               </div>
-              <h3 className="text-xl md:text-2xl font-bold group-hover:text-blue-600 transition-colors duration-300">{blog.title}</h3>
-            </div>
+              <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-slate-950">{post.title}</h3>
+            </Link>
           ))}
         </div>
       </section>
 
+      <section className="site-shell pb-10">
+        <div className="editor-card bg-slate-50/90 p-6 sm:p-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl">
+              <span className="section-badge">
+                <Quote className="h-3.5 w-3.5" />
+                Highlighted praise
+              </span>
+              <p className="mt-5 text-xl leading-9 tracking-[-0.03em] text-slate-900 sm:text-2xl">
+                <Quote className="mr-2 inline h-5 w-5 text-blue-500" />
+                {testimonials.highlight.text}
+              </p>
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <div className="flex -space-x-3">
+                  {testimonials.highlight.avatars.map((avatar: number) => (
+                    <Image
+                      key={avatar}
+                      src={`https://i.pravatar.cc/60?img=${avatar}`}
+                      alt="Client avatar"
+                      width={40}
+                      height={40}
+                      className="rounded-full border-2 border-white"
+                    />
+                  ))}
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-950">{testimonials.highlight.name}</p>
+                  <p className="text-xs text-slate-500">{testimonials.highlight.role}</p>
+                </div>
+              </div>
+            </div>
 
+            <Link href="/contact" className="site-button w-fit gap-2 px-5 py-3">
+              Start a project
+              <MoveRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

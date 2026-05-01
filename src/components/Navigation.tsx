@@ -6,9 +6,8 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "./ui/button";
-import { ModeToggle } from "./mode-toggle";
 import { Logo } from "./Logo";
+import { NAV_ITEMS } from "@/constants/site";
 
 export function Navigation({ data: _data }: { data: any }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -39,37 +38,46 @@ export function Navigation({ data: _data }: { data: any }) {
         };
     }, [isOpen]);
 
-    const links = [
-        { href: "/about", label: "About us" },
-        { href: "/services", label: "Services" },
-        { href: "/work", label: "Products" },
-        { href: "/ai-training", label: "AI Training" },
-        { href: "/blog", label: "Blog" },
-        { href: "/contact", label: "Contact" },
-    ];
+    const links = NAV_ITEMS;
+
+    const isActive = (href: string) => {
+        if (href.startsWith("/#")) {
+            return pathname === "/";
+        }
+        return pathname === href;
+    };
 
     return (
         <>
             <header
                 className={cn(
-                    "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-3 sm:px-4 md:px-8",
-                    scrolled ? "pt-1.5 pb-1.5 md:pt-2 md:pb-2" : "pt-3 md:pt-6"
+                    "fixed left-0 right-0 top-0 z-50 transition-all duration-500",
+                    scrolled ? "pt-2" : "pt-3 sm:pt-5"
                 )}
             >
-                <div className="max-w-7xl mx-auto grid grid-cols-[auto_1fr_auto] items-center">
-                    <Logo size="sm" />
+                <div className="site-shell">
+                    <div className={cn(
+                        "relative mx-auto flex items-center justify-between gap-2 px-1 py-2 transition-all duration-300 sm:gap-3 sm:px-2",
+                        scrolled && "py-1.5"
+                    )}>
+                        <div className="relative z-10 flex items-center gap-3">
+                            <Logo size="sm" className="scale-[0.6] origin-left sm:scale-[0.76] md:scale-[0.82] lg:scale-[0.86]" />
+                        </div>
 
-                    <nav className="hidden md:flex items-center justify-center">
-                        <div className="flex items-center gap-1 px-2 py-1.5 rounded-full bg-secondary/60 dark:bg-zinc-800/70 backdrop-blur-sm">
+                        <nav className="relative z-10 hidden lg:flex items-center justify-center">
+                            <div className={cn(
+                                "flex items-center gap-1 rounded-full border border-white/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.62)_0%,rgba(233,241,255,0.34)_100%)] px-2 py-1.5 shadow-[0_24px_60px_-34px_rgba(15,23,42,0.28),inset_0_1px_0_rgba(255,255,255,0.92)] backdrop-blur-2xl",
+                                scrolled && "border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.72)_0%,rgba(233,241,255,0.42)_100%)]"
+                            )}>
                             {links.map((link) => (
                                 <Link
                                     key={link.label}
                                     href={link.href}
                                     className={cn(
-                                        "text-sm font-medium transition-all duration-200 px-5 py-2 rounded-full",
-                                        pathname === link.href
-                                            ? "bg-primary text-primary-foreground"
-                                            : "text-foreground/70 hover:text-foreground hover:bg-secondary/80 dark:hover:bg-zinc-700/60"
+                                        "whitespace-nowrap rounded-full px-4 py-2.5 text-[13px] font-medium transition-all duration-200 xl:px-5 xl:text-sm",
+                                        isActive(link.href)
+                                            ? "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0_12px_30px_-16px_rgba(37,99,235,0.85)]"
+                                            : "text-slate-700 hover:bg-white/70 hover:text-slate-950"
                                     )}
                                 >
                                     {link.label}
@@ -78,79 +86,90 @@ export function Navigation({ data: _data }: { data: any }) {
                         </div>
                     </nav>
 
-                    <div className="flex items-center gap-3">
-                        <div className="hidden md:block">
-                            <ModeToggle />
-                        </div>
-                        <Link href="/contact" className="hidden md:flex">
-                            <Button className="rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white" size="sm">
+                        <div className="relative z-10 hidden sm:flex items-center gap-3">
+                            <Link href="/contact" className="site-button whitespace-nowrap px-5 py-2.5 text-sm sm:px-6">
                                 Start a Project
-                            </Button>
-                        </Link>
+                            </Link>
+                        </div>
+
+                        <button
+                            className="relative z-10 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/70 bg-white/55 text-slate-700 shadow-[0_18px_40px_-28px_rgba(15,23,42,0.28),inset_0_1px_0_rgba(255,255,255,0.92)] backdrop-blur-2xl transition-all hover:shadow-medium lg:hidden"
+                            onClick={() => setIsOpen(!isOpen)}
+                            aria-label="Toggle menu"
+                        >
+                            {isOpen ? <X size={18} /> : <Menu size={18} />}
+                        </button>
                     </div>
                 </div>
             </header>
 
-            {/* Mobile menu toggle - rendered outside header to avoid stacking context issues */}
-            <button
-                className={cn(
-                    "md:hidden fixed right-4 p-2.5 rounded-full border backdrop-blur-sm transition-all duration-200 z-[1000]",
-                    isOpen
-                        ? "bg-white text-black shadow-lg top-4"
-                        : "bg-secondary text-foreground shadow-soft hover:shadow-medium",
-                    scrolled && !isOpen ? "top-2.5" : !isOpen && "top-4"
-                )}
-                onClick={() => setIsOpen(!isOpen)}
-                aria-label="Toggle menu"
-            >
-                {isOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-
-            {/* Mobile menu overlay - rendered outside header to avoid stacking context issues */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="fixed inset-0 z-[999] bg-background flex flex-col pt-20 px-6 sm:px-8 md:hidden"
-                    >
-                        <div className="flex flex-col space-y-1">
-                            {links.map((link, i) => (
-                                <motion.div
-                                    key={link.label}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.06, duration: 0.3 }}
+                    <>
+                        <motion.button
+                            type="button"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-[60] bg-slate-950/18 backdrop-blur-sm lg:hidden"
+                            onClick={() => setIsOpen(false)}
+                            aria-label="Close menu"
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, y: -12, scale: 0.96 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -12, scale: 0.96 }}
+                            transition={{ duration: 0.22, ease: "easeOut" }}
+                            className="fixed inset-x-4 top-20 z-[70] rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92)_0%,rgba(242,246,255,0.88)_100%)] p-5 shadow-[0_28px_80px_-34px_rgba(15,23,42,0.34)] backdrop-blur-2xl sm:inset-x-auto sm:right-6 sm:w-[360px] lg:hidden"
+                        >
+                            <div className="mb-5 flex items-center justify-between">
+                                <Logo size="sm" className="scale-[0.62] origin-left sm:scale-[0.72]" />
+                                <button
+                                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700"
+                                    onClick={() => setIsOpen(false)}
+                                    aria-label="Close menu"
                                 >
-                                    <Link
-                                        href={link.href}
-                                        onClick={() => setIsOpen(false)}
-                                        className={cn(
-                                            "text-xl font-medium border-b border-border/50 py-5 block transition-all duration-200",
-                                            pathname === link.href
-                                                ? "text-primary translate-x-2"
-                                                : "text-foreground hover:text-primary hover:translate-x-2"
-                                        )}
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </motion.div>
-                            ))}
-                        </div>
-                        <div className="mt-auto pb-12 space-y-5">
-                            <div className="flex items-center justify-between px-1">
-                                <span className="text-sm text-muted-foreground font-medium">Appearance</span>
-                                <ModeToggle />
+                                    <X size={16} />
+                                </button>
                             </div>
-                            <Link href="/contact" className="w-full block">
-                                <Button className="w-full rounded-full btn-press shadow-medium glow-blue" size="lg">
+
+                            <div className="space-y-1 rounded-[1.5rem] border border-white/70 bg-white/60 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]">
+                                {links.map((link, index) => (
+                                    <motion.div
+                                        key={link.label}
+                                        initial={{ opacity: 0, x: -12 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: index * 0.04 }}
+                                    >
+                                        <Link
+                                            href={link.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className={cn(
+                                                "block rounded-[1.1rem] px-4 py-3 text-sm font-medium transition-all",
+                                                isActive(link.href)
+                                                    ? "bg-white text-slate-950 shadow-soft"
+                                                    : "text-slate-600 hover:bg-white hover:text-slate-950"
+                                            )}
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            <div className="mt-5 space-y-3 rounded-[1.5rem] border border-white/70 bg-white/75 p-4">
+                                <p className="text-sm leading-6 text-slate-500">
+                                    Let&apos;s shape a focused, conversion-first product presence for your brand.
+                                </p>
+                                <Link href="/contact" onClick={() => setIsOpen(false)} className="site-button flex w-full items-center justify-center px-4 py-3">
                                     Start a Project
-                                </Button>
-                            </Link>
-                        </div>
-                    </motion.div>
+                                </Link>
+                                <Link href="/contact" onClick={() => setIsOpen(false)} className="site-button-secondary flex w-full items-center justify-center px-4 py-3">
+                                    Contact us
+                                </Link>
+                            </div>
+                        </motion.div>
+                    </>
                 )}
             </AnimatePresence>
         </>

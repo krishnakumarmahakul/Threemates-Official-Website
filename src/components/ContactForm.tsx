@@ -58,17 +58,17 @@ export function ContactForm({ title, fields, submitBtn }: ContactFormProps) {
 
     if (status === "success") {
         return (
-            <div className="bg-card p-8 md:p-12 rounded-[2rem] border text-center flex flex-col items-center justify-center min-h-[400px]">
-                <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6">
+            <div className="soft-panel flex min-h-[420px] flex-col items-center justify-center p-8 text-center md:p-12">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
                     <CheckCircle2 className="w-8 h-8 text-green-600 dark:text-green-400" />
                 </div>
-                <h2 className="text-2xl font-bold text-foreground mb-3">Message Sent!</h2>
-                <p className="text-muted-foreground max-w-sm leading-relaxed mb-8">
+                <h2 className="mb-3 font-display text-3xl font-semibold tracking-[-0.04em] text-foreground">Message Sent!</h2>
+                <p className="mb-8 max-w-sm text-sm leading-7 text-muted-foreground sm:text-base">
                     Thank you for reaching out. We&apos;ve sent a confirmation to your email. Our team will get back to you within 24 hours.
                 </p>
                 <button
                     onClick={() => setStatus("idle")}
-                    className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                    className="site-button px-5 py-3"
                 >
                     Send another message
                 </button>
@@ -77,12 +77,23 @@ export function ContactForm({ title, fields, submitBtn }: ContactFormProps) {
     }
 
     return (
-        <div className="bg-card p-8 md:p-12 rounded-[2rem] border">
-            <h2 className="text-2xl font-bold text-foreground mb-8">{title}</h2>
+        <div className="soft-panel p-6 sm:p-8 md:p-10">
+            <div className="mb-8 flex items-start justify-between gap-4">
+                <div>
+                    <span className="section-badge">New project</span>
+                    <h2 className="mt-4 font-display text-3xl font-semibold tracking-[-0.04em] text-foreground">{title}</h2>
+                </div>
+                <div className="hidden h-11 w-11 items-center justify-center rounded-full bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-medium sm:inline-flex">
+                    <ArrowUpRight className="h-5 w-5" />
+                </div>
+            </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
                 {fields.map((field, index) => (
-                    <div key={index} className="space-y-2">
+                    <div
+                        key={index}
+                        className={cn("space-y-2", field.type === "textarea" && "sm:col-span-2")}
+                    >
                         <label htmlFor={field.name} className="text-sm font-medium text-muted-foreground">
                             {field.label}
                         </label>
@@ -95,7 +106,7 @@ export function ContactForm({ title, fields, submitBtn }: ContactFormProps) {
                                 value={formData[field.name] || ""}
                                 onChange={(e) => handleChange(field.name, e.target.value)}
                                 required={field.name !== "company"}
-                                className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all resize-none"
+                                className="min-h-[170px] w-full resize-none rounded-[1.5rem] border border-slate-200 bg-slate-50/85 px-4 py-4 text-foreground transition-all placeholder:text-muted-foreground/50 focus:border-blue-400/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-200/70"
                             />
                         ) : (
                             <input
@@ -106,7 +117,7 @@ export function ContactForm({ title, fields, submitBtn }: ContactFormProps) {
                                 value={formData[field.name] || ""}
                                 onChange={(e) => handleChange(field.name, e.target.value)}
                                 required={field.name !== "company"}
-                                className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
+                                className="w-full rounded-full border border-slate-200 bg-slate-50/85 px-4 py-3.5 text-foreground transition-all placeholder:text-muted-foreground/50 focus:border-blue-400/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-200/70"
                             />
                         )}
                     </div>
@@ -114,7 +125,7 @@ export function ContactForm({ title, fields, submitBtn }: ContactFormProps) {
 
                 {/* Error message */}
                 {status === "error" && errorMessage && (
-                    <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-xl px-4 py-3 text-sm text-red-700 dark:text-red-400">
+                    <div className="rounded-[1.25rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-800/50 dark:bg-red-900/20 dark:text-red-400 sm:col-span-2">
                         {errorMessage}
                     </div>
                 )}
@@ -123,7 +134,7 @@ export function ContactForm({ title, fields, submitBtn }: ContactFormProps) {
                     type="submit"
                     disabled={status === "loading"}
                     className={cn(
-                        "w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors mt-4 flex items-center justify-center gap-2 text-lg",
+                        "site-button mt-2 flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-base sm:col-span-2",
                         status === "loading" && "opacity-80 cursor-not-allowed"
                     )}
                 >

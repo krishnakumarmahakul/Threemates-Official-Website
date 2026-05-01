@@ -1,58 +1,142 @@
 {
-  "badge": "Skill Development",
-  "title": "Empowering the Next Generation with AI Skills",
-  "description": "We reach out to educational institutions and organizations to provide skill training on the latest AI technologies, enabling students and professionals to stay ahead in the rapidly evolving tech landscape.",
+  "badge": "AI Cohorts & Certification",
+  "title": "Microsoft-trained and Claude Partner Network-backed AI cohorts with certification.",
+  "description": "Threemates runs structured AI training cohorts for colleges, universities, enterprises, and focused learner groups with a clear promise: practical delivery readiness backed by Microsoft-aligned training, Claude Partner Network context, guided labs, live projects, and verified certification support.",
+  "heroHighlights": [
+    "Microsoft-trained cohort pathways",
+    "Claude Partner Network-backed learning context",
+    "Verified certification support and completion",
+    "Live projects, labs, and mentor-led reviews"
+  ],
   "programs": [
     {
-      "title": "AI & Machine Learning",
-      "description": "Comprehensive training on AI fundamentals, machine learning algorithms, deep learning, and real-world applications.",
-      "icon": "🤖",
-      "topics": ["Neural Networks", "Computer Vision", "NLP", "MLOps", "LLMs"],
-      "duration": "12 weeks"
-    },
-    {
-      "title": "Generative AI & LLMs",
-      "description": "Hands-on training with Large Language Models, prompt engineering, RAG systems, and AI agents.",
-      "icon": "✨",
-      "topics": ["Prompt Engineering", "LangChain", "Vector Databases", "AI Agents", "Fine-tuning"],
+      "title": "Generative AI and LLM Engineering",
+      "description": "Build production-ready skills in prompt systems, retrieval pipelines, agents, evaluation, and safe deployment patterns for real business use cases.",
+      "icon": "AI",
+      "topics": ["Prompt Engineering", "RAG Systems", "Agent Workflows", "Evaluation", "Guardrails"],
       "duration": "8 weeks"
     },
     {
-      "title": "Data Science & Analytics",
-      "description": "Build expertise in data analysis, visualization, statistical modeling, and predictive analytics.",
-      "icon": "📊",
-      "topics": ["Python", "Pandas", "Tableau", "Statistics", "Forecasting"],
+      "title": "Azure AI Fundamentals Track",
+      "description": "A structured Microsoft-aligned learning path covering Azure AI services, responsible AI concepts, model usage patterns, and certification preparation.",
+      "icon": "AZ",
+      "topics": ["Azure AI Services", "Responsible AI", "Vision", "Language", "Certification Prep"],
+      "duration": "6 weeks"
+    },
+    {
+      "title": "Claude for Applied AI Workflows",
+      "description": "Teach teams how to use Claude for enterprise writing, analysis, summarisation, workflow acceleration, and human-in-the-loop review systems.",
+      "icon": "CL",
+      "topics": ["Claude Workflows", "Enterprise Use Cases", "Prompt Ops", "Knowledge Tasks", "Review Loops"],
+      "duration": "6 weeks"
+    },
+    {
+      "title": "Data, MLOps, and Deployment",
+      "description": "Cover data pipelines, experiment tracking, deployment patterns, monitoring, and the operational foundations needed to take AI into production.",
+      "icon": "ML",
+      "topics": ["Python", "Model Ops", "Pipelines", "Deployment", "Monitoring"],
       "duration": "10 weeks"
-    },
-    {
-      "title": "Cloud & MLOps",
-      "description": "Learn to deploy, monitor, and scale AI models in production using modern cloud infrastructure.",
-      "icon": "☁️",
-      "topics": ["AWS/GCP", "Docker", "Kubernetes", "ML Pipelines", "Monitoring"],
-      "duration": "8 weeks"
     }
   ],
+  "deliveryModes": [
+    {
+      "title": "Campus immersion",
+      "description": "Multi-day or semester-style delivery for colleges and universities with faculty coordination and student assessments."
+    },
+    {
+      "title": "Corporate upskilling",
+      "description": "Role-based workshops for engineering, product, operations, marketing, and leadership teams."
+    },
+    {
+      "title": "Hybrid cohorts",
+      "description": "Live online sessions with recordings, assignments, capstones, and mentor office hours for distributed teams."
+    }
+  ],
+  "sessionFlow": [
+    {
+      "title": "Foundations and orientation",
+      "description": "AI fundamentals, responsible usage, tool setup, and baseline assessments aligned to participant level."
+    },
+    {
+      "title": "Hands-on labs",
+      "description": "Guided practice on prompting, model workflows, Azure AI services, Claude usage patterns, and integration exercises."
+    },
+    {
+      "title": "Project build",
+      "description": "Participants ship a practical use case such as chatbot workflows, reporting copilots, document analysis, or internal knowledge tools."
+    },
+    {
+      "title": "Certification and review",
+      "description": "Mock assessments, mentor feedback, and final evaluation to prepare learners for verified certification pathways."
+    }
+  ],
+  "partners": [
+    {
+      "name": "Microsoft",
+      "label": "Microsoft-trained cohort pathway",
+      "description": "We run Microsoft-aligned AI cohorts with Azure AI fundamentals preparation, applied Azure AI labs, certification-oriented workshops, and structured support for learners who want credible outcomes, not just exposure.",
+      "image": "/assets/micorsoft.png",
+      "benefits": [
+        "Azure AI fundamentals preparation",
+        "Hands-on Azure services labs",
+        "Microsoft certification-oriented support"
+      ]
+    },
+    {
+      "name": "Claude",
+      "label": "Claude Partner Network-backed cohort",
+      "description": "We deliver Claude-centered cohorts shaped by real workflow usage, reasoning support, prompt discipline, and enterprise knowledge use cases so learners understand how Claude fits practical team delivery.",
+      "image": "/assets/claude.png",
+      "benefits": [
+        "Claude workflow design",
+        "Enterprise reasoning and writing patterns",
+        "Verified completion and capability mapping"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Microsoft certification pathway",
+      "description": "Preparation support for Azure AI-aligned assessment goals, revision planning, guided practice, and certification-ready confidence building."
+    },
+    {
+      "title": "Claude cohort capability certification",
+      "description": "Completion-based validation for participants trained on Claude workflows, prompting discipline, reasoning tasks, and applied enterprise use cases."
+    },
+    {
+      "title": "Capstone completion certificate",
+      "description": "Issued to learners who complete labs, capstone delivery, mentor review, and final cohort evaluation successfully."
+    }
+  ],
+  "mentor": {
+    "name": "Gokul Chandra",
+    "role": "AI trainer and product mentor",
+    "image": "/assets/Gokul Image.png",
+    "description": "Programs are delivered with practical build focus, real delivery examples, and mentor-led feedback loops that help participants move from concept to working implementation with certification-focused discipline.",
+    "email": "gokul@threemates.tech",
+    "phone": "+91 93480 32632"
+  },
   "internship": {
     "badge": "Internship Program",
-    "title": "Gain Real-World Experience",
-    "description": "Our internship program offers students and recent graduates the opportunity to work on live projects, mentored by industry professionals.",
+    "title": "Gain real-world AI delivery experience",
+    "description": "Our internship program gives students and fresh graduates direct exposure to product workflows, mentor reviews, live project delivery, and production-minded engineering habits.",
     "features": [
-      { "title": "Live Project Experience", "description": "Work on real client projects using cutting-edge technologies" },
-      { "title": "Mentorship from Experts", "description": "One-on-one guidance from experienced developers and tech leads" },
-      { "title": "Career Pathway", "description": "Top performers receive full-time offers and career guidance" },
-      { "title": "Certification", "description": "Receive industry-recognized certification upon completion" }
+      { "title": "Live project experience", "description": "Work on real client and internal product problems using current AI and software tooling." },
+      { "title": "Mentorship from experts", "description": "One-to-one and cohort-based review from builders working on applied delivery problems." },
+      { "title": "Career pathway", "description": "Strong performers receive portfolio guidance, interview preparation, and role-based career direction." },
+      { "title": "Certification", "description": "Receive completion certification for project delivery, attendance, and assessment performance." }
     ],
     "stats": [
-      { "value": "100+", "label": "Interns Trained" },
-      { "value": "85%", "label": "Placed in Tech Roles" },
-      { "value": "50+", "label": "Partner Colleges" },
-      { "value": "6", "label": "Months Duration" }
+      { "value": "100+", "label": "Learners trained" },
+      { "value": "85%", "label": "Learners placed or advanced" },
+      { "value": "50+", "label": "Institution partners" },
+      { "value": "24x7", "label": "Support window during programs" }
     ]
   },
   "cta": {
-    "title": "Ready to Upskill Your Team?",
-    "description": "Partner with us to bring world-class AI training to your organization or institution.",
-    "primaryBtn": { "label": "Request Training", "href": "/contact" },
-    "secondaryBtn": { "label": "View Internship Details", "href": "/internship" }
+    "title": "Launch a Microsoft-trained or Claude-backed cohort for your institution or team",
+    "description": "We design cohort structure, certification support, labs, mentor review, and live projects around your audience, timetable, and delivery goals.",
+    "primaryBtn": { "label": "Request training", "href": "/contact" },
+    "secondaryBtn": { "label": "View internship details", "href": "/internship" }
   }
 }

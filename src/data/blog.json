@@ -12,9 +12,9 @@
     "description": "How digital management systems are transforming school operations, from admissions to exam management.",
     "slug": "school-erp-2026",
     "author": {
-      "name": "Krishna Kumar",
-      "role": "CTO, Threemates",
-      "avatar": "https://i.pravatar.cc/150?u=krishna"
+      "name": "Threemates Team",
+      "role": "Product Engineering Team",
+      "avatar": "/assets/icon.png"
     },
     "content": {
       "intro": "The education sector is undergoing a massive digital transformation. In 2026, schools that still rely on paper-based processes, manual attendance tracking, and disconnected systems are falling behind. A modern ERP (Enterprise Resource Planning) system specifically built for schools can unify every aspect of administration — from admissions and fee management to exam scheduling and parent communication — into a single, powerful platform.",
@@ -53,9 +53,9 @@
       "description": "Key architecture patterns for building multi-tenant SaaS applications that scale.",
       "slug": "saas-architecture-best-practices",
       "author": {
-        "name": "Debasis Mohanty",
-        "role": "Lead Architect, Threemates",
-        "avatar": "https://i.pravatar.cc/150?u=debasis"
+        "name": "Threemates Team",
+        "role": "Product Engineering Team",
+        "avatar": "/assets/icon.png"
       },
       "content": {
         "intro": "Building a SaaS platform that works for 10 users is easy. Building one that works seamlessly for 10,000 concurrent tenants — each with their own data, configurations, and usage patterns — requires careful architectural planning from day one. In this guide, we break down the key architecture patterns that power the most successful SaaS products in 2026.",
@@ -93,9 +93,9 @@
       "description": "A practical comparison of React Native and Flutter for cross-platform mobile app development.",
       "slug": "react-native-vs-flutter",
       "author": {
-        "name": "Ujjwal Kumar",
-        "role": "Mobile Lead, Threemates",
-        "avatar": "https://i.pravatar.cc/150?u=ujjwal"
+        "name": "Threemates Team",
+        "role": "Product Engineering Team",
+        "avatar": "/assets/icon.png"
       },
       "content": {
         "intro": "The cross-platform mobile development landscape in 2026 is dominated by two frameworks: React Native by Meta and Flutter by Google. Both have matured significantly, and choosing between them is no longer about which is 'better' — it's about which is better for your specific project, team, and business requirements. Let's break it down with real-world considerations.",
@@ -133,9 +133,9 @@
       "description": "Digital management systems are streamlining patient care, billing, and inventory in healthcare.",
       "slug": "erp-hospital-operations",
       "author": {
-        "name": "Krishna Kumar",
-        "role": "CTO, Threemates",
-        "avatar": "https://i.pravatar.cc/150?u=krishna"
+        "name": "Threemates Team",
+        "role": "Product Engineering Team",
+        "avatar": "/assets/icon.png"
       },
       "content": {
         "intro": "Hospitals and healthcare facilities manage some of the most complex operations of any organization — patient records, appointment scheduling, billing, pharmacy inventory, lab management, and regulatory compliance all happening simultaneously, 24/7. A well-implemented Hospital ERP system can transform these chaotic workflows into streamlined, error-free processes that improve both operational efficiency and patient outcomes.",
@@ -173,9 +173,9 @@
       "description": "Choosing the right cloud provider for your startup's infrastructure needs.",
       "slug": "aws-vs-azure-startups",
       "author": {
-        "name": "Debasis Mohanty",
-        "role": "Lead Architect, Threemates",
-        "avatar": "https://i.pravatar.cc/150?u=debasis"
+        "name": "Threemates Team",
+        "role": "Product Engineering Team",
+        "avatar": "/assets/icon.png"
       },
       "content": {
         "intro": "For startups building their first product, choosing a cloud provider is one of the most consequential technical decisions you'll make. AWS and Azure dominate the market, but they cater to different strengths and use cases. This guide cuts through the marketing and gives you a practical framework for deciding between AWS and Azure based on your startup's specific needs.",

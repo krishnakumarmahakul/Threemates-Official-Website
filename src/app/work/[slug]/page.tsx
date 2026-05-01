@@ -1,250 +1,355 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowLeft, ArrowRight, Building2, Layers3, ShieldCheck, Users2 } from "lucide-react";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Layers, Wrench } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { getWorkData } from "@/lib/data-loader";
 
 interface ProjectPageProps {
-    params: { slug: string };
+  params: { slug: string };
 }
 
-// Generate static params for all projects
 export async function generateStaticParams() {
-    const data = await getWorkData();
-    return data.projects.map((project: any) => ({
-        slug: project.slug,
-    }));
+  const data = await getWorkData();
+  return data.projects.map((project: any) => ({ slug: project.slug }));
 }
 
-// Generate dynamic metadata for each project page
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
-    const data = await getWorkData();
-    const project = data.projects.find((p: any) => p.slug === params.slug);
+  const data = await getWorkData();
+  const project = data.projects.find((entry: any) => entry.slug === params.slug);
 
-    if (!project) {
-        return { title: "Project Not Found" };
-    }
+  if (!project) {
+    return { title: "Project Not Found" };
+  }
 
-    return {
-        title: `${project.title} — Case Study`,
-        description: project.description,
-        alternates: { canonical: `/work/${project.slug}` },
-        openGraph: {
-            title: `${project.title} — Threemates Case Study`,
-            description: project.description,
-            url: `/work/${project.slug}`,
-            type: "article",
-            images: [{ url: project.image, width: 800, height: 600, alt: project.title }],
-        },
-        twitter: {
-            title: `${project.title} — Threemates Case Study`,
-            description: project.description,
-            images: [project.image],
-        },
-    };
+  return {
+    title: `${project.title} — Case Study`,
+    description: project.description,
+    alternates: { canonical: `/work/${project.slug}` },
+    openGraph: {
+      title: `${project.title} — Threemates Case Study`,
+      description: project.description,
+      url: `/work/${project.slug}`,
+      type: "article",
+      images: [{ url: project.image, width: 800, height: 600, alt: project.title }],
+    },
+    twitter: {
+      title: `${project.title} — Threemates Case Study`,
+      description: project.description,
+      images: [project.image],
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-    const data = await getWorkData();
-    const project = data.projects.find((p: any) => p.slug === params.slug);
+  const data = await getWorkData();
+  const project = data.projects.find((entry: any) => entry.slug === params.slug);
 
-    if (!project || !project.caseStudy) {
-        notFound();
-    }
+  if (!project || !project.caseStudy) {
+    notFound();
+  }
 
-    const cs = project.caseStudy;
+  const caseStudy = project.caseStudy;
+  const hasPillars = Array.isArray(caseStudy.pillars) && caseStudy.pillars.length > 0;
+  const hasModuleGroups = Array.isArray(caseStudy.moduleGroups) && caseStudy.moduleGroups.length > 0;
+  const hasShowcasePanels = Array.isArray(caseStudy.showcasePanels) && caseStudy.showcasePanels.length > 0;
+  const hasStats = Array.isArray(caseStudy.stats) && caseStudy.stats.length > 0;
+  const hasDayOne = Array.isArray(caseStudy.dayOne) && caseStudy.dayOne.length > 0;
+  const pillarIcons = [Layers3, Users2, ShieldCheck, Building2] as const;
 
-    return (
-        <div className="flex flex-col min-h-screen">
-            {/* Hero */}
-            <section className="pt-32 md:pt-44 pb-12 md:pb-20 px-4 md:px-8 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-100/60 via-cyan-50/40 to-background dark:from-blue-950/30 dark:via-cyan-950/20 dark:to-background" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-blue-200/40 to-transparent dark:from-blue-800/20 blur-3xl" />
+  return (
+    <div className="pb-8">
+      <section className="site-shell pt-28 sm:pt-32 lg:pt-36">
+        <div className="hero-glow glass-panel px-5 pb-8 pt-10 sm:px-8 lg:px-12 lg:pt-12">
+          <Link href="/work" className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-slate-900">
+            <ArrowLeft className="h-4 w-4" />
+            Back to projects
+          </Link>
 
-                <div className="max-w-7xl mx-auto relative z-10">
-                    {/* Back link */}
-                    <Link
-                        href="/work"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-8 group"
-                    >
-                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                        Back to Projects
-                    </Link>
+          <div className="mt-6 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <div>
+              <span className="section-badge">
+                <Layers3 className="h-3.5 w-3.5" />
+                Overview
+              </span>
+              <h1 className="display-title mt-5 text-balance text-[clamp(2.4rem,5vw,4.8rem)]">{project.title}</h1>
+              <p className="lead-copy mt-5 max-w-xl">{project.description}</p>
+              {caseStudy.summary ? (
+                <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">{caseStudy.summary}</p>
+              ) : null}
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span className="tag-chip">Client: {project.client}</span>
+                <span className="tag-chip">Category: {project.category}</span>
+              </div>
+            </div>
 
-                    <div className="flex flex-wrap items-center gap-3 mb-6">
-                        <Badge variant="secondary" className="rounded-full px-4 py-1.5 text-xs font-semibold">
-                            {project.category}
-                        </Badge>
-                        <span className="text-sm text-muted-foreground">Client: {project.client}</span>
-                    </div>
+            <div className="editor-card p-4">
+              <div className="relative aspect-[16/11] overflow-hidden rounded-[1.5rem] bg-slate-100">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                />
+              </div>
+            </div>
+          </div>
 
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter font-bold text-foreground leading-[1.05] max-w-4xl mb-6">
-                        {project.title}
-                    </h1>
-                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                        {project.description}
-                    </p>
+          {hasStats ? (
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {caseStudy.stats.map((stat: any, index: number) => (
+                <div key={stat.label} className={`${index % 2 === 0 ? "pastel-blue" : "pastel-pink"} editor-card min-h-[150px] p-5`}>
+                  <div className="text-4xl font-semibold tracking-[-0.05em] text-slate-950">{stat.value}</div>
+                  <p className="mt-4 text-sm leading-6 text-slate-600">{stat.label}</p>
                 </div>
-            </section>
-
-            {/* Hero Image */}
-            <section className="px-4 md:px-8 mb-16 md:mb-24">
-                <div className="max-w-7xl mx-auto">
-                    <div className="relative aspect-[21/9] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-secondary/30">
-                        <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            quality={85}
-                            className="object-cover"
-                            sizes="(max-width: 1280px) 100vw, 1200px"
-                            priority
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
-                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent" />
-                    </div>
-                </div>
-            </section>
-
-            {/* Client Requirement */}
-            <section className="px-4 md:px-8 mb-16 md:mb-24">
-                <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center gap-3 mb-6">
-                        <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                            <Lightbulb className="w-5 h-5 text-blue-500" />
-                        </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">Client Requirement</h2>
-                    </div>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                        {cs.clientRequirement}
-                    </p>
-                </div>
-            </section>
-
-            {/* Challenges */}
-            <section className="px-4 md:px-8 mb-16 md:mb-24 py-16 md:py-20 bg-muted/30 border-y">
-                <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center gap-3 mb-8">
-                        <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                            <AlertTriangle className="w-5 h-5 text-amber-500" />
-                        </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">Challenges</h2>
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                        {cs.challenges.map((challenge: string, i: number) => (
-                            <div
-                                key={i}
-                                className="flex items-start gap-4 p-5 rounded-2xl bg-background border hover:shadow-medium transition-all duration-300"
-                            >
-                                <span className="text-xs font-bold text-amber-500 bg-amber-500/10 rounded-lg w-8 h-8 flex items-center justify-center shrink-0 mt-0.5">
-                                    {String(i + 1).padStart(2, "0")}
-                                </span>
-                                <p className="text-foreground font-medium leading-relaxed">{challenge}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Our Solution */}
-            <section className="px-4 md:px-8 mb-16 md:mb-24">
-                <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center gap-3 mb-6">
-                        <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
-                            <CheckCircle2 className="w-5 h-5 text-green-500" />
-                        </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">Our Solution</h2>
-                    </div>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                        {cs.solution}
-                    </p>
-                </div>
-            </section>
-
-            {/* Key Features */}
-            <section className="px-4 md:px-8 mb-16 md:mb-24 py-16 md:py-20 bg-muted/30 border-y">
-                <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center gap-3 mb-8">
-                        <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                            <Layers className="w-5 h-5 text-blue-500" />
-                        </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">Key Features</h2>
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                        {cs.features.map((feature: string, i: number) => (
-                            <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-background border">
-                                <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0" />
-                                <span className="text-foreground font-medium">{feature}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Technology Stack */}
-            <section className="px-4 md:px-8 mb-16 md:mb-24">
-                <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center gap-3 mb-8">
-                        <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
-                            <Wrench className="w-5 h-5 text-purple-500" />
-                        </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-foreground">Technology Stack</h2>
-                    </div>
-                    <div className="flex flex-wrap gap-3">
-                        {cs.technologyStack.map((tech: string, i: number) => (
-                            <Badge
-                                key={i}
-                                variant="secondary"
-                                className="rounded-full px-5 py-2.5 text-sm font-semibold hover:bg-primary/10 hover:text-primary transition-colors"
-                            >
-                                {tech}
-                            </Badge>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Outcome */}
-            <section className="px-4 md:px-8 mb-16 md:mb-24">
-                <div className="max-w-4xl mx-auto">
-                    <div className="bg-gradient-to-br from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-900 rounded-[2rem] p-8 md:p-12 text-white relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_60%)]" />
-                        <div className="relative z-10">
-                            <h2 className="text-2xl md:text-3xl font-bold mb-4">Outcome</h2>
-                            <p className="text-lg md:text-xl leading-relaxed text-white/90">
-                                {cs.outcome}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA */}
-            <section className="px-4 md:px-8 pb-20 md:pb-32">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                        Have a similar project in mind?
-                    </h3>
-                    <p className="text-muted-foreground mb-8 max-w-lg mx-auto leading-relaxed">
-                        Let&apos;s discuss how we can build a custom solution for your business.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link href="/contact">
-                            <Button className="rounded-full px-8 h-12 bg-blue-600 hover:bg-blue-700 text-white shadow-medium hover:shadow-elevated text-base">
-                                Start a Project
-                            </Button>
-                        </Link>
-                        <Link href="/work">
-                            <Button variant="outline" className="rounded-full px-8 h-12 text-base">
-                                View More Projects
-                            </Button>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+              ))}
+            </div>
+          ) : null}
         </div>
-    );
+      </section>
+
+      {hasPillars ? (
+        <section className="site-shell site-section pt-0">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl">
+              <span className="section-badge">
+                <ShieldCheck className="h-3.5 w-3.5" />
+                Why it works
+              </span>
+              <h2 className="section-title mt-5 text-balance">The operating principles behind Smart Campus ERP.</h2>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {caseStudy.pillars.map((pillar: any, index: number) => {
+              const Icon = pillarIcons[index] || Layers3;
+              return (
+                <div key={pillar.title} className={`${index % 2 === 0 ? "pastel-sky" : "editor-card"} min-h-[220px] rounded-[1.75rem] border border-white/80 p-6 shadow-soft`}>
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-blue-600 shadow-soft">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-10 text-xl font-semibold tracking-[-0.03em] text-slate-950">{pillar.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{pillar.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      ) : null}
+
+      <section className="site-shell site-section">
+        <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="space-y-6">
+            <div className="editor-card p-6">
+              <span className="section-badge">
+                <ShieldCheck className="h-3.5 w-3.5" />
+                The challenge
+              </span>
+              <p className="mt-5 text-base leading-8 text-slate-700">{caseStudy.clientRequirement}</p>
+            </div>
+
+            <div className="editor-card p-6">
+              <span className="section-badge">
+                <Users2 className="h-3.5 w-3.5" />
+                Key friction points
+              </span>
+              <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-700">
+                {caseStudy.challenges.map((challenge: string) => (
+                  <li key={challenge} className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500" />
+                    <span>{challenge}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="editor-card p-6">
+              <span className="section-badge">
+                <Layers3 className="h-3.5 w-3.5" />
+                The solution
+              </span>
+              <p className="mt-5 text-base leading-8 text-slate-700">{caseStudy.solution}</p>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div className="editor-card p-6">
+              <span className="section-badge">
+                <Building2 className="h-3.5 w-3.5" />
+                Project info
+              </span>
+              <div className="mt-5 space-y-4 text-sm leading-7 text-slate-700">
+                <div className="grid grid-cols-[120px_1fr] gap-3 border-b border-slate-100 pb-4">
+                  <span className="text-slate-400">Client</span>
+                  <span>{project.client}</span>
+                </div>
+                <div className="grid grid-cols-[120px_1fr] gap-3 border-b border-slate-100 pb-4">
+                  <span className="text-slate-400">Category</span>
+                  <span>{project.category}</span>
+                </div>
+                <div className="grid grid-cols-[120px_1fr] gap-3">
+                  <span className="text-slate-400">Scope</span>
+                  <span>{project.description}</span>
+                </div>
+              </div>
+              <Link href="/contact" className="site-button mt-6 w-fit px-5 py-3">
+                View live site
+              </Link>
+            </div>
+
+            <div className="editor-card p-6">
+              <span className="section-badge">
+                <Layers3 className="h-3.5 w-3.5" />
+                Features
+              </span>
+              <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-700">
+                {caseStudy.features.map((feature: string) => (
+                  <li key={feature} className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {hasModuleGroups ? (
+        <section className="site-shell site-section pt-0">
+          <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+            <div>
+              <span className="section-badge">
+                <Layers3 className="h-3.5 w-3.5" />
+                Every module in one place
+              </span>
+              <h2 className="section-title mt-5 text-balance">Fifteen modules engineered to work as one system, not stitched together tools.</h2>
+              <p className="lead-copy mt-4">Admissions, academics, finance, people operations, communication, analytics, and deployment all move inside the same operational fabric.</p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3">
+              {caseStudy.moduleGroups.map((group: any, index: number) => (
+                <div key={group.title} className={`${index === 0 ? "pastel-blue" : index === 1 ? "pastel-pink" : "pastel-sky"} editor-card min-h-[280px] p-6`}>
+                  <span className="tag-chip">0{index + 1}</span>
+                  <h3 className="mt-8 text-xl font-semibold tracking-[-0.03em] text-slate-950">{group.title}</h3>
+                  <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-600">
+                    {group.items.map((item: string) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {hasShowcasePanels ? (
+        <section className="site-shell site-section pt-0">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl">
+              <span className="section-badge">
+                <Users2 className="h-3.5 w-3.5" />
+                Product walkthrough
+              </span>
+              <h2 className="section-title mt-5 text-balance">Screens and workflows that make the platform tangible from day one.</h2>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            {caseStudy.showcasePanels.map((panel: any, index: number) => (
+              <div key={panel.title} className="editor-card group overflow-hidden p-4 sm:p-5">
+                <div className={`rounded-[1.4rem] border border-white/80 ${index === 0 ? "bg-[#eef5ff]" : index === 1 ? "bg-[#fff8ef]" : "bg-[#f3f8f2]"} p-3`}>
+                  <div className="flex items-center justify-between px-2 pb-3 pt-1">
+                    <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Screen 0{index + 1}</span>
+                    <span className="h-2.5 w-2.5 rounded-full bg-blue-500" />
+                  </div>
+                  <div className="relative aspect-[16/11] overflow-hidden rounded-[1rem] border border-white/90 bg-white shadow-soft">
+                    {panel.image ? (
+                      <Image
+                        src={panel.image}
+                        alt={panel.title}
+                        fill
+                        className="object-cover img-zoom"
+                        sizes="(max-width: 1024px) 100vw, 33vw"
+                      />
+                    ) : (
+                      <div className="grid h-full gap-2 rounded-[1rem] bg-white/90 p-4 shadow-soft">
+                        <div className="h-3 w-1/2 rounded-full bg-slate-200" />
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="h-20 rounded-[0.9rem] bg-slate-100" />
+                          <div className="h-20 rounded-[0.9rem] bg-slate-100" />
+                        </div>
+                        <div className="h-28 rounded-[1rem] bg-slate-100" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <h3 className="mt-5 text-xl font-semibold tracking-[-0.03em] text-slate-950">{panel.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{panel.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <section className="site-shell site-section pt-0">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
+          <div className="editor-card p-6">
+            <span className="section-badge">
+              <Layers3 className="h-3.5 w-3.5" />
+              Stack
+            </span>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {caseStudy.technologyStack.map((tech: string) => (
+                <span key={tech} className="tag-chip">{tech}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[1.75rem] border border-[#101827] bg-[#0b0c10] p-6 text-white shadow-[0_24px_60px_-30px_rgba(15,23,42,0.45)]">
+            <span className="section-badge border-white/10 bg-white/10 text-white/85">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              The outcome
+            </span>
+            <p className="mt-5 text-base leading-8 text-white/80">{caseStudy.outcome}</p>
+            {hasDayOne ? (
+              <div className="mt-6 border-t border-white/10 pt-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/55">Day one readiness</p>
+                <ul className="mt-4 space-y-3 text-sm leading-7 text-white/70">
+                  {caseStudy.dayOne.map((item: string) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      </section>
+
+      <section className="site-shell pb-10">
+        <div className="editor-card bg-slate-50/90 p-6 sm:p-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-2xl">
+              <span className="section-badge">Next project</span>
+              <h2 className="section-title mt-5 text-[clamp(2rem,4vw,3.4rem)]">Have a similar project in mind?</h2>
+              <p className="lead-copy mt-4">Let&apos;s shape a custom system with the same clarity, structure, and production focus.</p>
+            </div>
+            <Link href="/contact" className="site-button gap-2 px-5 py-3">
+              Start a project
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }

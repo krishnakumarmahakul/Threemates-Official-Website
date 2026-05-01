@@ -7,32 +7,114 @@
   "projects": [
     {
       "id": "1",
-      "slug": "school-erp",
-      "title": "School ERP Platform",
+      "slug": "smart-campus-erp",
+      "title": "Smart Campus ERP",
       "category": "ERP",
-      "client": "EduCore Schools",
-      "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop",
-      "description": "Complete school management system including admissions, attendance, exams, and fee management.",
-      "link": "/work/school-erp",
+      "client": "SCHOOLS",
+      "image": "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200&auto=format&fit=crop",
+      "description": "A unified ERP for admissions, academics, finance, HR, communication, library, transport, and multi-role campus operations.",
+      "link": "/work/smart-campus-erp",
       "caseStudy": {
-        "clientRequirement": "EduCore Schools needed a centralized digital platform to manage their academic and administrative operations. Their existing process relied heavily on spreadsheets and manual record keeping which caused delays, data inconsistencies, and lack of transparency for parents and teachers.",
+        "clientRequirement": "MITM needed one connected platform for admissions, academics, fee operations, staff workflows, communication, and day-to-day campus execution. Their teams were switching between fragmented tools, manual records, and disconnected dashboards that slowed response time and introduced data duplication.",
         "challenges": [
-          "Manual admission and student record management",
-          "No centralized academic data storage",
-          "Difficulty tracking attendance and exams",
-          "Lack of communication between teachers, parents, and administration"
+          "Disconnected systems across admissions, academics, finance, and administration",
+          "Manual attendance, examination, and fee workflows causing delay and error",
+          "No shared real-time view for students, parents, faculty, and administrators",
+          "Difficulty scaling operations across campus roles and future branches"
         ],
-        "solution": "We developed a cloud-based School ERP platform that digitizes the entire academic lifecycle. The platform provides real-time data management, automated academic workflows, and integrated communication tools for students, teachers, and administrators.",
+        "solution": "We positioned Smart Campus ERP as one operational fabric for the institution. The platform centralizes student lifecycle management, fee and finance operations, HR, communication, reporting, and security into a single role-based system that works across web and mobile touchpoints.",
         "features": [
-          "Student admission and enrollment system",
-          "Attendance tracking and analytics",
-          "Online examination and grading system",
-          "Fee management with payment tracking",
-          "Parent portal for academic updates",
-          "Teacher dashboard for course management"
+          "Role-based dashboards for admin, faculty, student, and parent",
+          "Admissions, registration, and student information workflows",
+          "Academic planning, timetables, assignments, and results",
+          "Attendance management with biometric and mobile-ready marking",
+          "Fee collection, billing, receipts, and reporting",
+          "HR, payroll, recruitment, library, transport, and communication"
         ],
-        "technologyStack": ["React", "Node.js", "Express", "PostgreSQL", "Cloud Deployment"],
-        "outcome": "The ERP system reduced administrative workload by over 60%, improved transparency for parents, and allowed school administrators to monitor academic performance and operations in real-time."
+        "technologyStack": ["Next.js", "TypeScript", "Role-based Access", "Realtime Dashboards", "Cloud and On-prem Deployment"],
+        "outcome": "Smart Campus ERP reduces administrative load, improves operational visibility, supports multi-role engagement, and gives institutions a scalable base for single-campus or multi-branch operations.",
+        "summary": "A single, unified system for everything an educational institution does: admissions, academics, finance, people operations, and the daily conversations between students, parents, and educators.",
+        "pillars": [
+          {
+            "title": "Unified platform",
+            "description": "One system replaces a stack of disconnected campus tools."
+          },
+          {
+            "title": "Real-time data",
+            "description": "Information flows live across modules and roles with no lag between teams."
+          },
+          {
+            "title": "Enterprise security",
+            "description": "Encryption, RBAC, audits, backups, and privacy controls are built in by default."
+          },
+          {
+            "title": "Scales with you",
+            "description": "From a single campus to multi-branch institutions, the system stays operationally coherent."
+          }
+        ],
+        "moduleGroups": [
+          {
+            "title": "Core operations",
+            "items": [
+              "Core ERP modules",
+              "Admission and student information",
+              "Attendance management",
+              "Academic management",
+              "Examination and results"
+            ]
+          },
+          {
+            "title": "Finance and resources",
+            "items": [
+              "Fee and finance management",
+              "Human resource management",
+              "Library management",
+              "Transport management",
+              "Inventory and asset tracking"
+            ]
+          },
+          {
+            "title": "Engagement and control",
+            "items": [
+              "Communication system",
+              "Reports and analytics",
+              "Parent and student portal",
+              "Security and data control",
+              "Cloud or on-prem deployment"
+            ]
+          }
+        ],
+        "showcasePanels": [
+          {
+            "title": "Executive dashboard",
+            "description": "A campus-wide view of student count, attendance, fee summary, and reporting trends in one command surface.",
+            "image": "/assets/erp-dashboard-showcase.svg"
+          },
+          {
+            "title": "Academic program management",
+            "description": "Program, course, division, timetable, and subject workflows stay linked so academic operations do not fragment.",
+            "image": "/assets/erp-program-showcase.svg"
+          },
+          {
+            "title": "User and department control",
+            "description": "Departments, user roles, permissions, attendance, and staff operations are managed with role-safe visibility.",
+            "image": "/assets/erp-attendance-showcase.svg"
+          }
+        ],
+        "stats": [
+          { "value": "15", "label": "Unified modules" },
+          { "value": "4", "label": "Primary user roles" },
+          { "value": "100%", "label": "Unified data fabric" },
+          { "value": "24x7", "label": "Support window" }
+        ],
+        "dayOne": [
+          "All 15 modules live with no phased gating or add-on fees",
+          "Existing student data cleaned, migrated, and validated",
+          "Admin teams trained with role-based onboarding",
+          "Admissions, fee, and exam workflows configured to match the institution",
+          "Students and parents onboarded through login communication",
+          "Dedicated support active through the first 90 days"
+        ]
       }
     },
     {

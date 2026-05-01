@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" fill="none">
+  <rect width="1200" height="760" rx="28" fill="#050816"/>
+  <rect x="16" y="16" width="1168" height="728" rx="24" fill="#F4F7FB"/>
+  <rect x="16" y="16" width="204" height="728" rx="24" fill="#1E293B"/>
+  <rect x="42" y="42" width="112" height="14" rx="7" fill="#FFFFFF" fill-opacity="0.92"/>
+  <g fill="#CBD5E1">
+    <rect x="42" y="120" width="14" height="14" rx="4"/>
+    <rect x="70" y="122" width="90" height="10" rx="5"/>
+    <rect x="42" y="170" width="14" height="14" rx="4"/>
+    <rect x="70" y="172" width="82" height="10" rx="5"/>
+    <rect x="42" y="220" width="14" height="14" rx="4"/>
+    <rect x="70" y="222" width="96" height="10" rx="5"/>
+    <rect x="42" y="270" width="14" height="14" rx="4"/>
+    <rect x="70" y="272" width="72" height="10" rx="5"/>
+    <rect x="42" y="320" width="14" height="14" rx="4"/>
+    <rect x="70" y="322" width="76" height="10" rx="5"/>
+    <rect x="42" y="370" width="14" height="14" rx="4"/>
+    <rect x="70" y="372" width="88" height="10" rx="5"/>
+  </g>
+  <rect x="254" y="44" width="914" height="74" rx="22" fill="#020617"/>
+  <rect x="286" y="74" width="200" height="16" rx="8" fill="#FFFFFF" fill-opacity="0.96"/>
+  <g fill="#FFFFFF" fill-opacity="0.88">
+    <circle cx="1038" cy="82" r="8"/>
+    <circle cx="1070" cy="82" r="8"/>
+    <circle cx="1102" cy="82" r="8"/>
+    <circle cx="1134" cy="82" r="8"/>
+  </g>
+  <rect x="254" y="150" width="332" height="182" rx="22" fill="#FFFFFF" stroke="#D8E2F0" stroke-width="2"/>
+  <rect x="282" y="176" width="124" height="14" rx="7" fill="#0F172A" fill-opacity="0.92"/>
+  <rect x="282" y="214" width="94" height="46" rx="12" fill="#F8FAFC"/>
+  <rect x="392" y="214" width="166" height="46" rx="12" fill="#DBEAFE"/>
+  <rect x="282" y="276" width="276" height="14" rx="7" fill="#E2E8F0"/>
+  <rect x="610" y="150" width="558" height="182" rx="22" fill="#FFFFFF" stroke="#D8E2F0" stroke-width="2"/>
+  <rect x="638" y="176" width="184" height="14" rx="7" fill="#0F172A" fill-opacity="0.92"/>
+  <rect x="1008" y="168" width="120" height="34" rx="17" fill="#1E293B"/>
+  <rect x="1038" y="180" width="60" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.9"/>
+  <rect x="638" y="222" width="458" height="12" rx="6" fill="#E2E8F0"/>
+  <rect x="638" y="260" width="458" height="12" rx="6" fill="#34D399"/>
+  <rect x="638" y="298" width="458" height="12" rx="6" fill="#E2E8F0"/>
+  <rect x="254" y="360" width="446" height="352" rx="22" fill="#FFFFFF" stroke="#D8E2F0" stroke-width="2"/>
+  <rect x="284" y="388" width="180" height="14" rx="7" fill="#0F172A" fill-opacity="0.92"/>
+  <rect x="502" y="378" width="168" height="34" rx="12" fill="#F8FAFC" stroke="#D8E2F0"/>
+  <g stroke="#CBD5E1" stroke-width="2" stroke-linecap="round">
+    <path d="M286 650H668"/>
+    <path d="M286 592H668" opacity="0.65"/>
+    <path d="M286 534H668" opacity="0.45"/>
+  </g>
+  <rect x="302" y="490" width="36" height="176" rx="8" fill="#06B6D4"/>
+  <rect x="360" y="526" width="36" height="140" rx="8" fill="#22C55E"/>
+  <rect x="418" y="470" width="36" height="196" rx="8" fill="#38BDF8"/>
+  <rect x="476" y="440" width="36" height="226" rx="8" fill="#2563EB"/>
+  <rect x="534" y="548" width="36" height="118" rx="8" fill="#F97316"/>
+  <rect x="610" y="360" width="558" height="352" rx="22" fill="#FFFFFF" stroke="#D8E2F0" stroke-width="2"/>
+  <rect x="638" y="388" width="216" height="14" rx="7" fill="#0F172A" fill-opacity="0.92"/>
+  <g stroke="#D5DEEC" stroke-width="2">
+    <path d="M676 662V434"/>
+    <path d="M742 662V434"/>
+    <path d="M808 662V434"/>
+    <path d="M874 662V434"/>
+    <path d="M940 662V434"/>
+    <path d="M1006 662V434"/>
+    <path d="M1072 662V434"/>
+    <path d="M648 628H1136"/>
+    <path d="M648 572H1136" opacity="0.65"/>
+    <path d="M648 516H1136" opacity="0.45"/>
+  </g>
+  <rect x="1032" y="500" width="26" height="128" rx="8" fill="#F97316"/>
+  <rect x="1074" y="544" width="26" height="84" rx="8" fill="#4F46E5" fill-opacity="0.7"/>
+</svg>

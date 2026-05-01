@@ -2,6 +2,7 @@
   { "label": "About", "href": "/about" },
   { "label": "Services", "href": "/services" },
   { "label": "Work", "href": "/work" },
+  { "label": "AI Training", "href": "/ai-training" },
   { "label": "Blog", "href": "/blog" },
   { "label": "Contact", "href": "/contact" }
   
