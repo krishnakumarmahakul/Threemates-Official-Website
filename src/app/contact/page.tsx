@@ -3,12 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone, Workflow } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
+import { COMPANY_EMAIL } from "@/constants/site";
 import { getAITrainingData, getClientsData, getContactData } from "@/lib/data-loader";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Threemates. Have a project in mind? Contact us for ERP solutions, SaaS development, web and mobile applications. Email: hello@threemates.tech",
+    `Get in touch with Threemates. Have a project in mind? Contact us for ERP solutions, SaaS development, web and mobile applications. Email: ${COMPANY_EMAIL}`,
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact Threemates — Let's Build Something Great",
@@ -89,13 +90,23 @@ export default async function Contact() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="mt-1 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/80 text-blue-600 shadow-soft">
-                    <MapPin className="h-5 w-5" />
-                  </span>
+                  
                   <div>
                     <p className="text-xs uppercase tracking-[0.16em] text-slate-400">Office</p>
-                    <p className="mt-1 text-base text-slate-600">{data.info.address1}</p>
-                    <p className="mt-1 text-base text-slate-600">{data.info.address2}</p>
+                    <div className="mt-3 space-y-4">
+                      <div className="flex items-start gap-3">
+                        <span className="mt-1 inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white/80 text-blue-600 shadow-soft">
+                          <MapPin className="h-4 w-4" />
+                        </span>
+                        <p className="text-base leading-8 text-slate-600">{data.info.address1}</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="mt-1 inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white/80 text-blue-600 shadow-soft">
+                          <MapPin className="h-4 w-4" />
+                        </span>
+                        <p className="text-base leading-8 text-slate-600">{data.info.address2}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -161,7 +172,7 @@ export default async function Contact() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={`mailto:${mentor.email}`} className="site-button px-5 py-3">
-                Email Gokul
+                Email Gokul Mahakul
               </a>
               <a href={`tel:${mentor.phone.replace(/[^0-9+]/g, "")}`} className="site-button-secondary px-5 py-3">
                 Call now

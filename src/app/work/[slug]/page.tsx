@@ -118,7 +118,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <ShieldCheck className="h-3.5 w-3.5" />
                 Why it works
               </span>
-              <h2 className="section-title mt-5 text-balance">The operating principles behind Smart Campus ERP.</h2>
+              <h2 className="section-title mt-5 text-balance">The operating principles behind {project.title}.</h2>
             </div>
           </div>
 

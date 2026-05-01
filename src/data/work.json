@@ -6,6 +6,153 @@
   "categories": ["All", "ERP", "SaaS", "Web App", "Mobile App", "Enterprise Software"],
   "projects": [
     {
+      "id": "101",
+      "slug": "ai-powered-digital-call-center",
+      "title": "AI Powered Digital Call Center",
+      "category": "Enterprise Software",
+      "client": "CUSTOMER OPERATIONS",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop",
+      "description": "An AI-led call center platform that automates inbound support, agent assist, call routing, summaries, and service analytics from one unified workspace.",
+      "link": "/work/ai-powered-digital-call-center",
+      "caseStudy": {
+        "clientRequirement": "The client needed a digital call center platform that could reduce manual load on support teams, improve response quality, and give operations leaders better visibility into call performance.",
+        "challenges": [
+          "High inbound query volume across support and sales workflows",
+          "Manual call routing and inconsistent agent response quality",
+          "No structured summaries, transcripts, or after-call intelligence",
+          "Limited visibility into queue health, resolution time, and escalation patterns"
+        ],
+        "solution": "We designed an AI powered digital call center that combines conversation intake, smart routing, live agent assistance, call summaries, and operational reporting in one role-based platform.",
+        "features": [
+          "AI voice bot for first-line query handling",
+          "Intent-based call routing and queue prioritization",
+          "Live agent assist with response suggestions",
+          "Automatic transcription and post-call summaries",
+          "Supervisor dashboards and service analytics",
+          "Escalation workflows and CRM integration"
+        ],
+        "technologyStack": ["Next.js", "Node.js", "Realtime Events", "Speech-to-Text", "AI Workflow Engine"],
+        "outcome": "The product helps support teams respond faster, reduces manual overhead, and gives managers measurable control over service quality and call-center efficiency.",
+        "summary": "A modern digital call center built for intelligent routing, faster resolution, and AI-assisted support operations.",
+        "pillars": [
+          {
+            "title": "Smarter routing",
+            "description": "Calls reach the right queue faster based on intent, urgency, and business rules."
+          },
+          {
+            "title": "AI-assisted agents",
+            "description": "Live prompts, summaries, and contextual suggestions reduce response time under pressure."
+          },
+          {
+            "title": "Operational visibility",
+            "description": "Supervisors get a clear view of queues, escalations, and performance metrics in real time."
+          },
+          {
+            "title": "Scalable support",
+            "description": "The platform is designed to expand across teams, campaigns, and multi-channel support environments."
+          }
+        ]
+      }
+    },
+    {
+      "id": "102",
+      "slug": "whatsapp-business-cloud-suite",
+      "title": "WhatsApp Business Cloud Suite",
+      "category": "SaaS",
+      "client": "CONVERSATIONAL COMMERCE",
+      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+      "description": "A business messaging platform for lead capture, campaign delivery, customer support, and workflow automation built on WhatsApp Business Cloud APIs.",
+      "link": "/work/whatsapp-business-cloud-suite",
+      "caseStudy": {
+        "clientRequirement": "The client wanted a single platform for WhatsApp-based lead management, campaign communication, customer support, and automated business workflows without switching across multiple tools.",
+        "challenges": [
+          "Disconnected lead capture and support conversations",
+          "No central template management or campaign control",
+          "Manual follow-up across sales and service teams",
+          "Limited tracking of conversation outcomes and team performance"
+        ],
+        "solution": "We built a WhatsApp Business Cloud suite that centralizes conversation management, template delivery, lead pipelines, support handoff, and business process automation.",
+        "features": [
+          "WhatsApp inbox for sales and support teams",
+          "Broadcast and template campaign management",
+          "Lead qualification workflows and CRM sync",
+          "Bot-assisted responses and FAQ automation",
+          "Team assignment, tags, and conversation notes",
+          "Analytics for delivery, response, and conversion"
+        ],
+        "technologyStack": ["React", "Node.js", "WhatsApp Business Cloud API", "Workflow Automation", "Cloud Hosting"],
+        "outcome": "The suite turns WhatsApp into an organized operational channel for acquisition, engagement, support, and conversion tracking.",
+        "summary": "A business-ready WhatsApp platform for campaigns, support, lead capture, and automation in one place.",
+        "pillars": [
+          {
+            "title": "One inbox",
+            "description": "Sales, support, and operations teams work from the same conversation layer without losing context."
+          },
+          {
+            "title": "Automated journeys",
+            "description": "Templates, triggers, and workflows keep communication timely and consistent."
+          },
+          {
+            "title": "Lead visibility",
+            "description": "Every message can connect to pipeline stages, notes, and action history."
+          },
+          {
+            "title": "Campaign control",
+            "description": "Broadcasts and utility messaging are managed with performance tracking built in."
+          }
+        ]
+      }
+    },
+    {
+      "id": "103",
+      "slug": "conversational-automation-hub",
+      "title": "Conversational Automation Hub",
+      "category": "SaaS",
+      "client": "DIGITAL ENGAGEMENT",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+      "description": "A multi-channel automation hub for chat, lead nurturing, follow-up workflows, and AI-powered customer interactions across web and messaging channels.",
+      "link": "/work/conversational-automation-hub",
+      "caseStudy": {
+        "clientRequirement": "The client needed one product to coordinate automated conversations across website chat, sales follow-up, support intake, and campaign workflows without building separate systems for each team.",
+        "challenges": [
+          "Customer interactions were spread across disconnected channels",
+          "Follow-up sequences depended heavily on manual effort",
+          "No central rules engine for conversational automation",
+          "Lack of insight into which journeys were driving response and conversion"
+        ],
+        "solution": "We created a conversational automation hub that unifies bot flows, lead follow-up, support entry points, and event-based customer messaging inside a single orchestration layer.",
+        "features": [
+          "Unified workflow builder for conversational journeys",
+          "Website chat and messaging channel integrations",
+          "Lead nurture sequences with trigger-based automation",
+          "Human handoff rules and SLA tracking",
+          "Journey analytics and conversion reporting",
+          "Reusable templates for support, sales, and onboarding"
+        ],
+        "technologyStack": ["Next.js", "Node.js", "Workflow Engine", "Analytics", "Cloud Infrastructure"],
+        "outcome": "The hub reduces repetitive communication work, improves follow-up consistency, and helps teams scale digital engagement without scaling headcount at the same pace.",
+        "summary": "A product layer for automated customer journeys, AI conversations, and operational follow-up across digital channels.",
+        "pillars": [
+          {
+            "title": "Unified orchestration",
+            "description": "Every automated conversation runs from one rules engine instead of scattered tools."
+          },
+          {
+            "title": "Faster follow-up",
+            "description": "Leads and support requests enter structured journeys immediately after key user actions."
+          },
+          {
+            "title": "Human handoff",
+            "description": "Complex conversations move to the right team with context preserved."
+          },
+          {
+            "title": "Measurable outcomes",
+            "description": "Teams can track open rates, responses, conversion points, and drop-off patterns by journey."
+          }
+        ]
+      }
+    },
+    {
       "id": "1",
       "slug": "smart-campus-erp",
       "title": "Smart Campus ERP",

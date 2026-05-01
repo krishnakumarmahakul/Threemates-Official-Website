@@ -97,10 +97,9 @@
       ]
     },
     "scheduleCard": {
-      "avatar": "https://i.pravatar.cc/80?img=47",
       "spotsAvailable": 5,
-      "title": "Schedule a consultation",
-      "description": "Discuss your project requirements with our team."
+      "title": "Schedule a strategy consultation",
+      "description": "Share your goals, product scope, and delivery timeline with our team. We will turn the discussion into a practical roadmap for design, development, and launch."
     },
     "reviewCard": {
       "name": "Rajesh K",

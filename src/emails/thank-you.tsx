@@ -1,3 +1,5 @@
+import { COMPANY_EMAIL } from "@/constants/site";
+
 interface ThankYouEmailProps {
   message: string;
 }
@@ -108,7 +110,7 @@ export function ThankYouEmail({ message }: ThankYouEmailProps) {
               <p style="margin:0;font-size:11px;color:#cbd5e1;text-align:center;">
                 © ${new Date().getFullYear()} Threemates. All rights reserved.<br />
                 <a href="https://threemates.tech" style="color:#94a3b8;text-decoration:underline;">threemates.tech</a>&nbsp;&nbsp;•&nbsp;&nbsp;
-                <a href="mailto:hello@threemates.tech" style="color:#94a3b8;text-decoration:underline;">hello@threemates.tech</a>
+                <a href="mailto:${COMPANY_EMAIL}" style="color:#94a3b8;text-decoration:underline;">${COMPANY_EMAIL}</a>
               </p>
             </td>
           </tr>

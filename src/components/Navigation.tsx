@@ -57,14 +57,14 @@ export function Navigation({ data: _data }: { data: any }) {
             >
                 <div className="site-shell">
                     <div className={cn(
-                        "relative mx-auto flex items-center justify-between gap-2 px-1 py-2 transition-all duration-300 sm:gap-3 sm:px-2",
+                        "relative mx-auto flex items-center justify-between gap-2 px-1 py-2 transition-all duration-300 sm:gap-3 sm:px-2 lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center",
                         scrolled && "py-1.5"
                     )}>
-                        <div className="relative z-10 flex items-center gap-3">
-                            <Logo size="sm" className="scale-[0.6] origin-left sm:scale-[0.76] md:scale-[0.82] lg:scale-[0.86]" />
+                        <div className="relative z-10 flex min-w-0 items-center gap-3">
+                            <Logo size="md" />
                         </div>
 
-                        <nav className="relative z-10 hidden lg:flex items-center justify-center">
+                        <nav className="relative z-10 hidden items-center justify-center lg:flex lg:justify-self-center">
                             <div className={cn(
                                 "flex items-center gap-1 rounded-full border border-white/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.62)_0%,rgba(233,241,255,0.34)_100%)] px-2 py-1.5 shadow-[0_24px_60px_-34px_rgba(15,23,42,0.28),inset_0_1px_0_rgba(255,255,255,0.92)] backdrop-blur-2xl",
                                 scrolled && "border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.72)_0%,rgba(233,241,255,0.42)_100%)]"
@@ -86,7 +86,7 @@ export function Navigation({ data: _data }: { data: any }) {
                         </div>
                     </nav>
 
-                        <div className="relative z-10 hidden sm:flex items-center gap-3">
+                        <div className="relative z-10 hidden items-center gap-3 sm:flex lg:justify-self-end">
                             <Link href="/contact" className="site-button whitespace-nowrap px-5 py-2.5 text-sm sm:px-6">
                                 Start a Project
                             </Link>
@@ -123,7 +123,7 @@ export function Navigation({ data: _data }: { data: any }) {
                             className="fixed inset-x-4 top-20 z-[70] rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92)_0%,rgba(242,246,255,0.88)_100%)] p-5 shadow-[0_28px_80px_-34px_rgba(15,23,42,0.34)] backdrop-blur-2xl sm:inset-x-auto sm:right-6 sm:w-[360px] lg:hidden"
                         >
                             <div className="mb-5 flex items-center justify-between">
-                                <Logo size="sm" className="scale-[0.62] origin-left sm:scale-[0.72]" />
+                                <Logo size="sm" />
                                 <button
                                     className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700"
                                     onClick={() => setIsOpen(false)}

@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { COMPANY_EMAIL } from "@/constants/site";
 import { resend } from "@/lib/resend";
 import { ThankYouEmail } from "@/emails/thank-you";
 import { ContactNotificationEmail } from "@/emails/contact-notification";
 
-const TEAM_EMAIL = "hello@threemates.tech";
+const TEAM_EMAIL = COMPANY_EMAIL;
 
 export async function POST(req: NextRequest) {
     try {

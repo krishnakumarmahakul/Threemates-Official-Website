@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
+  UserRound,
   Workflow,
 } from "lucide-react";
 import {
@@ -195,6 +196,9 @@ export default async function Home() {
             <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
               {featuredProjects[0].title}
             </h3>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
+              {featuredProjects[0].description}
+            </p>
             <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-[1.4rem] bg-slate-100">
               <Image
                 src={featuredProjects[0].image}
@@ -214,6 +218,7 @@ export default async function Home() {
                   <span className="tag-chip">{project.client}</span>
                   <span className="tag-chip">{project.category}</span>
                 </div>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{project.description}</p>
                 <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-slate-100">
                   <Image
                     src={project.image}
@@ -250,6 +255,7 @@ export default async function Home() {
                   <span className="tag-chip">{project.client}</span>
                   <span className="tag-chip">{project.category}</span>
                 </div>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{project.description}</p>
                 <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-slate-100">
                   <Image
                     src={project.image}
@@ -274,19 +280,9 @@ export default async function Home() {
             </span>
             <h2 className="section-title mt-5 text-balance">What people are saying</h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {testimonials.cards.slice(0, 4).map((card: any) => (
-                <div key={card.name} className="editor-card min-h-[220px]">
+              {testimonials.cards.map((card: any, index: number) => (
+                <div key={index} className="editor-card min-h-[220px]">
                   <p className="text-sm leading-7 text-slate-600">{card.text}</p>
-                  <div className="mt-6 flex items-center gap-3">
-                    <Image
-                      src={card.avatar}
-                      alt={card.name}
-                      width={40}
-                      height={40}
-                      className="rounded-full"
-                    />
-                    <p className="text-sm font-medium text-slate-900">{card.name}</p>
-                  </div>
                 </div>
               ))}
             </div>
@@ -324,13 +320,9 @@ export default async function Home() {
             <div className="editor-card">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <Image
-                    src={home.pricing.scheduleCard.avatar}
-                    alt={home.pricing.scheduleCard.title}
-                    width={46}
-                    height={46}
-                    className="rounded-full"
-                  />
+                  <span className="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-slate-100 text-slate-500">
+                    <UserRound className="h-5 w-5" />
+                  </span>
                   <div>
                     <p className="text-sm font-medium text-slate-900">{home.pricing.scheduleCard.title}</p>
                     <p className="text-xs text-emerald-600">{home.pricing.scheduleCard.spotsAvailable} spots available</p>
@@ -439,24 +431,6 @@ export default async function Home() {
                 <Quote className="mr-2 inline h-5 w-5 text-blue-500" />
                 {testimonials.highlight.text}
               </p>
-              <div className="mt-5 flex flex-wrap items-center gap-3">
-                <div className="flex -space-x-3">
-                  {testimonials.highlight.avatars.map((avatar: number) => (
-                    <Image
-                      key={avatar}
-                      src={`https://i.pravatar.cc/60?img=${avatar}`}
-                      alt="Client avatar"
-                      width={40}
-                      height={40}
-                      className="rounded-full border-2 border-white"
-                    />
-                  ))}
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-slate-950">{testimonials.highlight.name}</p>
-                  <p className="text-xs text-slate-500">{testimonials.highlight.role}</p>
-                </div>
-              </div>
             </div>
 
             <Link href="/contact" className="site-button w-fit gap-2 px-5 py-3">

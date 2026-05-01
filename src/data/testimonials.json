@@ -4,30 +4,28 @@
   "description": "Organizations and startups trust Threemates to deliver reliable software solutions that drive their business forward.",
   "cards": [
     {
-      "text": "Threemates built our school ERP from scratch and delivered exactly what we needed. The system handles admissions, attendance, and fee management seamlessly.",
-      "name": "Principal, EduCore Schools",
-      "avatar": "https://i.pravatar.cc/80?img=5"
+      "text": "Threemates built our school ERP from scratch and delivered exactly what we needed. The system handles admissions, attendance, and fee management seamlessly."
     },
     {
-      "text": "Their team understood our hospital workflows and built a management system that improved our patient record handling and billing processes significantly.",
-      "name": "Admin, MedLink Hospitals",
-      "avatar": "https://i.pravatar.cc/80?img=12"
+      "text": "Their team understood our hospital workflows and built a management system that improved our patient record handling and billing processes significantly."
     },
     {
-      "text": "The SaaS dashboard they built for us is scalable, fast, and our customers love using it. Great technical team with clear communication throughout.",
-      "name": "CTO, NovaTech Startups",
-      "avatar": "https://i.pravatar.cc/80?img=20"
+      "text": "The SaaS dashboard they built for us is scalable, fast, and our customers love using it. Great technical team with clear communication throughout."
     },
     {
-      "text": "We needed a custom inventory system and Threemates delivered it on time with all the features we asked for. Their support after launch has been excellent.",
-      "name": "Manager, Urban Retail Group",
-      "avatar": "https://i.pravatar.cc/80?img=33"
+      "text": "We needed a custom inventory system and Threemates delivered it on time with all the features we asked for. Their support after launch has been excellent."
+    },
+    {
+      "text": "For AgriTech, Threemates helped shape a practical digital workflow that made field operations, reporting, and farm data tracking much easier to manage."
+    },
+    {
+      "text": "For FinTech, the team delivered a reliable and structured platform experience with strong attention to performance, user flow, and operational clarity."
+    },
+    {
+      "text": "For Satellite Based Data Analysis, Threemates built solutions that made complex geospatial insights easier to process, interpret, and use in day-to-day decision making."
     }
   ],
   "highlight": {
-    "text": "Threemates transformed our academic operations with a comprehensive college ERP. The student portal, grading system, and admin dashboard are exactly what our institution needed.",
-    "name": "Director, SmartCampus Colleges",
-    "role": "Academic Director",
-    "avatars": [11, 12, 13, 14]
+    "text": "Threemates brought structure and clarity to a Satellite Based Data Analysis workflow, turning technical data into a product experience that felt usable, focused, and ready for scale."
   }
 }

@@ -13,7 +13,7 @@ export type OfficeLocation = {
 export const SITE_URL = "https://www.threemates.tech";
 
 export const COMPANY_NAME = "Threemates";
-export const COMPANY_EMAIL = "hello@threemates.tech";
+export const COMPANY_EMAIL = "info@threemates.tech";
 export const COMPANY_PHONE = "+91 93480 32632";
 export const COMPANY_WEBSITE = "www.threemates.tech";
 export const COMPANY_WEBSITE_URL = SITE_URL;
