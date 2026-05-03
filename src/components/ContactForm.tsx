@@ -59,8 +59,8 @@ export function ContactForm({ title, fields, submitBtn }: ContactFormProps) {
     if (status === "success") {
         return (
             <div className="soft-panel flex min-h-[420px] flex-col items-center justify-center p-8 text-center md:p-12">
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
-                    <CheckCircle2 className="w-8 h-8 text-green-600 dark:text-green-400" />
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+                    <CheckCircle2 className="w-8 h-8 text-green-600" />
                 </div>
                 <h2 className="mb-3 font-display text-3xl font-semibold tracking-[-0.04em] text-foreground">Message Sent!</h2>
                 <p className="mb-8 max-w-sm text-sm leading-7 text-muted-foreground sm:text-base">
@@ -125,7 +125,7 @@ export function ContactForm({ title, fields, submitBtn }: ContactFormProps) {
 
                 {/* Error message */}
                 {status === "error" && errorMessage && (
-                    <div className="rounded-[1.25rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-800/50 dark:bg-red-900/20 dark:text-red-400 sm:col-span-2">
+                    <div className="rounded-[1.25rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 sm:col-span-2">
                         {errorMessage}
                     </div>
                 )}

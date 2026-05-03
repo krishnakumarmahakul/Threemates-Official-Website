@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Poppins, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Loader } from "@/components/Loader";
@@ -190,17 +189,10 @@ export default async function RootLayout({
             backgroundRepeat: "no-repeat",
           }}
         />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Loader />
-          <Navigation data={{}} />
-          <main className="flex-grow relative z-10">{children}</main>
-          <Footer data={global?.footer} />
-        </ThemeProvider>
+        <Loader />
+        <Navigation data={{}} />
+        <main className="flex-grow relative z-10">{children}</main>
+        <Footer data={global?.footer} />
       </body>
     </html>
   );

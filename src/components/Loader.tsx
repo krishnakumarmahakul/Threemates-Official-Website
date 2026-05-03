@@ -48,21 +48,9 @@ export function Loader() {
                 className="absolute inset-0 rounded-full border-2 border-primary/30"
               />
 
-              {/* Light mode icon */}
-              <div className="block dark:hidden relative w-[80px] h-[80px] md:w-[100px] md:h-[100px]">
+              <div className="relative w-[80px] h-[80px] md:w-[100px] md:h-[100px]">
                 <Image
                   src="/assets/darkIcon.png"
-                  alt="Loading"
-                  fill
-                  sizes="100px"
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              {/* Dark mode icon */}
-              <div className="hidden dark:block relative w-[80px] h-[80px] md:w-[100px] md:h-[100px]">
-                <Image
-                  src="/assets/icon.png"
                   alt="Loading"
                   fill
                   sizes="100px"

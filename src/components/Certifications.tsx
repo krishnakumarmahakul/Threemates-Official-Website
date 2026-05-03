@@ -14,7 +14,6 @@ interface CertificationsProps {
       description: string;
       benefits: string[];
       logoLight: string;
-      logoDark: string;
       url: string;
     }>;
     certifications: Array<{
@@ -94,7 +93,7 @@ export function Certifications({ data }: CertificationsProps) {
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-4">
                       {LogoComponent ? (
-                        <LogoComponent className="h-10 w-auto text-foreground dark:text-white" />
+                        <LogoComponent className="h-10 w-auto text-foreground" />
                       ) : (
                         <img
                           src={partner.logoLight}
@@ -123,7 +122,7 @@ export function Certifications({ data }: CertificationsProps) {
                         key={i}
                         className="flex items-center gap-3 text-sm"
                       >
-                        <CheckCircle2 className="h-4 w-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+                        <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0" />
                         <span className="text-foreground/80">{benefit}</span>
                       </div>
                     ))}
@@ -142,7 +141,7 @@ export function Certifications({ data }: CertificationsProps) {
               className="border shadow-soft rounded-2xl overflow-hidden"
             >
               <CardContent className="p-5 md:p-6 text-center">
-                <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.9 3.45L12 11.09 5.1 7.63 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86v-7.36l7-3.5v7.36l-7 3.5z"/>
                   </svg>
