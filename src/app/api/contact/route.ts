@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { COMPANY_EMAIL } from "@/constants/site";
-import { resend } from "@/lib/resend";
+import { getResend } from "@/lib/resend";
 import { ThankYouEmail } from "@/emails/thank-you";
 import { ContactNotificationEmail } from "@/emails/contact-notification";
 
@@ -27,6 +27,8 @@ export async function POST(req: NextRequest) {
                 { status: 400 }
             );
         }
+
+        const resend = getResend();
 
         // Send both emails concurrently
         const [notificationResult, thankYouResult] = await Promise.allSettled([

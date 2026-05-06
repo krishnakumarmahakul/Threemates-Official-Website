@@ -171,7 +171,7 @@ export default function RefundTermsPage() {
         <LegalTable columns={["Offer type", "Request window", "Outcome", "Conditions"]} rows={refundRows} />
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           <LegalCard title="Non-refundable situations" className="pastel-blue">
-            <p>Refunds are generally not issued for change of mind after substantial usage, failure to attend sessions, dissatisfaction with learner effort or performance, or technical issues arising from the learner's own device or connectivity.</p>
+            <p>Refunds are generally not issued for change of mind after substantial usage, failure to attend sessions, dissatisfaction with learner effort or performance, or technical issues arising from the learner&rsquo;s own device or connectivity.</p>
             <p>Processing charges, third-party gateway deductions, currency conversion costs, and taxes already remitted may be deducted where permitted by law and disclosed to you.</p>
           </LegalCard>
           <LegalCard title="How to make a request">
@@ -227,7 +227,7 @@ export default function RefundTermsPage() {
           <LegalCard title="Liability and governing law">
             <div className="flex items-start gap-3">
               <Gavel className="mt-1 h-5 w-5 text-blue-600" />
-              <p>To the maximum extent permitted by law, Threemates' aggregate liability for a claim relating to a paid offering is limited to the amount paid for that specific offering.</p>
+              <p>To the maximum extent permitted by law, Threemates&rsquo; aggregate liability for a claim relating to a paid offering is limited to the amount paid for that specific offering.</p>
             </div>
             <p>These terms are governed by the laws of India. Courts located in Thane, Maharashtra will have exclusive jurisdiction, subject to any mandatory consumer-protection rights that cannot be contractually waived.</p>
             <p>Before formal proceedings, both sides should first attempt a good-faith written resolution process by contacting <a href={`mailto:${COMPANY_EMAIL}`} className="font-medium text-blue-700 hover:text-blue-800">{COMPANY_EMAIL}</a>.</p>

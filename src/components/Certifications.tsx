@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, ExternalLink } from "lucide-react";
@@ -95,9 +96,11 @@ export function Certifications({ data }: CertificationsProps) {
                       {LogoComponent ? (
                         <LogoComponent className="h-10 w-auto text-foreground" />
                       ) : (
-                        <img
+                        <Image
                           src={partner.logoLight}
                           alt={`${partner.name} Logo`}
+                          width={160}
+                          height={40}
                           className="h-10 w-auto"
                         />
                       )}
