@@ -8,6 +8,7 @@ import {
     COMPANY_WEBSITE,
     COMPANY_WEBSITE_URL,
     FOOTER_LINKS,
+    LEGAL_LINKS,
 } from "@/constants/site";
 
 type FooterData = {
@@ -117,10 +118,16 @@ export function Footer({ data }: { data?: FooterData }) {
 
                 <div className="mt-14 flex flex-col gap-4 border-t border-white/8 py-8 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
                     <p>{data?.copyright || `© 2026 Threemates. All rights reserved.`}</p>
-                    <div className="flex flex-wrap gap-5">
+                    <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
                         <Link href="/about" className="transition-colors hover:text-white">About</Link>
                         <Link href="/work" className="transition-colors hover:text-white">Work</Link>
                         <Link href="/blog" className="transition-colors hover:text-white">Blog</Link>
+                        <span className="hidden h-4 w-px bg-white/10 sm:inline-flex" aria-hidden="true" />
+                        {LEGAL_LINKS.map((link) => (
+                            <Link key={link.href} href={link.href} className="transition-colors hover:text-white">
+                                {link.label}
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </div>

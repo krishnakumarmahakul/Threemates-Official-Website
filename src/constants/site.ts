@@ -35,6 +35,15 @@ export const FOOTER_LINKS: NavItem[] = [
   ...NAV_ITEMS,
 ];
 
+export const LEGAL_LINKS: NavItem[] = [
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/refund-terms", label: "Refund & T&C" },
+  { href: "/dpdp-compliance", label: "DPDP Compliance" },
+];
+
+export const LEGAL_EFFECTIVE_DATE = "May 6, 2026";
+export const LEGAL_VERSION = "1.0";
+
 export const COMPANY_LOCATIONS: OfficeLocation[] = [
   {
     slug: "maharashtra",
