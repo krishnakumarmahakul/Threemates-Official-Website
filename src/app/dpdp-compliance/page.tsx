@@ -262,7 +262,7 @@ export default function DpdpCompliancePage() {
               <Users className="mt-1 h-5 w-5 text-blue-600" />
               <p>If a learner is under 18, parent or guardian involvement may be required before enrollment or continued participation, depending on the service flow and legal requirements in force.</p>
             </div>
-            <p>We do not intentionally use children's data for behavioral advertising or unrelated profiling.</p>
+            <p>We do not intentionally use children&rsquo;s data for behavioral advertising or unrelated profiling.</p>
           </LegalCard>
           <LegalCard title="Cross-border processing" className="pastel-blue">
             <div className="flex items-start gap-3">

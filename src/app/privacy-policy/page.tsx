@@ -203,7 +203,7 @@ export default function PrivacyPolicyPage() {
                 needed for invoicing, support, reconciliation, and refunds.
               </p>
             </div>
-            <p>Razorpay's own terms and privacy documentation apply to the payment data it processes directly.</p>
+            <p>Razorpay&rsquo;s own terms and privacy documentation apply to the payment data it processes directly.</p>
           </LegalCard>
 
           <LegalCard title="Communications and other providers" className="pastel-sky">
